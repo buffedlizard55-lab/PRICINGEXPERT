@@ -288,7 +288,7 @@ def run_cycle(cycle_dir: Path, season_dir: Path, universe: dict, now_ts: int) ->
                             .read_text(encoding="utf-8"))
     evidence = load_evidence(cycle_dir)
     markets = {}
-    for payload, meta in evidence_row(evidence, "kind:market"):
+    for payload, meta in evidence_row(evidence, "kind:market "):
         m = norm_market(payload)
         markets[m["ticker"]] = (m, meta)
     books = {}

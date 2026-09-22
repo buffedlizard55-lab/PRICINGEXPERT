@@ -273,7 +273,7 @@ def main() -> int:
                 continue
             payload = json.loads(raw_path.read_text(encoding="utf-8"))
             note = meta.get("note", "")
-            if note.startswith("kind:market"):
+            if note.startswith("kind:market "):
                 m = payload.get("market", payload)
                 if m.get("ticker") in universe.get("markets", []):
                     snap["markets"].append(m)

@@ -88,7 +88,7 @@ def main() -> int:
             continue
         payload, meta = loaded
         note = meta.get("note", "")
-        if note.startswith("kind:market"):
+        if note.startswith("kind:market "):
             rows.append(market_row(payload, meta))
         elif note.startswith("kind:candlesticks"):
             candles = payload.get("candles") or []

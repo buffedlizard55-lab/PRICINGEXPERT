@@ -93,7 +93,7 @@ class TestForwardDesk(unittest.TestCase):
         write_evidence(cycle, "market-TEST-A-1",
                        market_payload("TEST-A-1", yb=0.88, ya=0.90, nb=0.10, na=0.12,
                                       last=0.89, prev=0.85, vol=50000, vol24=20000),
-                       "kind:market")
+                       "kind:market synthetic")
         write_evidence(cycle, "book-TEST-A-1",
                        book_payload("TEST-A-1",
                                     yes_levels=[(0.86, 500), (0.87, 900), (0.88, 2000)],
@@ -103,7 +103,7 @@ class TestForwardDesk(unittest.TestCase):
         write_evidence(cycle, "market-TEST-B-2",
                        market_payload("TEST-B-2", yb=0.50, ya=0.52, nb=0.48, na=0.50,
                                       last=0.505, prev=0.47, vol=9000, vol24=4000),
-                       "kind:market")
+                       "kind:market synthetic")
         write_evidence(cycle, "book-TEST-B-2",
                        book_payload("TEST-B-2",
                                     yes_levels=[(0.48, 300), (0.49, 400), (0.50, 700)],
@@ -156,7 +156,7 @@ class TestForwardDesk(unittest.TestCase):
         write_evidence(cycle, "market-TEST-A-1-v2",
                        market_payload("TEST-A-1", status="closed", result="yes",
                                       last=1.0, prev=0.89, vol=60000, vol24=0),
-                       "kind:market")
+                       "kind:market synthetic")
         # NOTE: two evidence files with the same market ticker — run_cycle keys by
         # ticker, last write wins; instead craft the closed market as the only one:
         cycle2 = self.season / "forward" / "cycle-002"
@@ -164,13 +164,13 @@ class TestForwardDesk(unittest.TestCase):
         (cycle2 / "evidence" / "provenance").mkdir(parents=True, exist_ok=True)
         write_evidence(cycle2, "market-TEST-A-1",
                        market_payload("TEST-A-1", status="closed", result="yes"),
-                       "kind:market")
+                       "kind:market synthetic")
         write_evidence(cycle2, "book-TEST-A-1",
                        book_payload("TEST-A-1",
                                     yes_levels=[(0.99, 100)], no_levels=[(0.00, 100)]),
                        "kind:orderbook")
         write_evidence(cycle2, "market-TEST-B-2",
-                       market_payload("TEST-B-2"), "kind:market")
+                       market_payload("TEST-B-2"), "kind:market synthetic")
         write_evidence(cycle2, "book-TEST-B-2",
                        book_payload("TEST-B-2",
                                     yes_levels=[(0.48, 300)], no_levels=[(0.48, 300)]),
@@ -190,7 +190,7 @@ class TestForwardDesk(unittest.TestCase):
         cycle = self.season / "forward" / "cycle-nobook"
         (cycle / "evidence" / "raw").mkdir(parents=True, exist_ok=True)
         (cycle / "evidence" / "provenance").mkdir(parents=True, exist_ok=True)
-        write_evidence(cycle, "market-TEST-A-1", market_payload("TEST-A-1"), "kind:market")
+        write_evidence(cycle, "market-TEST-A-1", market_payload("TEST-A-1"), "kind:market synthetic")
         run_cycle(cycle, self.season, {"markets": ["TEST-A-1"]}, NOW)
         trades = [json.loads(l) for l in
                   (self.season / "forward" / "trades.jsonl").read_text(encoding="utf-8").splitlines()
