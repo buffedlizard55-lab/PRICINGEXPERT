@@ -1,0 +1,47 @@
+[
+  {
+    "id": "R-01",
+    "market_a": "KXCPI (and KXFED/KXU6/KXNFP) macro binary markets on Kalshi",
+    "market_b": "Official CPI / FOMC release events (BLS / Fed, official data)",
+    "claimed_similarity": "The market should trade in expectation mode before the official release timestamp and converge violently after it; the release-to-settle window is short and the heavy side is usually right.",
+    "transfer_test": "NOT a transfer test (this is a same-market timing study): capture the release timestamp from the official source (BLS public API / Fed), capture Kalshi candles across it, measure pre/post release speed of convergence and the 80-97c hit rate inside 6h. Verdict requires BOTH committed release evidence AND committed candle evidence.",
+    "verdict": "untested",
+    "verdict_note": "Blocked on: (1) fetching the official release feed into data/raw with provenance, (2) a settled KXCPI/KXFED market with candle history in the archive. Both planned; neither done in this session. Similarity to the game-markets last-mile pattern is recorded separately in R-03 and must NOT be borrowed as evidence."
+  },
+  {
+    "id": "R-02",
+    "market_a": "Kalshi game markets (e.g. KXNFLGAME series) — last-mile favourite behaviour",
+    "market_b": "Kalshi macro markets (KXCPI/KXFED) — last-mile favourite behaviour",
+    "claimed_similarity": "Both show heavy favourites near resolution. Apparent similarity: the same 90-99c convergence shape.",
+    "transfer_test": "Independently: run the LastMile rule on each family's OWN committed candle archive (separate data, separate verdicts). Only if both independently pass the walk-forward split does the 'shared expiry-convergence' claim get a supported label; if one fails, the relationship is coincidental at best.",
+    "verdict": "untested",
+    "verdict_note": "Explicit anti-transfer discipline: the game family's result is NEVER used as evidence for the macro family, even when the price shape looks identical."
+  },
+  {
+    "id": "R-03",
+    "market_a": "Equity microstructure (order-book imbalance -> short-run flow, documented in the equity literature)",
+    "market_b": "Kalshi event-contract order books",
+    "claimed_similarity": "Both are two-sided bid books with visible depth; imbalance may lead price in both.",
+    "transfer_test": "Forward-only for now (Kalshi books are only captured forward): DepthDiver logs the full ladder per fill; the research DB will compute hit-rate by imbalance bucket after >= 30 verified fills. A literature claim about equities is recorded as discovery-only and is never a price or verdict source.",
+    "verdict": "untested",
+    "verdict_note": "Similarity of market microstructure (bid/ask/depth) does not imply the same participants, the same order-flow composition, or the same latency structure. The ledger is the test."
+  },
+  {
+    "id": "R-04",
+    "market_a": "Kalshi daily commodity/crypto direction binaries (KXWTI/KXBTC/KXGOLD/KXETH class)",
+    "market_b": "Underlying physical commodity/spot series (official settlement source named in rules_primary)",
+    "claimed_similarity": "The binary's 70c+ side in the final 12h should track the sign of (spot - strike) from the official source; divergence between the binary price and the spot-vs-strike gap is the measurable signal.",
+    "transfer_test": "For each settled market: fetch the official final print (the source named in that market's rules_primary) with provenance, compare to the binary's last verified candle before settlement, and record the gap distribution. This tests whether the binary EMBODIES the physical series — a prerequisite before any cross-market strategy may treat the two as interchangeable.",
+    "verdict": "untested",
+    "verdict_note": "Until this passes, CommodityDrift trades on the binary's own quote (not on the physical series), and the physical series is used only as a research cross-check."
+  },
+  {
+    "id": "R-05",
+    "market_a": "Longshot pricing on game markets (3-15c underdogs)",
+    "market_b": "Longshot pricing on macro/commodity markets (3-15c tails)",
+    "claimed_similarity": "Both quote cheap tails; the favourite-longshot bias (H-01) is claimed in the literature for Kalshi generally.",
+    "transfer_test": "Separate samples: LongshotFader's triggers are logged per series; after >= 20 settled fills per family, compare realised edge by family. A bias on game markets does NOT prove a bias on macro tails.",
+    "verdict": "untested",
+    "verdict_note": "The literature citation (CEPR) covers the whole exchange but is third-party; per-family ledger samples are the primary evidence for this project."
+  }
+]

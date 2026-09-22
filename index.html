@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRICINGEXPERT — Kalshi Paper-Trading Competition &amp; Research Desk</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="inner">
+    <h1>PRICINGEXPERT
+      <span class="sub">Kalshi paper-trading competition · verified prices only · Season 2026</span>
+    </h1>
+    <nav class="tabs" id="tabs">
+      <button data-tab="board" class="active">Season Board</button>
+      <button data-tab="strategies">Strategies</button>
+      <button data-tab="livedesk">Live Desk</button>
+      <button data-tab="ledger">Trade Ledger</button>
+      <button data-tab="research">Research DB</button>
+      <button data-tab="verify">Verification</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ============ SEASON BOARD ============ -->
+  <section class="section active" id="tab-board">
+    <h2><span class="kicker">Competition</span>Season 2026 — forward-test leaderboard</h2>
+    <p class="note">One competition per calendar year (UTC). Every strategy is a username with one specific
+      rule. Objective: <b>highest return</b> — risk management is deliberately not a criterion.
+      Every fill consumes a <b>captured official Kalshi order book</b> (depth-bounded, limit-bounded,
+      real fees and slippage); every settlement uses the <b>official result</b>. Nothing here submits
+      orders to Kalshi — this is a paper desk, and every number traces to a committed, SHA-256-bound
+      evidence file.</p>
+    <div class="grid c4" id="season-stats"></div>
+    <div class="card" style="margin-top:14px">
+      <div style="overflow-x:auto">
+        <table id="board-table">
+          <thead>
+            <tr>
+              <th>Rank</th><th>User / strategy</th><th>Equity (mark)</th><th>Return</th>
+              <th>Realized PnL</th><th>Fees · slip</th><th>Fills / open / settled</th>
+              <th>W-L</th><th>Curve</th><th>Evidence</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <h3>How a fill is verified</h3>
+    <div class="grid c3">
+      <div class="card"><h3>1 · Captured book</h3><p class="note">Each desk cycle commits verbatim
+        <code>GET /markets/{ticker}</code> and <code>GET /markets/{ticker}/orderbook</code> responses
+        with URL, timestamp and SHA-256 under <code>data/season-2026/forward/cycle-*/evidence/</code>.</p></div>
+      <div class="card"><h3>2 · Depth-bounded fill</h3><p class="note">A paper order walks the captured
+        ladder level by level, stops at its limit price, and pays the exact Kalshi quadratic taker fee
+        <code>0.07·C·P·(1−P)</code>. Unfilled depth is logged, never invented.</p></div>
+      <div class="card"><h3>3 · Official settlement</h3><p class="note">Positions close only at the
+        market's official <code>result</code> field ($1/$0, no settlement fee). Slippage is
+        <code>(vwap − touch)·contracts</code> versus the captured touch. The verification gate
+        re-derives every one of these rows (V4–V9).</p></div>
+    </div>
+    <h3>Reference competitions (reverse-engineered)</h3>
+    <p class="note">This board's mechanics were derived from public paper-trading competitions. Source
+      documents, retrieved and cited in <a href="data/site/verification.json">verification.json</a>:</p>
+    <div class="grid c2">
+      <div class="card"><h3>TradingView “The Leap”</h3>
+        <p class="note">Equal virtual capital for all; ranked by <b>realized</b> P/L; open positions
+          auto-closed at the end of the competition; leaderboard updated ≤ hourly.
+          <a href="https://www.tradingview.com/the-leap/tradestation-july-2026/rules/" target="_blank" rel="noopener">Official rules ↗</a></p></div>
+      <div class="card"><h3>Trade Ideas Portfolio Master Challenge</h3>
+        <p class="note">Daily paper-trading competitions with a public leaderboard and simulated
+          execution. <a href="https://www.trade-ideas.com/stock-trading-competition/" target="_blank" rel="noopener">Contest page ↗</a></p></div>
+      <div class="card"><h3>CandleCharts Contest</h3>
+        <p class="note">Community contest with paper-account ranking.
+          <a href="https://specials.candlecharts.com/contest/" target="_blank" rel="noopener">Contest page ↗</a></p></div>
+      <div class="card"><h3>Kalshi (the exchange)</h3>
+        <p class="note">Official public API, no key required for market data:
+          <a href="https://api.elections.kalshi.com/trade-api/v2/exchange/status" target="_blank" rel="noopener">live status probe ↗</a> ·
+          <a href="https://trading-api.readme.io/reference" target="_blank" rel="noopener">API reference ↗</a> ·
+          <a href="https://www.kalshi.com" target="_blank" rel="noopener">kalshi.com ↗</a></p></div>
+    </div>
+  </section>
+
+  <!-- ============ STRATEGIES ============ -->
+  <section class="section" id="tab-strategies">
+    <h2><span class="kicker">The field</span>Strategies — one rule, one username</h2>
+    <p class="note">Each card states the exact rule, why it should or should not work, its evidence
+      status (verified / literature-linked / hypothesis-only), its live stats from the ledger, and a
+      link to the full page with every trade, its equity curve, backtest verdict and generated
+      analysis. Click a card for the full strategy page.</p>
+    <div class="grid c2" id="strategy-cards"></div>
+  </section>
+
+  <!-- ============ LIVE DESK ============ -->
+  <section class="section" id="tab-livedesk">
+    <h2><span class="kicker">Simulated trade placement</span>Live desk — open Kalshi event contracts</h2>
+    <p class="note">This section exists to <b>simulate placing real trades</b> on open Kalshi event
+      contracts. It reads live, official prices straight from the public API in your browser
+      (unauthenticated GETs — the same calls the collector uses) and lets you simulate a
+      depth-bounded fill against the <b>live captured order book</b> with real fees and slippage.
+      If your browser cannot reach the API (network/CORS), the desk falls back to the latest
+      <b>committed snapshot</b> and labels it as such — it never invents a price.</p>
+    <div class="pill-row" id="live-status"></div>
+    <div class="grid c2">
+      <div class="card">
+        <h3>Open contracts (verified pricing)</h3>
+        <p class="note">Select a market. Prices, sizes and dates below are the API's own fields,
+          rendered verbatim.</p>
+        <div style="margin:10px 0" class="row-flex">
+          <input type="text" id="market-picker" list="market-list" placeholder="pick or type a market ticker…" style="min-width:280px">
+          <datalist id="market-list"></datalist>
+          <button class="act primary" id="load-market">Load market</button>
+          <button class="act" id="refresh-all">Refresh list</button>
+        </div>
+        <div id="market-detail" class="dim">No market loaded.</div>
+      </div>
+      <div class="card">
+        <h3>Simulate a trade on this market</h3>
+        <div style="margin:10px 0" class="row-flex">
+          <select id="sim-side"><option value="yes">Buy YES</option><option value="no">Buy NO</option></select>
+          <input type="number" id="sim-size" value="100" min="1" style="width:110px" title="contracts">
+          <input type="number" id="sim-limit" value="0.99" min="0.01" max="0.99" step="0.01" style="width:100px" title="limit price (max price per contract)">
+          <button class="act primary" id="sim-run">Simulate fill</button>
+        </div>
+        <p class="note" id="sim-note">Fills walk the live book ladder exactly like the desk: limit-bounded,
+          depth-bounded, exact Kalshi fee. A simulated fill is <b>not</b> a real order and is not added to
+          the competition ledger — it is logged in this browser session only.</p>
+        <div id="sim-result"></div>
+      </div>
+    </div>
+    <h3>Upcoming trades the desk wants to place</h3>
+    <p class="note">Every intent a strategy has proposed (and every blocked intent) from the committed
+      ledger — so you can review what the board is about to do before the next cycle.</p>
+    <div class="card" style="overflow-x:auto"><table id="upcoming-table">
+      <thead><tr><th>Cycle</th><th>Time (UTC)</th><th>Strategy</th><th>Market</th><th>Side</th>
+      <th>Limit</th><th>Trigger (observed)</th><th>State</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </section>
+
+  <!-- ============ TRADE LEDGER ============ -->
+  <section class="section" id="tab-ledger">
+    <h2><span class="kicker">Every trade, line by line</span>Committed trade ledger</h2>
+    <p class="note">Append-only, hash-traceable: every row carries its cycle, exact UTC time, verified
+      prices, size, exact fee, slippage versus the captured touch, PnL and the evidence pointer.
+      Fills and exits settle to cash exactly — the verification gate re-derives each strategy's
+      cash balance from this file (check V5).</p>
+    <div class="pill-row" id="ledger-pills"></div>
+    <div class="card" style="overflow-x:auto">
+      <table id="ledger-table">
+        <thead><tr><th>Type</th><th>Cycle</th><th>Time (UTC)</th><th>Strategy</th><th>Market</th>
+        <th>Side</th><th>Contracts</th><th>VWAP</th><th>Touch</th><th>Fee</th><th>Slippage</th>
+        <th>PnL</th><th>Evidence</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH DB ============ -->
+  <section class="section" id="tab-research">
+    <h2><span class="kicker">Expanding research database</span>Observations · hypotheses · tests · cross-market relationships</h2>
+    <p class="note">The research rule: <b>similarity is not transfer.</b> Every relationship between two
+      markets is recorded with its claimed similarity, its independent test in the second market, and a
+      verdict (supported / refuted / coincidental / untested). Verified evidence and hypotheses are
+      stored separately and labelled; the search below filters across all four layers.</p>
+    <div class="row-flex" style="margin:12px 0">
+      <input type="text" id="research-search" placeholder="search markets, series, claims, sources…" style="min-width:340px">
+      <button class="act" id="research-filter-verified">verified only</button>
+      <button class="act" id="research-filter-all">all</button>
+    </div>
+    <h3>Verified price observations <span class="badge" id="obs-count"></span></h3>
+    <div class="card" style="overflow-x:auto"><table id="obs-table" class="compact">
+      <thead><tr><th>Fetched (UTC)</th><th>Market</th><th>Series</th><th>Status</th><th>YES bid/ask</th>
+      <th>NO bid/ask</th><th>Last</th><th>Vol</th><th>Volume 24h</th><th>Close</th><th>Result</th><th>Evidence</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <h3>Public information (source + timestamp + market)</h3>
+    <div class="card" style="overflow-x:auto"><table id="pubinfo-table" class="compact">
+      <thead><tr><th>Published</th><th>Source</th><th>Market / series</th><th>Summary</th><th>Fetched</th><th>Status</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <h3>Hypotheses <span class="badge" id="hyp-count"></span></h3>
+    <div id="hyp-list" class="grid c2"></div>
+    <h3>Tests run</h3>
+    <div class="card" style="overflow-x:auto"><table id="test-table" class="compact">
+      <thead><tr><th>Test</th><th>Hypothesis</th><th>Market</th><th>Method</th><th>Data</th><th>Result</th><th>Verdict</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <h3>Cross-market relationships <span class="badge" id="rel-count"></span></h3>
+    <p class="note">The transfer question, explicitly: does a pattern found in market A hold in market B,
+      tested on B's own verified prices? Untested relationships stay <span class="tag hypothesis">untested</span> —
+      never promoted.</p>
+    <div id="rel-list" class="grid c2"></div>
+  </section>
+
+  <!-- ============ VERIFICATION ============ -->
+  <section class="section" id="tab-verify">
+    <h2><span class="kicker">Show the work</span>Verification &amp; sources</h2>
+    <p class="note">Everything publishable passes an offline gate (scripts/verify.py) that re-derives
+      hashes, ledger cash, fees, slippage, book prices and settlements. The manifest below lists every
+      committed evidence file with the exact URL and SHA-256 — each one is re-fetchable for manual
+      review. Irregularities found during research are logged, flagged and left for human review
+      rather than silently “fixed”.</p>
+    <h3>Verification gate checks</h3>
+    <div class="card" id="verify-summary"></div>
+    <h3>Data manifest <span class="badge" id="manifest-count"></span></h3>
+    <div class="mono-scroll"><pre id="manifest-pre"></pre></div>
+    <h3>Source registry (public information + official endpoints)</h3>
+    <div class="card" style="overflow-x:auto"><table id="src-table" class="compact">
+      <thead><tr><th>ID</th><th>Kind</th><th>Source</th><th>URL</th><th>Verified</th><th>Notes</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <h3>Irregularities log (flagged for review)</h3>
+    <div id="irr-list"></div>
+    <h3>Related projects (MasterSite directory)</h3>
+    <p class="note">Projects from the <a href="https://buffedlizard55-lab.github.io/MasterSite/" target="_blank" rel="noopener">verified MasterSite directory</a>
+      that feed this research (links reviewed in the source registry).</p>
+    <div id="master-list" class="grid c2"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  PRICINGEXPERT · simulation only — nothing in this repository submits orders to Kalshi and no API key
+  exists in the project. All market data: Kalshi public API (<a href="https://api.elections.kalshi.com/trade-api/v2" target="_blank" rel="noopener">api.elections.kalshi.com/trade-api/v2</a>,
+  unauthenticated reads). Evidence: committed verbatim payloads + SHA-256 sidecars under
+  <code>data/raw</code> and <code>data/season-2026</code>. Repo:
+  <a href="https://github.com/buffedlizard55-lab/PRICINGEXPERT" target="_blank" rel="noopener">buffedlizard55-lab/PRICINGEXPERT</a>.
+</footer>
+
+<script src="src/engine.js"></script>
+<script src="src/app.js"></script>
+<script src="src/live.js"></script>
+</body>
+</html>

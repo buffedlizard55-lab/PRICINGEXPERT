@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Commodities — Kalshi Research Exchange",
+    "url": "https://buffedlizard55-lab.github.io/Commodities/",
+    "repo": "https://github.com/buffedlizard55-lab/Commodities",
+    "relevance": "Sister project: automated forward-test desk for Kalshi event contracts. Referenced line by line in this session for the exchange's documented mechanics (reciprocal quoting, quadratic taker fee, settlement semantics, evidence-first cycle design). PRICINGEXPERT's competition model (per-year seasons, username personas, max-return ranking) is an independent implementation."
+  },
+  {
+    "name": "MLBComp — Auditable MLB Research & Paper Competition",
+    "url": "https://buffedlizard55-lab.github.io/MLBComp/",
+    "repo": "https://github.com/buffedlizard55-lab/MLBComp",
+    "relevance": "Reference for the research->discover->verify->model->backtest->forward-test loop and for the 'verified timestamped quote before anything is staked' gate. Its withdrawn-fabricated-data episode (IRR-64/IRR-72 in the MasterSite) is the cautionary pattern this project's hash-bound evidence design avoids."
+  },
+  {
+    "name": "DrugAnalysis — FDA Decisions & Biotech Reactions",
+    "url": "https://buffedlizard55-lab.github.io/DrugAnalysis/",
+    "repo": "https://github.com/buffedlizard55-lab/DrugAnalysis",
+    "relevance": "Reference for event-timing research methodology: official decision timestamps (openFDA) joined to verified price reactions, with every row carrying payload file + SHA. The same pattern applies to Kalshi: official settlement/release timestamps vs captured market quotes."
+  },
+  {
+    "name": "NFL Injury Report — 32 Team Tracker",
+    "url": "https://buffedlizard55-lab.github.io/NFLInjuryReport/",
+    "repo": "https://github.com/buffedlizard55-lab/NFLInjuryReport",
+    "relevance": "Candidate public-information feed for Kalshi game markets (injury announcements vs game-market price movement, with source + timestamp). To be wired as a research DB public-info adapter in a future session; no price in this site comes from it today."
+  },
+  {
+    "name": "MasterSite — verified directory",
+    "url": "https://buffedlizard55-lab.github.io/MasterSite/",
+    "repo": "https://github.com/buffedlizard55-lab/MasterSite",
+    "relevance": "The lab's verified project directory (52 sites). Reviewed this session; 'Markets & Trading Research' and 'Sports Data & Scoreboards' categories are the primary idea sources for cross-market testing."
+  }
+]

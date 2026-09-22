@@ -1,0 +1,13 @@
+{
+  "note": "Tradable universe for the forward desk. ONLY tickers listed here may be traded by any strategy; verify.py (V4) enforces this. Populated exclusively from verified GET /series and GET /markets responses committed under data/raw with provenance — never from memory or search results.",
+  "series": [],
+  "markets": [],
+  "recent_closed": [],
+  "updated_at": null,
+  "selection_criteria": [
+    "active status at capture time with a two-sided displayed book (fill evidence must exist)",
+    "volume >= 1,000 contracts or displayed liquidity >= $100 (tradeable, not a ghost)",
+    "settlement source named in rules_primary (so settlements are independently checkable)",
+    "spread from at least one of the competition's target families (macro, commodity/crypto direction, game, weather) so the cross-market DB can compare series"
+  ]
+}

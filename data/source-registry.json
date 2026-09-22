@@ -1,0 +1,114 @@
+[
+  {
+    "id": "kalshi-api-host",
+    "kind": "official-api",
+    "source": "Kalshi public Trade API (unauthenticated market data)",
+    "url": "https://api.elections.kalshi.com/trade-api/v2",
+    "verified_at": "2026-09-22",
+    "notes": "Host + API version verified live in this session: GET /exchange/status returned exchange_active=true, trading_active=true, with 4 exchange indexes (Default, Combos, Crypto & Commodities, Tennis/Baseball/Basketball). Every evidence file in data/raw cites the exact URL fetched."
+  },
+  {
+    "id": "kalshi-api-list-endpoint",
+    "kind": "official-api",
+    "source": "Kalshi GET /markets (market list with quotes, volume, dates)",
+    "url": "https://api.elections.kalshi.com/trade-api/v2/markets",
+    "verified_at": "2026-09-22",
+    "notes": "Verified live: returned cursor-paginated markets with yes/no bid+ask dollar fields, fixed-point volume fields, open/close times and rules_primary text."
+  },
+  {
+    "id": "kalshi-api-status-endpoint",
+    "kind": "official-api",
+    "source": "Kalshi GET /exchange/status",
+    "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status",
+    "verified_at": "2026-09-22",
+    "notes": "Verified live; committed payload in data/raw (sha256 in manifest)."
+  },
+  {
+    "id": "kalshi-api-docs",
+    "kind": "official-docs",
+    "source": "Kalshi Trading API reference (ReadMe)",
+    "url": "https://trading-api.readme.io/reference",
+    "verified_at": null,
+    "notes": "Documentation for orderbook, candlesticks, trades tape, fees and settlement semantics. Remote reachability checked by CI (scripts/probe_links.py); field-level semantics pinned by scripts/probe_endpoints.py which fails the publish job if a consumed field is missing."
+  },
+  {
+    "id": "kalshi-website",
+    "kind": "official-site",
+    "source": "Kalshi (the exchange) — manual review portal",
+    "url": "https://www.kalshi.com",
+    "verified_at": null,
+    "notes": "For manual review of any market shown on this site (search the ticker on kalshi.com; every market row links its exact API evidence instead)."
+  },
+  {
+    "id": "cepr-kalshi-column",
+    "kind": "literature",
+    "source": "CEPR/VoxEU — Economics of Kalshi / prediction markets (favourite-longshot analysis)",
+    "url": "https://cepr.org/voxeu/columns/economics-kalshi-prediction-market",
+    "verified_at": null,
+    "notes": "Third-party academic analysis cited by the SurePenny/LongshotFader personas as the bias literature. Status: literature-linked, NOT a price source. Remote check in CI."
+  },
+  {
+    "id": "tradingview-leap-rules",
+    "kind": "competition-rules",
+    "source": "TradingView The Leap — official competition rules (July 2026 edition)",
+    "url": "https://www.tradingview.com/the-leap/tradestation-july-2026/rules/",
+    "verified_at": "2026-09-22",
+    "notes": "Retrieved and read in this session: equal virtual capital ($100,000 edition), ranking on realized P/L, open positions auto-closed at the end, leaderboard updates <= hourly. The design basis for this site's season model (one year per competition, raw-return ranking)."
+  },
+  {
+    "id": "trade-ideas-competition",
+    "kind": "competition-rules",
+    "source": "Trade Ideas — stock trading competition page",
+    "url": "https://www.trade-ideas.com/stock-trading-competition/",
+    "verified_at": "2026-09-22",
+    "notes": "Retrieved in this session: daily paper-trading competitions, public leaderboard, simulated execution. Used as a reference for the leaderboard UX (rank, performance, activity)."
+  },
+  {
+    "id": "candlecharts-contest",
+    "kind": "competition-rules",
+    "source": "CandleCharts — contest page",
+    "url": "https://specials.candlecharts.com/contest/",
+    "verified_at": null,
+    "notes": "Community paper-contest referenced by the project brief; deep retrieval not completed this session (flagged IRR-03). Remote check in CI."
+  },
+  {
+    "id": "mastersite-directory",
+    "kind": "internal-directory",
+    "source": "MasterSite — verified GitHub Pages directory of the lab's projects",
+    "url": "https://buffedlizard55-lab.github.io/MasterSite/",
+    "verified_at": "2026-09-22",
+    "notes": "Retrieved in this session (52 verified sites). Related projects: Commodities (Kalshi Research Exchange), MLBComp (MLB paper competition), DrugAnalysis (FDA decisions), NFLInjuryReport and sister scoreboards (public information feeds)."
+  },
+  {
+    "id": "commodities-reference",
+    "kind": "internal-reference",
+    "source": "Commodities — Kalshi Research Exchange (sister project, referenced for execution semantics)",
+    "url": "https://github.com/buffedlizard55-lab/Commodities",
+    "verified_at": "2026-09-22",
+    "notes": "The repository's kalshi_client.py, paper_engine.py and README were read line by line in this session to pin the exchange's documented mechanics (reciprocal quoting, quadratic fee, settlement semantics). PRICINGEXPERT implements its own engine; shared semantics are the exchange's, cited in scripts/paper_engine.py docstrings."
+  },
+  {
+    "id": "fred-api",
+    "kind": "official-api",
+    "source": "FRED (Federal Reserve Economic Data) API — official, free",
+    "url": "https://api.stlouisfed.org",
+    "verified_at": null,
+    "notes": "Candidate cross-market data source for macro relationships (CPI/Fed series). Requires a free API key; none is stored in this repository. NOT used for any price in this site. See cross-market plan in data/research/relationships.json."
+  },
+  {
+    "id": "nws-api",
+    "kind": "official-api",
+    "source": "NWS API (api.weather.gov) — official, free, no key",
+    "url": "https://api.weather.gov",
+    "verified_at": null,
+    "notes": "Candidate public-information source for weather series (forecast -> Kalshi weather market timing). Not yet fetched in this session (flagged in the cross-market plan); every future use must commit the verbatim payload with provenance."
+  },
+  {
+    "id": "bls-api",
+    "kind": "official-api",
+    "source": "BLS Public Data API — official, free, keyless public endpoints",
+    "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+    "verified_at": null,
+    "notes": "Candidate cross-market data source (official CPI releases vs KXCPI market timing). Keyless public queries are rate-limited; any use must commit verbatim payloads with provenance."
+  }
+]
