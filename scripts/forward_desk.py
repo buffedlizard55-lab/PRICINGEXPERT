@@ -323,6 +323,30 @@ def run_cycle(cycle_dir: Path, season_dir: Path, universe: dict, now_ts: int,
         })
 
     tradable = [t for t in universe.get("markets", []) if t in markets]
+    # Series (rolling-contract) universe: the collector applied market_pick's
+    # selection policy at capture time and recorded it in the pick meta. We
+    # re-derive it from the same committed payload and REQUIRE agreement — the
+    # desk trades only what the policy says, backed by this cycle's books.
+    for cfg in universe.get("series", []):
+        s = cfg["series"]
+        ev = evidence.get(f"pick-{s}")
+        if ev is None:
+            continue
+        payload, meta = ev
+        recorded = meta.get("selected")
+        if recorded is None:
+            continue
+        from market_pick import select_tickers
+        derived = select_tickers(payload, meta["pick_now_ts"],
+                                 close_margin_sec=meta.get("close_margin_sec", 5400),
+                                 top_n=meta.get("top_n", 1))
+        if derived != recorded:
+            raise SystemExit(
+                f"series_pick mismatch for {s}: policy re-derives {derived} but the "
+                f"recorded selection is {recorded} — evidence and policy disagree")
+        for t in recorded:
+            if t in markets and t in books and t not in tradable:
+                tradable.append(t)
     blocked: list[dict] = []
 
     for strat in strategies:

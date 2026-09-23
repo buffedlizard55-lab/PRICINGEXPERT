@@ -36,6 +36,16 @@ def main() -> int:
         {"id": "cycle-historical-cutoff", "kind": "historical_cutoff",
          "note": "kind:historical_cutoff — data availability boundary for backtests"},
     ]
+    for cfg in universe.get("series", []):
+        s = cfg["series"]
+        endpoints.append({"id": f"pick-{s}", "kind": "series_pick",
+                          "params": {"series_ticker": s, "limit": 50,
+                                     "top_n": cfg.get("top_n", 1),
+                                     "close_margin_sec": cfg.get("close_margin_sec", 5400),
+                                     "depth": 50},
+                          "note": f"kind:series_pick — rolling contract selection for series {s} "
+                                  "(policy: scripts/market_pick.py; selection recorded in the "
+                                  "markets-list meta and re-derived by desk + verify)"})
     for t in universe.get("markets", []):
         endpoints.append({"id": f"market-{t}", "kind": "market",
                           "params": {"ticker": t},
@@ -47,7 +57,7 @@ def main() -> int:
         endpoints.append({"id": f"settlecheck-{t}", "kind": "market",
                           "params": {"ticker": t},
                           "note": f"kind:settlecheck — settlement re-read for {t}"})
-    plan = {"plan_version": 2, "cycle": cycle_name,
+    plan = {"plan_version": 3, "cycle": cycle_name,
             "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "endpoints": endpoints}
     (cycle_dir / "plan.json").write_text(json.dumps(plan, indent=1) + "\n", encoding="utf-8")

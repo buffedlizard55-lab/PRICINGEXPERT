@@ -20,6 +20,8 @@ Checks (each failure is a hard error with an IRR-style message):
   V12 links     every external URL in site assets is well-formed and non-placeholder;
                 the remote reachability check runs in CI (scripts/probe_links.py)
   V13 ledger    trades.jsonl / intents.jsonl / marks.jsonl are valid JSONL, sorted by
+  V14 pick        every series_pick meta: recorded selection == policy re-derived from the
+                committed payload (deterministic), and market+book captures exist
                 (cycle, at), with no duplicate row hashes
 """
 from __future__ import annotations
@@ -108,9 +110,16 @@ def main() -> int:
     state = jload(season / "state.json", {"strategies": {}, "starting_cash": 10000})
 
     # V4 ------------------------------------------------------------------------
+    # A ticker is universe-legal if it is a fixed market OR its series (prefix
+    # before the first "-") is a series in the rolling-contract universe.
+    series_set = {c["series"] for c in universe.get("series", [])}
+    def ticker_authorized(ticker: str) -> bool:
+        if ticker in universe.get("markets", []):
+            return True
+        return str(ticker).split("-", 1)[0] in series_set
     traded = {t["ticker"] for t in trades}
     for t in traded:
-        check(t in universe.get("markets", []), "V4", f"ledger ticker {t} not in universe")
+        check(ticker_authorized(t), "V4", f"ledger ticker {t} not in universe")
 
     # V5 cash recompute ----------------------------------------------------------
     recomputed: dict[str, float] = {}
@@ -155,6 +164,10 @@ def main() -> int:
             if m:
                 ticker, cycle = m.group(1), m.group(2)
                 book_path = season / cycle / "evidence" / "raw" / f"book-{ticker}.json"
+                if not book_path.exists():
+                    cands = sorted((season / cycle / "evidence" / "raw").glob(
+                        f"pick-*-book-{ticker}.json"))
+                    book_path = cands[0] if cands else book_path
                 if check(book_path.exists(), "V7", f"missing book evidence {book_path}"):
                     book = json.loads(book_path.read_text(encoding="utf-8"))
                     levels = set()
@@ -232,6 +245,34 @@ def main() -> int:
                     "remote_check": "scripts/probe_links.py in CI",
                     "urls": {u: fs for u, fs in sorted(found.items())}}, indent=1) + "\n",
         encoding="utf-8")
+
+    # V14 series_pick --------------------------------------------------------------
+    # The collector applied market_pick's policy at capture time and recorded the
+    # selection + timestamp in the pick meta. Re-derive from the committed payload:
+    # the recorded selection MUST be what the policy produces (deterministic).
+    from market_pick import select_tickers  # noqa: E402
+    for cyc in sorted(season.glob("cycle-*")):
+        prov = cyc / "evidence" / "provenance"
+        if not prov.exists():
+            continue
+        for meta_path in sorted(prov.glob("*.meta.json")):
+            meta = jload(meta_path)
+            if not meta.get("note", "").startswith("kind:series_pick"):
+                continue
+            raw_path = cyc / "evidence" / "raw" / f"{meta['id']}.json"
+            if not check(raw_path.exists(), "V14", f"missing pick payload {meta['id']}"):
+                continue
+            payload = json.loads(raw_path.read_text(encoding="utf-8"))
+            derived = select_tickers(payload, meta["pick_now_ts"],
+                                     close_margin_sec=meta.get("close_margin_sec", 5400),
+                                     top_n=meta.get("top_n", 1))
+            check(derived == meta.get("selected"), "V14",
+                  f"{meta['id']}: policy re-derives {derived} != recorded {meta.get('selected')}")
+            for t in meta.get("selected", []):
+                check((cyc / "evidence" / "raw" / f"{meta['id']}-market-{t}.json").exists(),
+                      "V14", f"{meta['id']}: missing market capture for {t}")
+                check((cyc / "evidence" / "raw" / f"{meta['id']}-book-{t}.json").exists(),
+                      "V14", f"{meta['id']}: missing book capture for {t}")
 
     # V13 ledger hygiene -------------------------------------------------------------
     for name, rows in (("trades", trades), ("intents", intents), ("marks", marks)):

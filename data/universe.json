@@ -1,13 +1,49 @@
 {
-  "note": "Tradable universe for the forward desk. ONLY tickers listed here may be traded by any strategy; verify.py (V4) enforces this. Populated exclusively from verified GET /series and GET /markets responses committed under data/raw with provenance — never from memory or search results.",
-  "series": [],
-  "markets": [],
-  "recent_closed": [],
-  "updated_at": null,
-  "selection_criteria": [
-    "active status at capture time with a two-sided displayed book (fill evidence must exist)",
-    "volume >= 1,000 contracts or displayed liquidity >= $100 (tradeable, not a ghost)",
-    "settlement source named in rules_primary (so settlements are independently checkable)",
-    "spread from at least one of the competition's target families (macro, commodity/crypto direction, game, weather) so the cross-market DB can compare series"
-  ]
+ "note": "Rolling-contract universe, season 2026. Built 2026-09-23 from verified plan-6 probe data (data/raw/probe-*.json). Each series: collect.py captures the series market list every cycle and scripts/market_pick.py selects the contract (active, closes > now+90min, open_interest>0, ranked by OI desc / vol24 desc). Fixed-ticker markets list kept for backwards compatibility (empty).",
+ "markets": [],
+ "series": [
+  {
+   "series": "KXGOLDD",
+   "top_n": 1,
+   "close_margin_sec": 5400,
+   "rationale": "gold daily: 13,819 total vol, oi up to 1,856 (plan-6 probe)"
+  },
+  {
+   "series": "KXTEMPMIAH",
+   "top_n": 1,
+   "close_margin_sec": 5400,
+   "rationale": "Miami hourly temp: 15,014 total vol, oi up to 1,554"
+  },
+  {
+   "series": "KXTEMPNYCHS",
+   "top_n": 1,
+   "close_margin_sec": 5400,
+   "rationale": "NYC metro hourly temp: 6,807 total vol, oi up to 706"
+  },
+  {
+   "series": "KXTEMPLAXHS",
+   "top_n": 1,
+   "close_margin_sec": 5400,
+   "rationale": "LA hourly temp: 4,183 total vol, oi up to 376"
+  },
+  {
+   "series": "KXTEMPCHIHS",
+   "top_n": 1,
+   "close_margin_sec": 5400,
+   "rationale": "Chicago metro hourly temp: 3,360 total vol, oi up to 207"
+  },
+  {
+   "series": "KXSILVERD",
+   "top_n": 1,
+   "close_margin_sec": 5400,
+   "rationale": "silver daily: 1,469 total vol, oi up to 284"
+  },
+  {
+   "series": "KXDJI",
+   "top_n": 1,
+   "close_margin_sec": 5400,
+   "rationale": "Dow hourly: 1,960 vol (active during US trading hours; pick policy yields nothing off-hours \u2014 by design)"
+  }
+ ],
+ "recent_closed": []
 }
