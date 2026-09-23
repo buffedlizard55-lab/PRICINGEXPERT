@@ -7,6 +7,10 @@ on:
   push:
     paths:
       - "data/collect_plan.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   collect:
@@ -30,6 +34,11 @@ jobs:
           if git diff --cached --quiet; then
             echo "no new evidence to commit"
           else
-            git commit -m "evidence: collect_plan run $(date -u +%Y%m%dT%H%M%SZ)Z"
-            git push
+          git commit -m "evidence: collect_plan run $(date -u +%Y%m%dT%H%M%SZ)Z"
+          git push || {
+            echo "::error::push failed — token scope diagnostic:"
+            curl -s -H "Authorization: token $GITHUB_TOKEN" \
+              "https://api.github.com/repos/$GITHUB_REPOSITORY" | head -c 300; echo
+            exit 1
+          }
           fi

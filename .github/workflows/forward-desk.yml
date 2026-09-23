@@ -5,6 +5,9 @@ on:
     - cron: "7,37 * * * *"   # :07 and :37 UTC — two desk cycles per hour
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 concurrency:
   group: forward-desk
   cancel-in-progress: false
