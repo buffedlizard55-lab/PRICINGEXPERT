@@ -4,63 +4,79 @@
   "status": 200,
   "bytes": 667,
   "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
-  "at": "2026-09-23T02:54:07Z",
+  "at": "2026-09-23T03:08:16Z",
   "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
  },
  {
   "id": "candles-01",
-  "status": "error",
-  "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T67.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInter",
-  "at": "2026-09-23T02:54:07Z"
+  "status": 200,
+  "bytes": 247568,
+  "sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+  "at": "2026-09-23T03:08:16Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T67.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
  },
  {
   "id": "candles-02",
-  "status": "error",
-  "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T68.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInter",
-  "at": "2026-09-23T02:54:07Z"
+  "status": 200,
+  "bytes": 244123,
+  "sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+  "at": "2026-09-23T03:08:17Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T68.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
  },
  {
   "id": "candles-03",
-  "status": "error",
-  "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T69.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInter",
-  "at": "2026-09-23T02:54:07Z"
+  "status": 200,
+  "bytes": 231240,
+  "sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+  "at": "2026-09-23T03:08:17Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T69.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
  },
  {
   "id": "candles-04",
-  "status": "error",
-  "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T70.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInter",
-  "at": "2026-09-23T02:54:08Z"
+  "status": 200,
+  "bytes": 228511,
+  "sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+  "at": "2026-09-23T03:08:17Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T70.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
  },
  {
   "id": "candles-05",
-  "status": "error",
-  "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26SEP3017-T65.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInter",
-  "at": "2026-09-23T02:54:08Z"
+  "status": 200,
+  "bytes": 179194,
+  "sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+  "at": "2026-09-23T03:08:18Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26SEP3017-T65.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
  },
  {
   "id": "candles-06",
-  "status": "error",
-  "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXGOLDMON/markets/KXGOLDMON-26SEP3017-T4370.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInterva",
-  "at": "2026-09-23T02:54:08Z"
+  "status": 200,
+  "bytes": 185540,
+  "sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+  "at": "2026-09-23T03:08:18Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXGOLDMON/markets/KXGOLDMON-26SEP3017-T4370.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
  },
  {
   "id": "candles-07",
-  "status": "error",
-  "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXGOLDW/markets/KXGOLDW-26SEP2517-T4362.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInterval\\' ",
-  "at": "2026-09-23T02:54:08Z"
+  "status": 200,
+  "bytes": 32370,
+  "sha256": "3c7fd11bfa84ec4c66d6b0499a966f09d27d8594bcbd8c15a9a207457902a918",
+  "at": "2026-09-23T03:08:18Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXGOLDW/markets/KXGOLDW-26SEP2517-T4362.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
  },
  {
   "id": "candles-08",
-  "status": "error",
-  "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERW/markets/KXSILVERW-26SEP2517-T80.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInterval\\",
-  "at": "2026-09-23T02:54:09Z"
+  "status": 200,
+  "bytes": 22518,
+  "sha256": "4d446a820b3a17d2e3a1ce6dd6f3ede13e853952e91620dd5c8f2f46bbe2d442",
+  "at": "2026-09-23T03:08:18Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERW/markets/KXSILVERW-26SEP2517-T80.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
  },
  {
   "id": "market-01",
   "status": 200,
   "bytes": 2221,
   "sha256": "422e7b77f2fdb3154498f489e770eb99d9101539e2272fa9a8a3f6246d86a314",
-  "at": "2026-09-23T02:54:09Z",
+  "at": "2026-09-23T03:08:19Z",
   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T67.99"
  },
  {
@@ -68,7 +84,7 @@
   "status": 200,
   "bytes": 2221,
   "sha256": "7a906b5acf7c144d716ce92cb92eb149a72d61708cfba66103a86489ad59e1e5",
-  "at": "2026-09-23T02:54:09Z",
+  "at": "2026-09-23T03:08:19Z",
   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T68.99"
  },
  {
@@ -76,7 +92,7 @@
   "status": 200,
   "bytes": 2221,
   "sha256": "220914783ef3dcb60a86b55cd7ef36e3eafb7875fc71059339c9d07ff011198b",
-  "at": "2026-09-23T02:54:09Z",
+  "at": "2026-09-23T03:08:19Z",
   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T69.99"
  },
  {
@@ -84,7 +100,7 @@
   "status": 200,
   "bytes": 2221,
   "sha256": "b14e5e033ed2dd17593a022955d15515a0f58d81ea2b9e888080934337684925",
-  "at": "2026-09-23T02:54:09Z",
+  "at": "2026-09-23T03:08:19Z",
   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T70.99"
  }
 ]

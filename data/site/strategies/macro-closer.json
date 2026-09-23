@@ -1,6 +1,84 @@
 {
- "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
- "backtest": [],
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe. Backtest (candle-replay, verified data only): KXGOLDMON-26SEP3017-T4370.99: inconclusive, KXGOLDW-26SEP2517-T4362.99: inconclusive, KXSILVERMON-26AUG3117-T67.99: inconclusive, KXSILVERMON-26AUG3117-T68.99: inconclusive, KXSILVERMON-26AUG3117-T69.99: inconclusive, KXSILVERMON-26AUG3117-T70.99: inconclusive, KXSILVERMON-26SEP3017-T65.99: inconclusive.",
+ "backtest": [
+  {
+   "candles": 172,
+   "fees": 0,
+   "market": "KXGOLDMON-26SEP3017-T4370.99",
+   "n": 0,
+   "realized_pnl": 0,
+   "return_pct": 0.0,
+   "validation_n": 0,
+   "validation_pnl": 0,
+   "verdict": "inconclusive"
+  },
+  {
+   "candles": 34,
+   "fees": 0,
+   "market": "KXGOLDW-26SEP2517-T4362.99",
+   "n": 0,
+   "realized_pnl": 0,
+   "return_pct": 0.0,
+   "validation_n": 0,
+   "validation_pnl": 0,
+   "verdict": "inconclusive"
+  },
+  {
+   "candles": 122,
+   "fees": 0,
+   "market": "KXSILVERMON-26AUG3117-T67.99",
+   "n": 0,
+   "realized_pnl": 0,
+   "return_pct": 0.0,
+   "validation_n": 0,
+   "validation_pnl": 0,
+   "verdict": "inconclusive"
+  },
+  {
+   "candles": 91,
+   "fees": 0,
+   "market": "KXSILVERMON-26AUG3117-T68.99",
+   "n": 0,
+   "realized_pnl": 0,
+   "return_pct": 0.0,
+   "validation_n": 0,
+   "validation_pnl": 0,
+   "verdict": "inconclusive"
+  },
+  {
+   "candles": 64,
+   "fees": 0,
+   "market": "KXSILVERMON-26AUG3117-T69.99",
+   "n": 0,
+   "realized_pnl": 0,
+   "return_pct": 0.0,
+   "validation_n": 0,
+   "validation_pnl": 0,
+   "verdict": "inconclusive"
+  },
+  {
+   "candles": 49,
+   "fees": 0,
+   "market": "KXSILVERMON-26AUG3117-T70.99",
+   "n": 0,
+   "realized_pnl": 0,
+   "return_pct": 0.0,
+   "validation_n": 0,
+   "validation_pnl": 0,
+   "verdict": "inconclusive"
+  },
+  {
+   "candles": 103,
+   "fees": 0,
+   "market": "KXSILVERMON-26SEP3017-T65.99",
+   "n": 0,
+   "realized_pnl": 0,
+   "return_pct": 0.0,
+   "validation_n": 0,
+   "validation_pnl": 0,
+   "verdict": "inconclusive"
+  }
+ ],
  "curve": [],
  "evidence": [
   {

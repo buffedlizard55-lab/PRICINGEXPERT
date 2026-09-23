@@ -1,0 +1,12 @@
+{
+ "bytes": 231240,
+ "fetched_at": "2026-09-23T03:08:17Z",
+ "http_status": 200,
+ "id": "candles-03",
+ "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T69.99: finalized Aug month, vol 7,675; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads",
+ "series": "KXSILVERMON",
+ "sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+ "ticker": "KXSILVERMON-26AUG3117-T69.99",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T69.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
+}

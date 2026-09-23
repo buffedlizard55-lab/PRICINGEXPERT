@@ -1,6 +1,6 @@
 {
  "bytes": 2221,
- "fetched_at": "2026-09-23T02:54:09Z",
+ "fetched_at": "2026-09-23T03:08:19Z",
  "http_status": 200,
  "id": "market-02",
  "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T68.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)",

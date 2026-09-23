@@ -16,5 +16,5364 @@
   "refuted": "validation PnL < 0 and validation trades >= 5",
   "inconclusive": "anything else (incl. < 5 validation trades)"
  },
- "per_strategy": {}
+ "per_strategy": {
+  "sure-penny::KXGOLDMON-26SEP3017-T4370.99": {
+   "username": "SurePenny",
+   "candles": 172,
+   "bar_span": [
+    1788289200,
+    1790114400
+   ],
+   "provenance": [
+    "candles-06"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 9735.39
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "longshot-fader::KXGOLDMON-26SEP3017-T4370.99": {
+   "username": "LongshotFader",
+   "candles": 172,
+   "bar_span": [
+    1788289200,
+    1790114400
+   ],
+   "provenance": [
+    "candles-06"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 9735.39
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "last-mile::KXGOLDMON-26SEP3017-T4370.99": {
+   "username": "LastMile",
+   "candles": 172,
+   "bar_span": [
+    1788289200,
+    1790114400
+   ],
+   "provenance": [
+    "candles-06"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 9735.39
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "tape-rider::KXGOLDMON-26SEP3017-T4370.99": {
+   "username": "TapeRider",
+   "candles": 172,
+   "bar_span": [
+    1788289200,
+    1790114400
+   ],
+   "provenance": [
+    "candles-06"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 9735.39
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1788418800,
+      "side": "yes",
+      "contracts": 4739,
+      "price": 0.51,
+      "touch": 0.54,
+      "fee": 82.8994,
+      "slippage": -142.17,
+      "trigger": {
+       "close": 0.54,
+       "prev_close": 0.47,
+       "move": 0.07
+      },
+      "bar_provenance": "candles-06",
+      "bar_sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+      "limit": 0.56,
+      "exit_ts": 1788490800,
+      "exit_price": 0.64,
+      "exit_fee": 76.4306,
+      "pnl": 456.74,
+      "exit_slippage": 236.95,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788490800,
+      "side": "yes",
+      "contracts": 3984,
+      "price": 0.64,
+      "touch": 0.62,
+      "fee": 64.254,
+      "slippage": 79.68,
+      "trigger": {
+       "close": 0.62,
+       "prev_close": 0.59,
+       "move": 0.03
+      },
+      "bar_provenance": "candles-06",
+      "bar_sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+      "limit": 0.64,
+      "exit_ts": 1790114400,
+      "exit_price": 0.43,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7842.726,
+    "n": 1,
+    "wins": 1,
+    "losses": 0,
+    "realized_pnl": 456.74,
+    "fees": 223.584,
+    "slippage": 174.46,
+    "return_pct": -21.5727
+   },
+   "development": {
+    "trades": [
+     {
+      "entry_ts": 1788418800,
+      "side": "yes",
+      "contracts": 4739,
+      "price": 0.51,
+      "touch": 0.54,
+      "fee": 82.8994,
+      "slippage": -142.17,
+      "trigger": {
+       "close": 0.54,
+       "prev_close": 0.47,
+       "move": 0.07
+      },
+      "bar_provenance": "candles-06",
+      "bar_sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+      "limit": 0.56,
+      "exit_ts": 1788490800,
+      "exit_price": 0.64,
+      "exit_fee": 76.4306,
+      "pnl": 456.74,
+      "exit_slippage": 236.95,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788490800,
+      "side": "yes",
+      "contracts": 3984,
+      "price": 0.64,
+      "touch": 0.62,
+      "fee": 64.254,
+      "slippage": 79.68,
+      "trigger": {
+       "close": 0.62,
+       "prev_close": 0.59,
+       "move": 0.03
+      },
+      "bar_provenance": "candles-06",
+      "bar_sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+      "limit": 0.64,
+      "exit_ts": 1789318800,
+      "exit_price": 0.5,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7842.726,
+    "n": 1,
+    "wins": 1,
+    "losses": 0,
+    "realized_pnl": 456.74,
+    "fees": 223.584,
+    "slippage": 174.46,
+    "return_pct": -21.5727
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1789347600,
+      "side": "no",
+      "contracts": 4257,
+      "price": 0.57,
+      "touch": 0.57,
+      "fee": 73.0374,
+      "slippage": -0.0,
+      "trigger": {
+       "close": 0.43,
+       "prev_close": 0.48,
+       "move": -0.05
+      },
+      "bar_provenance": "candles-06",
+      "bar_sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+      "limit": 0.59,
+      "exit_ts": 1789437600,
+      "exit_price": 0.65,
+      "exit_fee": 67.7928,
+      "pnl": 199.7298,
+      "exit_slippage": 127.71,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789437600,
+      "side": "no",
+      "contracts": 3829,
+      "price": 0.65,
+      "touch": 0.67,
+      "fee": 60.9769,
+      "slippage": -76.58,
+      "trigger": {
+       "close": 0.33,
+       "prev_close": 0.38,
+       "move": -0.05
+      },
+      "bar_provenance": "candles-06",
+      "bar_sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+      "limit": 0.69,
+      "exit_ts": 1789624800,
+      "exit_price": 0.63,
+      "exit_fee": 62.4778,
+      "pnl": -200.0347,
+      "exit_slippage": -306.32,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789624800,
+      "side": "yes",
+      "contracts": 6471,
+      "price": 0.37,
+      "touch": 0.36,
+      "fee": 105.5874,
+      "slippage": 64.71,
+      "trigger": {
+       "close": 0.36,
+       "prev_close": 0.29,
+       "move": 0.07
+      },
+      "bar_provenance": "candles-06",
+      "bar_sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+      "limit": 0.38,
+      "exit_ts": 1789689600,
+      "exit_price": 0.44,
+      "exit_fee": 111.6119,
+      "pnl": 235.7707,
+      "exit_slippage": -64.71,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789736400,
+      "side": "yes",
+      "contracts": 4760,
+      "price": 0.52,
+      "touch": 0.57,
+      "fee": 83.1668,
+      "slippage": -238.0,
+      "trigger": {
+       "close": 0.57,
+       "prev_close": 0.51,
+       "move": 0.06
+      },
+      "bar_provenance": "candles-06",
+      "bar_sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+      "limit": 0.59,
+      "exit_ts": 1789765200,
+      "exit_price": 0.53,
+      "exit_fee": 83.0002,
+      "pnl": -118.567,
+      "exit_slippage": -238.0,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789783200,
+      "side": "no",
+      "contracts": 5412,
+      "price": 0.45,
+      "touch": 0.48,
+      "fee": 93.7629,
+      "slippage": -162.36,
+      "trigger": {
+       "close": 0.52,
+       "prev_close": 0.55,
+       "move": -0.03
+      },
+      "bar_provenance": "candles-06",
+      "bar_sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+      "limit": 0.5,
+      "exit_ts": 1789819200,
+      "exit_price": 0.46,
+      "exit_fee": 94.1039,
+      "pnl": -133.7468,
+      "exit_slippage": -270.6,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789819200,
+      "side": "yes",
+      "contracts": 4477,
+      "price": 0.54,
+      "touch": 0.54,
+      "fee": 77.8461,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.54,
+       "prev_close": 0.49,
+       "move": 0.05
+      },
+      "bar_provenance": "candles-06",
+      "bar_sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+      "limit": 0.56,
+      "exit_ts": 1790114400,
+      "exit_price": 0.43,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1789722000,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.57,
+      "limit": 0.53
+     }
+    ],
+    "cash": 7487.7259,
+    "n": 5,
+    "wins": 2,
+    "losses": 3,
+    "realized_pnl": -16.848,
+    "fees": 913.3641,
+    "slippage": -1164.15,
+    "return_pct": -25.1227
+   },
+   "verdict": "refuted"
+  },
+  "deep-fade::KXGOLDMON-26SEP3017-T4370.99": {
+   "username": "DeepFade",
+   "candles": 172,
+   "bar_span": [
+    1788289200,
+    1790114400
+   ],
+   "provenance": [
+    "candles-06"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 9735.39
+   },
+   "full": {
+    "trades": [],
+    "skips": [
+     {
+      "at": 1788966000,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.54,
+      "limit": 0.27
+     }
+    ],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [
+     {
+      "at": 1788966000,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.54,
+      "limit": 0.27
+     }
+    ],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "macro-closer::KXGOLDMON-26SEP3017-T4370.99": {
+   "username": "MacroCloser",
+   "candles": 172,
+   "bar_span": [
+    1788289200,
+    1790114400
+   ],
+   "provenance": [
+    "candles-06"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 9735.39
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "commodity-drift::KXGOLDMON-26SEP3017-T4370.99": {
+   "username": "CommodityDrift",
+   "candles": 172,
+   "bar_span": [
+    1788289200,
+    1790114400
+   ],
+   "provenance": [
+    "candles-06"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 9735.39
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "sure-penny::KXGOLDW-26SEP2517-T4362.99": {
+   "username": "SurePenny",
+   "candles": 34,
+   "bar_span": [
+    1789794000,
+    1790128800
+   ],
+   "provenance": [
+    "candles-07"
+   ],
+   "market": {
+    "result": null,
+    "status": "no-verified-market-payload",
+    "close_ts": 1790128800,
+    "volume": 0
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "longshot-fader::KXGOLDW-26SEP2517-T4362.99": {
+   "username": "LongshotFader",
+   "candles": 34,
+   "bar_span": [
+    1789794000,
+    1790128800
+   ],
+   "provenance": [
+    "candles-07"
+   ],
+   "market": {
+    "result": null,
+    "status": "no-verified-market-payload",
+    "close_ts": 1790128800,
+    "volume": 0
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "last-mile::KXGOLDW-26SEP2517-T4362.99": {
+   "username": "LastMile",
+   "candles": 34,
+   "bar_span": [
+    1789794000,
+    1790128800
+   ],
+   "provenance": [
+    "candles-07"
+   ],
+   "market": {
+    "result": null,
+    "status": "no-verified-market-payload",
+    "close_ts": 1790128800,
+    "volume": 0
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "tape-rider::KXGOLDW-26SEP2517-T4362.99": {
+   "username": "TapeRider",
+   "candles": 34,
+   "bar_span": [
+    1789794000,
+    1790128800
+   ],
+   "provenance": [
+    "candles-07"
+   ],
+   "market": {
+    "result": null,
+    "status": "no-verified-market-payload",
+    "close_ts": 1790128800,
+    "volume": 0
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1789959600,
+      "side": "yes",
+      "contracts": 4830,
+      "price": 0.5,
+      "touch": 0.58,
+      "fee": 84.525,
+      "slippage": -386.4,
+      "trigger": {
+       "close": 0.58,
+       "prev_close": 0.54,
+       "move": 0.04
+      },
+      "bar_provenance": "candles-07",
+      "bar_sha256": "3c7fd11bfa84ec4c66d6b0499a966f09d27d8594bcbd8c15a9a207457902a918",
+      "limit": 0.6,
+      "exit_ts": 1790128800,
+      "exit_price": 0.37,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7500.475,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 84.525,
+    "slippage": -386.4,
+    "return_pct": -24.9952
+   },
+   "development": {
+    "trades": [
+     {
+      "entry_ts": 1789959600,
+      "side": "yes",
+      "contracts": 4830,
+      "price": 0.5,
+      "touch": 0.58,
+      "fee": 84.525,
+      "slippage": -386.4,
+      "trigger": {
+       "close": 0.58,
+       "prev_close": 0.54,
+       "move": 0.04
+      },
+      "bar_provenance": "candles-07",
+      "bar_sha256": "3c7fd11bfa84ec4c66d6b0499a966f09d27d8594bcbd8c15a9a207457902a918",
+      "limit": 0.6,
+      "exit_ts": 1790002800,
+      "exit_price": 0.45,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7500.475,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 84.525,
+    "slippage": -386.4,
+    "return_pct": -24.9952
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1790046000,
+      "side": "yes",
+      "contracts": 5349,
+      "price": 0.45,
+      "touch": 0.54,
+      "fee": 92.6715,
+      "slippage": -481.41,
+      "trigger": {
+       "close": 0.54,
+       "prev_close": 0.45,
+       "move": 0.09
+      },
+      "bar_provenance": "candles-07",
+      "bar_sha256": "3c7fd11bfa84ec4c66d6b0499a966f09d27d8594bcbd8c15a9a207457902a918",
+      "limit": 0.56,
+      "exit_ts": 1790114400,
+      "exit_price": 0.47,
+      "exit_fee": 93.2706,
+      "pnl": -78.9621,
+      "exit_slippage": -267.45,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1790114400,
+      "side": "no",
+      "contracts": 4530,
+      "price": 0.53,
+      "touch": 0.53,
+      "fee": 78.9897,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.47,
+       "prev_close": 0.52,
+       "move": -0.05
+      },
+      "bar_provenance": "candles-07",
+      "bar_sha256": "3c7fd11bfa84ec4c66d6b0499a966f09d27d8594bcbd8c15a9a207457902a918",
+      "limit": 0.55,
+      "exit_ts": 1790128800,
+      "exit_price": 0.63,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1790035200,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.54,
+      "limit": 0.47
+     }
+    ],
+    "cash": 7441.1482,
+    "n": 1,
+    "wins": 0,
+    "losses": 1,
+    "realized_pnl": -78.9621,
+    "fees": 264.9318,
+    "slippage": -748.86,
+    "return_pct": -25.5885
+   },
+   "verdict": "inconclusive"
+  },
+  "deep-fade::KXGOLDW-26SEP2517-T4362.99": {
+   "username": "DeepFade",
+   "candles": 34,
+   "bar_span": [
+    1789794000,
+    1790128800
+   ],
+   "provenance": [
+    "candles-07"
+   ],
+   "market": {
+    "result": null,
+    "status": "no-verified-market-payload",
+    "close_ts": 1790128800,
+    "volume": 0
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "macro-closer::KXGOLDW-26SEP2517-T4362.99": {
+   "username": "MacroCloser",
+   "candles": 34,
+   "bar_span": [
+    1789794000,
+    1790128800
+   ],
+   "provenance": [
+    "candles-07"
+   ],
+   "market": {
+    "result": null,
+    "status": "no-verified-market-payload",
+    "close_ts": 1790128800,
+    "volume": 0
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "commodity-drift::KXGOLDW-26SEP2517-T4362.99": {
+   "username": "CommodityDrift",
+   "candles": 34,
+   "bar_span": [
+    1789794000,
+    1790128800
+   ],
+   "provenance": [
+    "candles-07"
+   ],
+   "market": {
+    "result": null,
+    "status": "no-verified-market-payload",
+    "close_ts": 1790128800,
+    "volume": 0
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "sure-penny::KXSILVERMON-26AUG3117-T67.99": {
+   "username": "SurePenny",
+   "candles": 122,
+   "bar_span": [
+    1785852000,
+    1788206400
+   ],
+   "provenance": [
+    "candles-01"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 9268.88
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "longshot-fader::KXSILVERMON-26AUG3117-T67.99": {
+   "username": "LongshotFader",
+   "candles": 122,
+   "bar_span": [
+    1785852000,
+    1788206400
+   ],
+   "provenance": [
+    "candles-01"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 9268.88
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1787918400,
+      "side": "yes",
+      "contracts": 2878,
+      "price": 0.86,
+      "touch": 0.86,
+      "fee": 24.2558,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.86,
+       "note": "fade-longshot-no-side"
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.88,
+      "exit_ts": 1788206400,
+      "exit_price": 0.06,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7500.6642,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 24.2558,
+    "slippage": 0.0,
+    "return_pct": -24.9934
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "last-mile::KXSILVERMON-26AUG3117-T67.99": {
+   "username": "LastMile",
+   "candles": 122,
+   "bar_span": [
+    1785852000,
+    1788206400
+   ],
+   "provenance": [
+    "candles-01"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 9268.88
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "tape-rider::KXSILVERMON-26AUG3117-T67.99": {
+   "username": "TapeRider",
+   "candles": 122,
+   "bar_span": [
+    1785852000,
+    1788206400
+   ],
+   "provenance": [
+    "candles-01"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 9268.88
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1785927600,
+      "side": "no",
+      "contracts": 2847,
+      "price": 0.87,
+      "touch": 0.87,
+      "fee": 22.5397,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.13,
+       "prev_close": 0.16,
+       "move": -0.03
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.89,
+      "exit_ts": 1788177600,
+      "exit_price": 0.86,
+      "exit_fee": 23.9946,
+      "pnl": -75.0043,
+      "exit_slippage": -170.82,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788184800,
+      "side": "yes",
+      "contracts": 33279,
+      "price": 0.07,
+      "touch": 0.19,
+      "fee": 151.6525,
+      "slippage": -3993.48,
+      "trigger": {
+       "close": 0.19,
+       "prev_close": 0.1,
+       "move": 0.09
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.21,
+      "exit_ts": 1788206400,
+      "exit_price": 0.06,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7443.8132,
+    "n": 1,
+    "wins": 0,
+    "losses": 1,
+    "realized_pnl": -75.0043,
+    "fees": 198.1868,
+    "slippage": -4164.3,
+    "return_pct": -25.5619
+   },
+   "development": {
+    "trades": [
+     {
+      "entry_ts": 1785927600,
+      "side": "no",
+      "contracts": 2847,
+      "price": 0.87,
+      "touch": 0.87,
+      "fee": 22.5397,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.13,
+       "prev_close": 0.16,
+       "move": -0.03
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.89,
+      "exit_ts": 1787677200,
+      "exit_price": 0.43,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7500.5703,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 22.5397,
+    "slippage": 0.0,
+    "return_pct": -24.9943
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1787774400,
+      "side": "no",
+      "contracts": 5025,
+      "price": 0.48,
+      "touch": 0.54,
+      "fee": 87.7968,
+      "slippage": -301.5,
+      "trigger": {
+       "close": 0.46,
+       "prev_close": 0.54,
+       "move": -0.08
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.56,
+      "exit_ts": 1787792400,
+      "exit_price": 0.39,
+      "exit_fee": 83.6814,
+      "pnl": -623.7282,
+      "exit_slippage": -904.5,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787803200,
+      "side": "yes",
+      "contracts": 3235,
+      "price": 0.71,
+      "touch": 0.75,
+      "fee": 46.6261,
+      "slippage": -129.4,
+      "trigger": {
+       "close": 0.75,
+       "prev_close": 0.61,
+       "move": 0.14
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.77,
+      "exit_ts": 1787929200,
+      "exit_price": 0.86,
+      "exit_fee": 27.2646,
+      "pnl": 411.3593,
+      "exit_slippage": 0.0,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787940000,
+      "side": "no",
+      "contracts": 3569,
+      "price": 0.67,
+      "touch": 0.67,
+      "fee": 55.2375,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.33,
+       "prev_close": 0.86,
+       "move": -0.53
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.69,
+      "exit_ts": 1787961600,
+      "exit_price": 0.75,
+      "exit_fee": 46.8432,
+      "pnl": 183.4393,
+      "exit_slippage": -321.21,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787961600,
+      "side": "yes",
+      "contracts": 9473,
+      "price": 0.25,
+      "touch": 0.24,
+      "fee": 124.3332,
+      "slippage": 94.73,
+      "trigger": {
+       "close": 0.24,
+       "prev_close": 0.16,
+       "move": 0.08
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.26,
+      "exit_ts": 1788123600,
+      "exit_price": 0.23,
+      "exit_fee": 117.4368,
+      "pnl": -431.23,
+      "exit_slippage": -947.3,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788156000,
+      "side": "no",
+      "contracts": 2631,
+      "price": 0.9,
+      "touch": 0.92,
+      "fee": 16.5753,
+      "slippage": -52.62,
+      "trigger": {
+       "close": 0.08,
+       "prev_close": 0.17,
+       "move": -0.09
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.94,
+      "exit_ts": 1788206400,
+      "exit_price": 0.94,
+      "exit_fee": 10.3872,
+      "pnl": 78.2775,
+      "exit_slippage": -78.93,
+      "exit_reason": "target"
+     }
+    ],
+    "skips": [
+     {
+      "at": 1787792400,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.61,
+      "limit": 0.59
+     },
+     {
+      "at": 1787796000,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.67,
+      "limit": 0.63
+     },
+     {
+      "at": 1788134400,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.83,
+      "limit": 0.79
+     },
+     {
+      "at": 1788152400,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.92,
+      "limit": 0.85
+     }
+    ],
+    "cash": 9618.1179,
+    "n": 5,
+    "wins": 3,
+    "losses": 2,
+    "realized_pnl": -381.8821,
+    "fees": 616.1821,
+    "slippage": -2640.73,
+    "return_pct": -3.8188
+   },
+   "verdict": "refuted"
+  },
+  "deep-fade::KXSILVERMON-26AUG3117-T67.99": {
+   "username": "DeepFade",
+   "candles": 122,
+   "bar_span": [
+    1785852000,
+    1788206400
+   ],
+   "provenance": [
+    "candles-01"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 9268.88
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1786644000,
+      "side": "yes",
+      "contracts": 10313,
+      "price": 0.23,
+      "touch": 0.27,
+      "fee": 127.8503,
+      "slippage": -412.52,
+      "trigger": {
+       "close": 0.27,
+       "move": -0.12,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.29,
+      "exit_ts": 1787274000,
+      "exit_price": 0.52,
+      "exit_fee": 180.1888,
+      "pnl": 2682.7309,
+      "exit_slippage": 0.0,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787284800,
+      "side": "no",
+      "contracts": 7607,
+      "price": 0.4,
+      "touch": 0.4,
+      "fee": 127.7976,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.6,
+       "move": 0.1,
+       "note": "fade-the-run"
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.42,
+      "exit_ts": 1787961600,
+      "exit_price": 0.75,
+      "exit_fee": 99.8419,
+      "pnl": 2434.8105,
+      "exit_slippage": -684.63,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788134400,
+      "side": "yes",
+      "contracts": 21010,
+      "price": 0.17,
+      "touch": 0.23,
+      "fee": 207.5158,
+      "slippage": -1260.6,
+      "trigger": {
+       "close": 0.23,
+       "move": -0.1,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.25,
+      "exit_ts": 1788206400,
+      "exit_price": 0.06,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 11338.3256,
+    "n": 2,
+    "wins": 2,
+    "losses": 0,
+    "realized_pnl": 5117.5414,
+    "fees": 743.1944,
+    "slippage": -2357.75,
+    "return_pct": 13.3833
+   },
+   "development": {
+    "trades": [
+     {
+      "entry_ts": 1786644000,
+      "side": "yes",
+      "contracts": 10313,
+      "price": 0.23,
+      "touch": 0.27,
+      "fee": 127.8503,
+      "slippage": -412.52,
+      "trigger": {
+       "close": 0.27,
+       "move": -0.12,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.29,
+      "exit_ts": 1787274000,
+      "exit_price": 0.52,
+      "exit_fee": 180.1888,
+      "pnl": 2682.7309,
+      "exit_slippage": 0.0,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787284800,
+      "side": "no",
+      "contracts": 7607,
+      "price": 0.4,
+      "touch": 0.4,
+      "fee": 127.7976,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.6,
+       "move": 0.1,
+       "note": "fade-the-run"
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.42,
+      "exit_ts": 1787677200,
+      "exit_price": 0.43,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 9512.1333,
+    "n": 1,
+    "wins": 1,
+    "losses": 0,
+    "realized_pnl": 2682.7309,
+    "fees": 435.8367,
+    "slippage": -412.52,
+    "return_pct": -4.8787
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1787792400,
+      "side": "no",
+      "contracts": 6147,
+      "price": 0.39,
+      "touch": 0.43,
+      "fee": 102.366,
+      "slippage": -245.88,
+      "trigger": {
+       "close": 0.57,
+       "move": 0.14,
+       "note": "fade-the-run"
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.45,
+      "exit_ts": 1787961600,
+      "exit_price": 0.75,
+      "exit_fee": 80.6794,
+      "pnl": 2029.8746,
+      "exit_slippage": -553.23,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788134400,
+      "side": "yes",
+      "contracts": 16719,
+      "price": 0.17,
+      "touch": 0.23,
+      "fee": 165.1336,
+      "slippage": -1003.14,
+      "trigger": {
+       "close": 0.23,
+       "move": -0.1,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-01",
+      "bar_sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+      "limit": 0.25,
+      "exit_ts": 1788206400,
+      "exit_price": 0.06,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 9022.511,
+    "n": 1,
+    "wins": 1,
+    "losses": 0,
+    "realized_pnl": 2029.8746,
+    "fees": 348.179,
+    "slippage": -1802.25,
+    "return_pct": -9.7749
+   },
+   "verdict": "inconclusive"
+  },
+  "macro-closer::KXSILVERMON-26AUG3117-T67.99": {
+   "username": "MacroCloser",
+   "candles": 122,
+   "bar_span": [
+    1785852000,
+    1788206400
+   ],
+   "provenance": [
+    "candles-01"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 9268.88
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "commodity-drift::KXSILVERMON-26AUG3117-T67.99": {
+   "username": "CommodityDrift",
+   "candles": 122,
+   "bar_span": [
+    1785852000,
+    1788206400
+   ],
+   "provenance": [
+    "candles-01"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 9268.88
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "sure-penny::KXSILVERMON-26AUG3117-T68.99": {
+   "username": "SurePenny",
+   "candles": 91,
+   "bar_span": [
+    1785859200,
+    1788195600
+   ],
+   "provenance": [
+    "candles-02"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6489.63
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "longshot-fader::KXSILVERMON-26AUG3117-T68.99": {
+   "username": "LongshotFader",
+   "candles": 91,
+   "bar_span": [
+    1785859200,
+    1788195600
+   ],
+   "provenance": [
+    "candles-02"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6489.63
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1788030000,
+      "side": "no",
+      "contracts": 2847,
+      "price": 0.87,
+      "touch": 0.85,
+      "fee": 22.5397,
+      "slippage": 56.94,
+      "trigger": {
+       "close": 0.15,
+       "note": "fade-longshot-yes-side"
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.87,
+      "exit_ts": 1788195600,
+      "exit_price": 0.94,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1787947200,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.92,
+      "limit": 0.9
+     }
+    ],
+    "cash": 7500.5703,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 22.5397,
+    "slippage": 56.94,
+    "return_pct": -24.9943
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "last-mile::KXSILVERMON-26AUG3117-T68.99": {
+   "username": "LastMile",
+   "candles": 91,
+   "bar_span": [
+    1785859200,
+    1788195600
+   ],
+   "provenance": [
+    "candles-02"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6489.63
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "tape-rider::KXSILVERMON-26AUG3117-T68.99": {
+   "username": "TapeRider",
+   "candles": 91,
+   "bar_span": [
+    1785859200,
+    1788195600
+   ],
+   "provenance": [
+    "candles-02"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6489.63
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1786449600,
+      "side": "yes",
+      "contracts": 8212,
+      "price": 0.29,
+      "touch": 0.32,
+      "fee": 118.3596,
+      "slippage": -246.36,
+      "trigger": {
+       "close": 0.32,
+       "prev_close": 0.15,
+       "move": 0.17
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.34,
+      "exit_ts": 1787277600,
+      "exit_price": 0.45,
+      "exit_fee": 142.2729,
+      "pnl": 1053.2875,
+      "exit_slippage": 574.84,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787277600,
+      "side": "yes",
+      "contracts": 5913,
+      "price": 0.45,
+      "touch": 0.43,
+      "fee": 102.4428,
+      "slippage": 118.26,
+      "trigger": {
+       "close": 0.43,
+       "prev_close": 0.38,
+       "move": 0.05
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.45,
+      "exit_ts": 1787324400,
+      "exit_price": 0.54,
+      "exit_fee": 102.8153,
+      "pnl": 326.9119,
+      "exit_slippage": 177.39,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787324400,
+      "side": "yes",
+      "contracts": 5104,
+      "price": 0.54,
+      "touch": 0.55,
+      "fee": 88.7484,
+      "slippage": -51.04,
+      "trigger": {
+       "close": 0.55,
+       "prev_close": 0.51,
+       "move": 0.04
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.57,
+      "exit_ts": 1787828400,
+      "exit_price": 0.42,
+      "exit_fee": 87.0335,
+      "pnl": -788.2619,
+      "exit_slippage": -918.72,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787846400,
+      "side": "no",
+      "contracts": 4587,
+      "price": 0.56,
+      "touch": 0.62,
+      "fee": 79.1166,
+      "slippage": -275.22,
+      "trigger": {
+       "close": 0.38,
+       "prev_close": 0.59,
+       "move": -0.21
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.64,
+      "exit_ts": 1787943600,
+      "exit_price": 0.84,
+      "exit_fee": 43.1545,
+      "pnl": 1162.0889,
+      "exit_slippage": 779.79,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787943600,
+      "side": "no",
+      "contracts": 3459,
+      "price": 0.84,
+      "touch": 0.82,
+      "fee": 32.5423,
+      "slippage": 69.18,
+      "trigger": {
+       "close": 0.18,
+       "prev_close": 0.33,
+       "move": -0.15
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.84,
+      "exit_ts": 1788181200,
+      "exit_price": 0.99,
+      "exit_fee": 2.3971,
+      "pnl": 483.9106,
+      "exit_slippage": 172.95,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788181200,
+      "side": "yes",
+      "contracts": 286120,
+      "price": 0.01,
+      "touch": 0.15,
+      "fee": 198.2812,
+      "slippage": -40056.8,
+      "trigger": {
+       "close": 0.15,
+       "prev_close": 0.06,
+       "move": 0.09
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.17,
+      "exit_ts": 1788195600,
+      "exit_price": 0.06,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 9178.4558,
+    "n": 5,
+    "wins": 4,
+    "losses": 1,
+    "realized_pnl": 2237.937,
+    "fees": 997.1642,
+    "slippage": -39655.73,
+    "return_pct": -8.2154
+   },
+   "development": {
+    "trades": [
+     {
+      "entry_ts": 1786449600,
+      "side": "yes",
+      "contracts": 8212,
+      "price": 0.29,
+      "touch": 0.32,
+      "fee": 118.3596,
+      "slippage": -246.36,
+      "trigger": {
+       "close": 0.32,
+       "prev_close": 0.15,
+       "move": 0.17
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.34,
+      "exit_ts": 1787277600,
+      "exit_price": 0.45,
+      "exit_fee": 142.2729,
+      "pnl": 1053.2875,
+      "exit_slippage": 574.84,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787277600,
+      "side": "yes",
+      "contracts": 5913,
+      "price": 0.45,
+      "touch": 0.43,
+      "fee": 102.4428,
+      "slippage": 118.26,
+      "trigger": {
+       "close": 0.43,
+       "prev_close": 0.38,
+       "move": 0.05
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.45,
+      "exit_ts": 1787324400,
+      "exit_price": 0.54,
+      "exit_fee": 102.8153,
+      "pnl": 326.9119,
+      "exit_slippage": 177.39,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787324400,
+      "side": "yes",
+      "contracts": 5104,
+      "price": 0.54,
+      "touch": 0.55,
+      "fee": 88.7484,
+      "slippage": -51.04,
+      "trigger": {
+       "close": 0.55,
+       "prev_close": 0.51,
+       "move": 0.04
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.57,
+      "exit_ts": 1787623200,
+      "exit_price": 0.51,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 8535.291,
+    "n": 2,
+    "wins": 2,
+    "losses": 0,
+    "realized_pnl": 1380.1994,
+    "fees": 554.639,
+    "slippage": 573.09,
+    "return_pct": -14.6471
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1787630400,
+      "side": "no",
+      "contracts": 3927,
+      "price": 0.62,
+      "touch": 0.65,
+      "fee": 64.7641,
+      "slippage": -117.81,
+      "trigger": {
+       "close": 0.35,
+       "prev_close": 0.5,
+       "move": -0.15
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.67,
+      "exit_ts": 1787688000,
+      "exit_price": 0.51,
+      "exit_fee": 68.6951,
+      "pnl": -565.4292,
+      "exit_slippage": -667.59,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787688000,
+      "side": "yes",
+      "contracts": 4647,
+      "price": 0.49,
+      "touch": 0.49,
+      "fee": 81.29,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.49,
+       "prev_close": 0.32,
+       "move": 0.17
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.51,
+      "exit_ts": 1787828400,
+      "exit_price": 0.42,
+      "exit_fee": 79.2407,
+      "pnl": -485.8207,
+      "exit_slippage": -836.46,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787846400,
+      "side": "no",
+      "contracts": 3875,
+      "price": 0.56,
+      "touch": 0.62,
+      "fee": 66.836,
+      "slippage": -232.5,
+      "trigger": {
+       "close": 0.38,
+       "prev_close": 0.59,
+       "move": -0.21
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.64,
+      "exit_ts": 1787943600,
+      "exit_price": 0.84,
+      "exit_fee": 36.456,
+      "pnl": 981.708,
+      "exit_slippage": 658.75,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787943600,
+      "side": "no",
+      "contracts": 2922,
+      "price": 0.84,
+      "touch": 0.82,
+      "fee": 27.4902,
+      "slippage": 58.44,
+      "trigger": {
+       "close": 0.18,
+       "prev_close": 0.33,
+       "move": -0.15
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.84,
+      "exit_ts": 1788181200,
+      "exit_price": 0.99,
+      "exit_fee": 2.025,
+      "pnl": 408.7848,
+      "exit_slippage": 146.1,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788181200,
+      "side": "yes",
+      "contracts": 241729,
+      "price": 0.01,
+      "touch": 0.15,
+      "fee": 167.5182,
+      "slippage": -33842.06,
+      "trigger": {
+       "close": 0.15,
+       "prev_close": 0.06,
+       "move": 0.09
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.17,
+      "exit_ts": 1788195600,
+      "exit_price": 0.06,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7754.4347,
+    "n": 4,
+    "wins": 2,
+    "losses": 2,
+    "realized_pnl": 339.2429,
+    "fees": 594.3153,
+    "slippage": -34833.13,
+    "return_pct": -22.4557
+   },
+   "verdict": "inconclusive"
+  },
+  "deep-fade::KXSILVERMON-26AUG3117-T68.99": {
+   "username": "DeepFade",
+   "candles": 91,
+   "bar_span": [
+    1785859200,
+    1788195600
+   ],
+   "provenance": [
+    "candles-02"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6489.63
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1786780800,
+      "side": "yes",
+      "contracts": 11280,
+      "price": 0.21,
+      "touch": 0.21,
+      "fee": 130.9947,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.21,
+       "move": -0.12,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.23,
+      "exit_ts": 1787281200,
+      "exit_price": 0.46,
+      "exit_fee": 196.1367,
+      "pnl": 2492.8686,
+      "exit_slippage": 338.4,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787619600,
+      "side": "no",
+      "contracts": 7146,
+      "price": 0.42,
+      "touch": 0.42,
+      "fee": 121.8536,
+      "slippage": -0.0,
+      "trigger": {
+       "close": 0.58,
+       "move": 0.14,
+       "note": "fade-the-run"
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.44,
+      "exit_ts": 1787983200,
+      "exit_price": 0.85,
+      "exit_fee": 63.7781,
+      "pnl": 2887.1483,
+      "exit_slippage": -214.38,
+      "exit_reason": "target"
+     }
+    ],
+    "skips": [
+     {
+      "at": 1788195600,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.06,
+      "limit": 0.03
+     }
+    ],
+    "cash": 15380.0169,
+    "n": 2,
+    "wins": 2,
+    "losses": 0,
+    "realized_pnl": 5380.0169,
+    "fees": 512.7631,
+    "slippage": 124.02,
+    "return_pct": 53.8002
+   },
+   "development": {
+    "trades": [
+     {
+      "entry_ts": 1786780800,
+      "side": "yes",
+      "contracts": 11280,
+      "price": 0.21,
+      "touch": 0.21,
+      "fee": 130.9947,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.21,
+       "move": -0.12,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.23,
+      "exit_ts": 1787281200,
+      "exit_price": 0.46,
+      "exit_fee": 196.1367,
+      "pnl": 2492.8686,
+      "exit_slippage": 338.4,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787619600,
+      "side": "no",
+      "contracts": 7146,
+      "price": 0.42,
+      "touch": 0.42,
+      "fee": 121.8536,
+      "slippage": -0.0,
+      "trigger": {
+       "close": 0.58,
+       "move": 0.14,
+       "note": "fade-the-run"
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.44,
+      "exit_ts": 1787623200,
+      "exit_price": 0.49,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 9369.695,
+    "n": 1,
+    "wins": 1,
+    "losses": 0,
+    "realized_pnl": 2492.8686,
+    "fees": 448.985,
+    "slippage": 338.4,
+    "return_pct": -6.303
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1787896800,
+      "side": "yes",
+      "contracts": 6147,
+      "price": 0.39,
+      "touch": 0.39,
+      "fee": 102.366,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.39,
+       "move": -0.12,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-02",
+      "bar_sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+      "limit": 0.41,
+      "exit_ts": 1788195600,
+      "exit_price": 0.06,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1787630400,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.38,
+      "limit": 0.37
+     },
+     {
+      "at": 1787724000,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.43,
+      "limit": 0.37
+     },
+     {
+      "at": 1787803200,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.45,
+      "limit": 0.42
+     },
+     {
+      "at": 1787846400,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.44,
+      "limit": 0.4
+     },
+     {
+      "at": 1787889600,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.5,
+      "limit": 0.45
+     }
+    ],
+    "cash": 7500.304,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 102.366,
+    "slippage": 0.0,
+    "return_pct": -24.997
+   },
+   "verdict": "inconclusive"
+  },
+  "macro-closer::KXSILVERMON-26AUG3117-T68.99": {
+   "username": "MacroCloser",
+   "candles": 91,
+   "bar_span": [
+    1785859200,
+    1788195600
+   ],
+   "provenance": [
+    "candles-02"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6489.63
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "commodity-drift::KXSILVERMON-26AUG3117-T68.99": {
+   "username": "CommodityDrift",
+   "candles": 91,
+   "bar_span": [
+    1785859200,
+    1788195600
+   ],
+   "provenance": [
+    "candles-02"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6489.63
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "sure-penny::KXSILVERMON-26AUG3117-T69.99": {
+   "username": "SurePenny",
+   "candles": 64,
+   "bar_span": [
+    1785852000,
+    1788188400
+   ],
+   "provenance": [
+    "candles-03"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 7674.59
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "longshot-fader::KXSILVERMON-26AUG3117-T69.99": {
+   "username": "LongshotFader",
+   "candles": 64,
+   "bar_span": [
+    1785852000,
+    1788188400
+   ],
+   "provenance": [
+    "candles-03"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 7674.59
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1787968800,
+      "side": "no",
+      "contracts": 2730,
+      "price": 0.91,
+      "touch": 0.9,
+      "fee": 15.6511,
+      "slippage": 27.3,
+      "trigger": {
+       "close": 0.1,
+       "note": "fade-longshot-yes-side"
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.92,
+      "exit_ts": 1788188400,
+      "exit_price": 0.94,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1787958000,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.9,
+      "limit": 0.89
+     }
+    ],
+    "cash": 7500.0489,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 15.6511,
+    "slippage": 27.3,
+    "return_pct": -24.9995
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "last-mile::KXSILVERMON-26AUG3117-T69.99": {
+   "username": "LastMile",
+   "candles": 64,
+   "bar_span": [
+    1785852000,
+    1788188400
+   ],
+   "provenance": [
+    "candles-03"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 7674.59
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "tape-rider::KXSILVERMON-26AUG3117-T69.99": {
+   "username": "TapeRider",
+   "candles": 64,
+   "bar_span": [
+    1785852000,
+    1788188400
+   ],
+   "provenance": [
+    "candles-03"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 7674.59
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1786118400,
+      "side": "yes",
+      "contracts": 13898,
+      "price": 0.17,
+      "touch": 0.22,
+      "fee": 137.2706,
+      "slippage": -694.9,
+      "trigger": {
+       "close": 0.22,
+       "prev_close": 0.14,
+       "move": 0.08
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.24,
+      "exit_ts": 1787270400,
+      "exit_price": 0.37,
+      "exit_fee": 226.7737,
+      "pnl": 2415.5557,
+      "exit_slippage": -833.88,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787270400,
+      "side": "no",
+      "contracts": 4802,
+      "price": 0.63,
+      "touch": 0.72,
+      "fee": 78.3543,
+      "slippage": -432.18,
+      "trigger": {
+       "close": 0.28,
+       "prev_close": 0.43,
+       "move": -0.15
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.74,
+      "exit_ts": 1787691600,
+      "exit_price": 0.63,
+      "exit_fee": 78.3543,
+      "pnl": -156.7086,
+      "exit_slippage": -336.14,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787691600,
+      "side": "yes",
+      "contracts": 7933,
+      "price": 0.37,
+      "touch": 0.35,
+      "fee": 129.4428,
+      "slippage": 158.66,
+      "trigger": {
+       "close": 0.35,
+       "prev_close": 0.3,
+       "move": 0.05
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.37,
+      "exit_ts": 1787810400,
+      "exit_price": 0.31,
+      "exit_fee": 118.7809,
+      "pnl": -724.2037,
+      "exit_slippage": -1110.62,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787839200,
+      "side": "no",
+      "contracts": 4090,
+      "price": 0.69,
+      "touch": 0.69,
+      "fee": 61.2396,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.31,
+       "prev_close": 0.39,
+       "move": -0.08
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.71,
+      "exit_ts": 1787968800,
+      "exit_price": 0.91,
+      "exit_fee": 23.448,
+      "pnl": 815.1124,
+      "exit_slippage": 163.6,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787968800,
+      "side": "no",
+      "contracts": 3371,
+      "price": 0.91,
+      "touch": 0.9,
+      "fee": 19.326,
+      "slippage": 33.71,
+      "trigger": {
+       "close": 0.1,
+       "prev_close": 0.13,
+       "move": -0.03
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.92,
+      "exit_ts": 1788188400,
+      "exit_price": 0.94,
+      "exit_fee": 13.3088,
+      "pnl": 68.4952,
+      "exit_slippage": -168.55,
+      "exit_reason": "target"
+     }
+    ],
+    "skips": [
+     {
+      "at": 1786096800,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.22,
+      "limit": 0.16
+     },
+     {
+      "at": 1787810400,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.69,
+      "limit": 0.63
+     }
+    ],
+    "cash": 12418.251,
+    "n": 5,
+    "wins": 3,
+    "losses": 2,
+    "realized_pnl": 2418.251,
+    "fees": 886.299,
+    "slippage": -3220.3,
+    "return_pct": 24.1825
+   },
+   "development": {
+    "trades": [
+     {
+      "entry_ts": 1786118400,
+      "side": "yes",
+      "contracts": 13898,
+      "price": 0.17,
+      "touch": 0.22,
+      "fee": 137.2706,
+      "slippage": -694.9,
+      "trigger": {
+       "close": 0.22,
+       "prev_close": 0.14,
+       "move": 0.08
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.24,
+      "exit_ts": 1787270400,
+      "exit_price": 0.37,
+      "exit_fee": 226.7737,
+      "pnl": 2415.5557,
+      "exit_slippage": -833.88,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787270400,
+      "side": "no",
+      "contracts": 4802,
+      "price": 0.63,
+      "touch": 0.72,
+      "fee": 78.3543,
+      "slippage": -432.18,
+      "trigger": {
+       "close": 0.28,
+       "prev_close": 0.43,
+       "move": -0.15
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.74,
+      "exit_ts": 1787691600,
+      "exit_price": 0.63,
+      "exit_fee": 78.3543,
+      "pnl": -156.7086,
+      "exit_slippage": -336.14,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787691600,
+      "side": "yes",
+      "contracts": 7933,
+      "price": 0.37,
+      "touch": 0.35,
+      "fee": 129.4428,
+      "slippage": 158.66,
+      "trigger": {
+       "close": 0.35,
+       "prev_close": 0.3,
+       "move": 0.05
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.37,
+      "exit_ts": 1787803200,
+      "exit_price": 0.39,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1786096800,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.22,
+      "limit": 0.16
+     }
+    ],
+    "cash": 9194.1943,
+    "n": 2,
+    "wins": 1,
+    "losses": 1,
+    "realized_pnl": 2258.8471,
+    "fees": 650.1957,
+    "slippage": -2138.44,
+    "return_pct": -8.0581
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1787868000,
+      "side": "yes",
+      "contracts": 6832,
+      "price": 0.35,
+      "touch": 0.37,
+      "fee": 108.7996,
+      "slippage": -136.64,
+      "trigger": {
+       "close": 0.37,
+       "prev_close": 0.31,
+       "move": 0.06
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.39,
+      "exit_ts": 1787925600,
+      "exit_price": 0.6,
+      "exit_fee": 114.7776,
+      "pnl": 1484.4228,
+      "exit_slippage": 683.2,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787925600,
+      "side": "no",
+      "contracts": 6888,
+      "price": 0.4,
+      "touch": 0.53,
+      "fee": 115.7184,
+      "slippage": -895.44,
+      "trigger": {
+       "close": 0.47,
+       "prev_close": 0.5,
+       "move": -0.03
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.55,
+      "exit_ts": 1787936400,
+      "exit_price": 0.87,
+      "exit_fee": 54.5323,
+      "pnl": 3067.1093,
+      "exit_slippage": 1170.96,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787968800,
+      "side": "no",
+      "contracts": 3972,
+      "price": 0.91,
+      "touch": 0.9,
+      "fee": 22.7715,
+      "slippage": 39.72,
+      "trigger": {
+       "close": 0.1,
+       "prev_close": 0.13,
+       "move": -0.03
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.92,
+      "exit_ts": 1788188400,
+      "exit_price": 0.94,
+      "exit_fee": 15.6815,
+      "pnl": 80.707,
+      "exit_slippage": -198.6,
+      "exit_reason": "target"
+     }
+    ],
+    "skips": [
+     {
+      "at": 1787958000,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.9,
+      "limit": 0.89
+     }
+    ],
+    "cash": 14632.2391,
+    "n": 3,
+    "wins": 3,
+    "losses": 0,
+    "realized_pnl": 4632.2391,
+    "fees": 432.2809,
+    "slippage": 663.2,
+    "return_pct": 46.3224
+   },
+   "verdict": "inconclusive"
+  },
+  "deep-fade::KXSILVERMON-26AUG3117-T69.99": {
+   "username": "DeepFade",
+   "candles": 64,
+   "bar_span": [
+    1785852000,
+    1788188400
+   ],
+   "provenance": [
+    "candles-03"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 7674.59
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1787932800,
+      "side": "yes",
+      "contracts": 7692,
+      "price": 0.31,
+      "touch": 0.3,
+      "fee": 115.1724,
+      "slippage": 76.92,
+      "trigger": {
+       "close": 0.3,
+       "move": -0.3,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.32,
+      "exit_ts": 1788188400,
+      "exit_price": 0.06,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1787270400,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.37,
+      "limit": 0.3
+     },
+     {
+      "at": 1787774400,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.25,
+      "limit": 0.24
+     },
+     {
+      "at": 1787929200,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.55,
+      "limit": 0.42
+     }
+    ],
+    "cash": 7500.3076,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 115.1724,
+    "slippage": 76.92,
+    "return_pct": -24.9969
+   },
+   "development": {
+    "trades": [],
+    "skips": [
+     {
+      "at": 1787270400,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.37,
+      "limit": 0.3
+     },
+     {
+      "at": 1787774400,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.25,
+      "limit": 0.24
+     }
+    ],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1787932800,
+      "side": "yes",
+      "contracts": 7692,
+      "price": 0.31,
+      "touch": 0.3,
+      "fee": 115.1724,
+      "slippage": 76.92,
+      "trigger": {
+       "close": 0.3,
+       "move": -0.3,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-03",
+      "bar_sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+      "limit": 0.32,
+      "exit_ts": 1788188400,
+      "exit_price": 0.06,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1787929200,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.55,
+      "limit": 0.42
+     }
+    ],
+    "cash": 7500.3076,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 115.1724,
+    "slippage": 76.92,
+    "return_pct": -24.9969
+   },
+   "verdict": "inconclusive"
+  },
+  "macro-closer::KXSILVERMON-26AUG3117-T69.99": {
+   "username": "MacroCloser",
+   "candles": 64,
+   "bar_span": [
+    1785852000,
+    1788188400
+   ],
+   "provenance": [
+    "candles-03"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 7674.59
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "commodity-drift::KXSILVERMON-26AUG3117-T69.99": {
+   "username": "CommodityDrift",
+   "candles": 64,
+   "bar_span": [
+    1785852000,
+    1788188400
+   ],
+   "provenance": [
+    "candles-03"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 7674.59
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "sure-penny::KXSILVERMON-26AUG3117-T70.99": {
+   "username": "SurePenny",
+   "candles": 49,
+   "bar_span": [
+    1785679200,
+    1788098400
+   ],
+   "provenance": [
+    "candles-04"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6163.83
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "longshot-fader::KXSILVERMON-26AUG3117-T70.99": {
+   "username": "LongshotFader",
+   "candles": 49,
+   "bar_span": [
+    1785679200,
+    1788098400
+   ],
+   "provenance": [
+    "candles-04"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6163.83
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1787986800,
+      "side": "no",
+      "contracts": 2622,
+      "price": 0.95,
+      "touch": 0.97,
+      "fee": 8.7182,
+      "slippage": -52.44,
+      "trigger": {
+       "close": 0.03,
+       "note": "fade-longshot-yes-side"
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.99,
+      "exit_ts": 1788098400,
+      "exit_price": 0.95,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7500.3818,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 8.7182,
+    "slippage": -52.44,
+    "return_pct": -24.9962
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "last-mile::KXSILVERMON-26AUG3117-T70.99": {
+   "username": "LastMile",
+   "candles": 49,
+   "bar_span": [
+    1785679200,
+    1788098400
+   ],
+   "provenance": [
+    "candles-04"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6163.83
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "tape-rider::KXSILVERMON-26AUG3117-T70.99": {
+   "username": "TapeRider",
+   "candles": 49,
+   "bar_span": [
+    1785679200,
+    1788098400
+   ],
+   "provenance": [
+    "candles-04"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6163.83
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1785963600,
+      "side": "yes",
+      "contracts": 26114,
+      "price": 0.09,
+      "touch": 0.09,
+      "fee": 149.7116,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.09,
+       "prev_close": 0.03,
+       "move": 0.06
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.11,
+      "exit_ts": 1786392000,
+      "exit_price": 0.14,
+      "exit_fee": 220.0888,
+      "pnl": 935.8996,
+      "exit_slippage": -783.42,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1786392000,
+      "side": "no",
+      "contracts": 3148,
+      "price": 0.86,
+      "touch": 0.88,
+      "fee": 26.5314,
+      "slippage": -62.96,
+      "trigger": {
+       "close": 0.12,
+       "prev_close": 0.17,
+       "move": -0.05
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.9,
+      "exit_ts": 1786978800,
+      "exit_price": 0.82,
+      "exit_fee": 32.5252,
+      "pnl": -184.9766,
+      "exit_slippage": -314.8,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1786996800,
+      "side": "yes",
+      "contracts": 14121,
+      "price": 0.18,
+      "touch": 0.38,
+      "fee": 145.8982,
+      "slippage": -2824.2,
+      "trigger": {
+       "close": 0.38,
+       "prev_close": 0.11,
+       "move": 0.27
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.4,
+      "exit_ts": 1787256000,
+      "exit_price": 0.28,
+      "exit_fee": 199.2756,
+      "pnl": 1066.9262,
+      "exit_slippage": -7342.92,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787256000,
+      "side": "no",
+      "contracts": 4024,
+      "price": 0.72,
+      "touch": 0.8,
+      "fee": 56.7867,
+      "slippage": -321.92,
+      "trigger": {
+       "close": 0.2,
+       "prev_close": 0.8,
+       "move": -0.6
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.82,
+      "exit_ts": 1787720400,
+      "exit_price": 0.71,
+      "exit_fee": 57.998,
+      "pnl": -155.0247,
+      "exit_slippage": -603.6,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787720400,
+      "side": "yes",
+      "contracts": 9578,
+      "price": 0.29,
+      "touch": 0.33,
+      "fee": 138.0478,
+      "slippage": -383.12,
+      "trigger": {
+       "close": 0.33,
+       "prev_close": 0.14,
+       "move": 0.19
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.35,
+      "exit_ts": 1787796000,
+      "exit_price": 0.31,
+      "exit_fee": 143.4114,
+      "pnl": -89.8992,
+      "exit_slippage": -4214.32,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787796000,
+      "side": "no",
+      "contracts": 4104,
+      "price": 0.69,
+      "touch": 0.75,
+      "fee": 61.4492,
+      "slippage": -246.24,
+      "trigger": {
+       "close": 0.25,
+       "prev_close": 0.75,
+       "move": -0.5
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.77,
+      "exit_ts": 1787922000,
+      "exit_price": 0.57,
+      "exit_fee": 70.4124,
+      "pnl": -624.3416,
+      "exit_slippage": -820.8,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787929200,
+      "side": "yes",
+      "contracts": 9644,
+      "price": 0.27,
+      "touch": 0.43,
+      "fee": 133.0583,
+      "slippage": -1543.04,
+      "trigger": {
+       "close": 0.43,
+       "prev_close": 0.24,
+       "move": 0.19
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.45,
+      "exit_ts": 1788098400,
+      "exit_price": 0.05,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1786978800,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.18,
+      "limit": 0.13
+     }
+    ],
+    "cash": 8211.6454,
+    "n": 6,
+    "wins": 2,
+    "losses": 4,
+    "realized_pnl": 948.5837,
+    "fees": 1435.1946,
+    "slippage": -19461.34,
+    "return_pct": -17.8835
+   },
+   "development": {
+    "trades": [
+     {
+      "entry_ts": 1785963600,
+      "side": "yes",
+      "contracts": 26114,
+      "price": 0.09,
+      "touch": 0.09,
+      "fee": 149.7116,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.09,
+       "prev_close": 0.03,
+       "move": 0.06
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.11,
+      "exit_ts": 1786392000,
+      "exit_price": 0.14,
+      "exit_fee": 220.0888,
+      "pnl": 935.8996,
+      "exit_slippage": -783.42,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1786392000,
+      "side": "no",
+      "contracts": 3148,
+      "price": 0.86,
+      "touch": 0.88,
+      "fee": 26.5314,
+      "slippage": -62.96,
+      "trigger": {
+       "close": 0.12,
+       "prev_close": 0.17,
+       "move": -0.05
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.9,
+      "exit_ts": 1786978800,
+      "exit_price": 0.82,
+      "exit_fee": 32.5252,
+      "pnl": -184.9766,
+      "exit_slippage": -314.8,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1786996800,
+      "side": "yes",
+      "contracts": 14121,
+      "price": 0.18,
+      "touch": 0.38,
+      "fee": 145.8982,
+      "slippage": -2824.2,
+      "trigger": {
+       "close": 0.38,
+       "prev_close": 0.11,
+       "move": 0.27
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.4,
+      "exit_ts": 1787256000,
+      "exit_price": 0.28,
+      "exit_fee": 199.2756,
+      "pnl": 1066.9262,
+      "exit_slippage": -7342.92,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787256000,
+      "side": "no",
+      "contracts": 4024,
+      "price": 0.72,
+      "touch": 0.8,
+      "fee": 56.7867,
+      "slippage": -321.92,
+      "trigger": {
+       "close": 0.2,
+       "prev_close": 0.8,
+       "move": -0.6
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.82,
+      "exit_ts": 1787612400,
+      "exit_price": 0.7,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1786978800,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.18,
+      "limit": 0.13
+     }
+    ],
+    "cash": 8863.7825,
+    "n": 3,
+    "wins": 2,
+    "losses": 1,
+    "realized_pnl": 1817.8492,
+    "fees": 830.8175,
+    "slippage": -11650.22,
+    "return_pct": -11.3622
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1787713200,
+      "side": "no",
+      "contracts": 3361,
+      "price": 0.73,
+      "touch": 0.86,
+      "fee": 46.3718,
+      "slippage": -436.93,
+      "trigger": {
+       "close": 0.14,
+       "prev_close": 0.25,
+       "move": -0.11
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.88,
+      "exit_ts": 1787788800,
+      "exit_price": 0.75,
+      "exit_fee": 44.1132,
+      "pnl": -23.265,
+      "exit_slippage": -201.66,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787788800,
+      "side": "yes",
+      "contracts": 9479,
+      "price": 0.25,
+      "touch": 0.75,
+      "fee": 124.4119,
+      "slippage": -4739.5,
+      "trigger": {
+       "close": 0.75,
+       "prev_close": 0.19,
+       "move": 0.56
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.77,
+      "exit_ts": 1787889600,
+      "exit_price": 0.23,
+      "exit_fee": 117.5112,
+      "pnl": -431.5031,
+      "exit_slippage": -758.32,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787889600,
+      "side": "no",
+      "contracts": 3049,
+      "price": 0.77,
+      "touch": 0.77,
+      "fee": 37.7985,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.23,
+       "prev_close": 0.31,
+       "move": -0.08
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.79,
+      "exit_ts": 1787990400,
+      "exit_price": 0.94,
+      "exit_fee": 12.0375,
+      "pnl": 468.494,
+      "exit_slippage": -91.47,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788040800,
+      "side": "no",
+      "contracts": 2526,
+      "price": 0.99,
+      "touch": 0.99,
+      "fee": 1.7506,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.01,
+       "prev_close": 0.06,
+       "move": -0.05
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.99,
+      "exit_ts": 1788098400,
+      "exit_price": 0.95,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7511.2353,
+    "n": 3,
+    "wins": 1,
+    "losses": 2,
+    "realized_pnl": 13.7259,
+    "fees": 383.9947,
+    "slippage": -6227.88,
+    "return_pct": -24.8876
+   },
+   "verdict": "inconclusive"
+  },
+  "deep-fade::KXSILVERMON-26AUG3117-T70.99": {
+   "username": "DeepFade",
+   "candles": 49,
+   "bar_span": [
+    1785679200,
+    1788098400
+   ],
+   "provenance": [
+    "candles-04"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6163.83
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1787011200,
+      "side": "yes",
+      "contracts": 13898,
+      "price": 0.17,
+      "touch": 0.18,
+      "fee": 137.2706,
+      "slippage": -138.98,
+      "trigger": {
+       "close": 0.18,
+       "move": -0.2,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.2,
+      "exit_ts": 1787256000,
+      "exit_price": 0.28,
+      "exit_fee": 196.1286,
+      "pnl": 1195.3808,
+      "exit_slippage": -7226.96,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1787936400,
+      "side": "yes",
+      "contracts": 13252,
+      "price": 0.2,
+      "touch": 0.26,
+      "fee": 148.4224,
+      "slippage": -795.12,
+      "trigger": {
+       "close": 0.26,
+       "move": -0.17,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.28,
+      "exit_ts": 1788098400,
+      "exit_price": 0.05,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1786834800,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.11,
+      "limit": 0.1
+     },
+     {
+      "at": 1787256000,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.28,
+      "limit": 0.22
+     },
+     {
+      "at": 1787713200,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.27,
+      "limit": 0.16
+     },
+     {
+      "at": 1787788800,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.75,
+      "limit": 0.27
+     },
+     {
+      "at": 1787796000,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.31,
+      "limit": 0.27
+     }
+    ],
+    "cash": 8396.5584,
+    "n": 1,
+    "wins": 1,
+    "losses": 0,
+    "realized_pnl": 1195.3808,
+    "fees": 481.8216,
+    "slippage": -8161.06,
+    "return_pct": -16.0344
+   },
+   "development": {
+    "trades": [
+     {
+      "entry_ts": 1787011200,
+      "side": "yes",
+      "contracts": 13898,
+      "price": 0.17,
+      "touch": 0.18,
+      "fee": 137.2706,
+      "slippage": -138.98,
+      "trigger": {
+       "close": 0.18,
+       "move": -0.2,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.2,
+      "exit_ts": 1787256000,
+      "exit_price": 0.28,
+      "exit_fee": 196.1286,
+      "pnl": 1195.3808,
+      "exit_slippage": -7226.96,
+      "exit_reason": "target"
+     }
+    ],
+    "skips": [
+     {
+      "at": 1786834800,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.11,
+      "limit": 0.1
+     },
+     {
+      "at": 1787256000,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.28,
+      "limit": 0.22
+     }
+    ],
+    "cash": 11195.3808,
+    "n": 1,
+    "wins": 1,
+    "losses": 0,
+    "realized_pnl": 1195.3808,
+    "fees": 333.3992,
+    "slippage": -7365.94,
+    "return_pct": 11.9538
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1787936400,
+      "side": "yes",
+      "contracts": 11837,
+      "price": 0.2,
+      "touch": 0.26,
+      "fee": 132.5744,
+      "slippage": -710.22,
+      "trigger": {
+       "close": 0.26,
+       "move": -0.17,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-04",
+      "bar_sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+      "limit": 0.28,
+      "exit_ts": 1788098400,
+      "exit_price": 0.05,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1787713200,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.27,
+      "limit": 0.16
+     },
+     {
+      "at": 1787788800,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.75,
+      "limit": 0.27
+     },
+     {
+      "at": 1787796000,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.31,
+      "limit": 0.27
+     }
+    ],
+    "cash": 7500.0256,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 132.5744,
+    "slippage": -710.22,
+    "return_pct": -24.9997
+   },
+   "verdict": "inconclusive"
+  },
+  "macro-closer::KXSILVERMON-26AUG3117-T70.99": {
+   "username": "MacroCloser",
+   "candles": 49,
+   "bar_span": [
+    1785679200,
+    1788098400
+   ],
+   "provenance": [
+    "candles-04"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6163.83
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "commodity-drift::KXSILVERMON-26AUG3117-T70.99": {
+   "username": "CommodityDrift",
+   "candles": 49,
+   "bar_span": [
+    1785679200,
+    1788098400
+   ],
+   "provenance": [
+    "candles-04"
+   ],
+   "market": {
+    "result": "no",
+    "status": "finalized",
+    "close_ts": 1788210000,
+    "volume": 6163.83
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "sure-penny::KXSILVERMON-26SEP3017-T65.99": {
+   "username": "SurePenny",
+   "candles": 103,
+   "bar_span": [
+    1788368400,
+    1790132400
+   ],
+   "provenance": [
+    "candles-05"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 6249.96
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "longshot-fader::KXSILVERMON-26SEP3017-T65.99": {
+   "username": "LongshotFader",
+   "candles": 103,
+   "bar_span": [
+    1788368400,
+    1790132400
+   ],
+   "provenance": [
+    "candles-05"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 6249.96
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "last-mile::KXSILVERMON-26SEP3017-T65.99": {
+   "username": "LastMile",
+   "candles": 103,
+   "bar_span": [
+    1788368400,
+    1790132400
+   ],
+   "provenance": [
+    "candles-05"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 6249.96
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "tape-rider::KXSILVERMON-26SEP3017-T65.99": {
+   "username": "TapeRider",
+   "candles": 103,
+   "bar_span": [
+    1788368400,
+    1790132400
+   ],
+   "provenance": [
+    "candles-05"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 6249.96
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1788400800,
+      "side": "no",
+      "contracts": 4739,
+      "price": 0.51,
+      "touch": 0.62,
+      "fee": 82.8994,
+      "slippage": -521.29,
+      "trigger": {
+       "close": 0.38,
+       "prev_close": 0.44,
+       "move": -0.06
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.64,
+      "exit_ts": 1788919200,
+      "exit_price": 0.54,
+      "exit_fee": 82.4018,
+      "pnl": -23.1312,
+      "exit_slippage": -663.46,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788919200,
+      "side": "yes",
+      "contracts": 5224,
+      "price": 0.46,
+      "touch": 0.44,
+      "fee": 90.835,
+      "slippage": 104.48,
+      "trigger": {
+       "close": 0.44,
+       "prev_close": 0.32,
+       "move": 0.12
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.46,
+      "exit_ts": 1788973200,
+      "exit_price": 0.53,
+      "exit_fee": 91.0909,
+      "pnl": 183.7541,
+      "exit_slippage": 0.0,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788987600,
+      "side": "no",
+      "contracts": 5435,
+      "price": 0.45,
+      "touch": 0.48,
+      "fee": 94.1614,
+      "slippage": -163.05,
+      "trigger": {
+       "close": 0.52,
+       "prev_close": 0.55,
+       "move": -0.03
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.5,
+      "exit_ts": 1789066800,
+      "exit_price": 0.69,
+      "exit_fee": 81.3783,
+      "pnl": 1128.8603,
+      "exit_slippage": 923.95,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789066800,
+      "side": "yes",
+      "contracts": 8684,
+      "price": 0.31,
+      "touch": 0.56,
+      "fee": 130.0256,
+      "slippage": -2171.0,
+      "trigger": {
+       "close": 0.56,
+       "prev_close": 0.48,
+       "move": 0.08
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.58,
+      "exit_ts": 1789308000,
+      "exit_price": 0.37,
+      "exit_fee": 141.6969,
+      "pnl": 249.3175,
+      "exit_slippage": -434.2,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789308000,
+      "side": "no",
+      "contracts": 4463,
+      "price": 0.63,
+      "touch": 0.63,
+      "fee": 72.8228,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.37,
+       "prev_close": 0.42,
+       "move": -0.05
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.65,
+      "exit_ts": 1789408800,
+      "exit_price": 0.69,
+      "exit_fee": 66.8245,
+      "pnl": 128.1327,
+      "exit_slippage": -178.52,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789560000,
+      "side": "yes",
+      "contracts": 8442,
+      "price": 0.33,
+      "touch": 0.32,
+      "fee": 130.6569,
+      "slippage": 84.42,
+      "trigger": {
+       "close": 0.32,
+       "prev_close": 0.26,
+       "move": 0.06
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.34,
+      "exit_ts": 1789693200,
+      "exit_price": 0.48,
+      "exit_fee": 147.4987,
+      "pnl": 988.1444,
+      "exit_slippage": 84.42,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789729200,
+      "side": "yes",
+      "contracts": 5129,
+      "price": 0.6,
+      "touch": 0.63,
+      "fee": 86.1672,
+      "slippage": -153.87,
+      "trigger": {
+       "close": 0.63,
+       "prev_close": 0.48,
+       "move": 0.15
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.65,
+      "exit_ts": 1790132400,
+      "exit_price": 0.56,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 9491.5106,
+    "n": 6,
+    "wins": 5,
+    "losses": 1,
+    "realized_pnl": 2655.0778,
+    "fees": 1298.4594,
+    "slippage": -3088.12,
+    "return_pct": -5.0849
+   },
+   "development": {
+    "trades": [
+     {
+      "entry_ts": 1788400800,
+      "side": "no",
+      "contracts": 4739,
+      "price": 0.51,
+      "touch": 0.62,
+      "fee": 82.8994,
+      "slippage": -521.29,
+      "trigger": {
+       "close": 0.38,
+       "prev_close": 0.44,
+       "move": -0.06
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.64,
+      "exit_ts": 1788919200,
+      "exit_price": 0.54,
+      "exit_fee": 82.4018,
+      "pnl": -23.1312,
+      "exit_slippage": -663.46,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788919200,
+      "side": "yes",
+      "contracts": 5224,
+      "price": 0.46,
+      "touch": 0.44,
+      "fee": 90.835,
+      "slippage": 104.48,
+      "trigger": {
+       "close": 0.44,
+       "prev_close": 0.32,
+       "move": 0.12
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.46,
+      "exit_ts": 1788973200,
+      "exit_price": 0.53,
+      "exit_fee": 91.0909,
+      "pnl": 183.7541,
+      "exit_slippage": 0.0,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1788987600,
+      "side": "no",
+      "contracts": 5435,
+      "price": 0.45,
+      "touch": 0.48,
+      "fee": 94.1614,
+      "slippage": -163.05,
+      "trigger": {
+       "close": 0.52,
+       "prev_close": 0.55,
+       "move": -0.03
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.5,
+      "exit_ts": 1789012800,
+      "exit_price": 0.41,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7620.7115,
+    "n": 2,
+    "wins": 1,
+    "losses": 1,
+    "realized_pnl": 160.6229,
+    "fees": 441.3885,
+    "slippage": -1243.32,
+    "return_pct": -23.7929
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1789066800,
+      "side": "yes",
+      "contracts": 7692,
+      "price": 0.31,
+      "touch": 0.56,
+      "fee": 115.1724,
+      "slippage": -1923.0,
+      "trigger": {
+       "close": 0.56,
+       "prev_close": 0.48,
+       "move": 0.08
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.58,
+      "exit_ts": 1789308000,
+      "exit_price": 0.37,
+      "exit_fee": 125.5104,
+      "pnl": 220.8372,
+      "exit_slippage": -384.6,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789308000,
+      "side": "no",
+      "contracts": 3953,
+      "price": 0.63,
+      "touch": 0.63,
+      "fee": 64.5012,
+      "slippage": 0.0,
+      "trigger": {
+       "close": 0.37,
+       "prev_close": 0.42,
+       "move": -0.05
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.65,
+      "exit_ts": 1789408800,
+      "exit_price": 0.69,
+      "exit_fee": 59.1883,
+      "pnl": 113.4905,
+      "exit_slippage": -158.12,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789560000,
+      "side": "yes",
+      "contracts": 7478,
+      "price": 0.33,
+      "touch": 0.32,
+      "fee": 115.7371,
+      "slippage": 74.78,
+      "trigger": {
+       "close": 0.32,
+       "prev_close": 0.26,
+       "move": 0.06
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.34,
+      "exit_ts": 1789693200,
+      "exit_price": 0.48,
+      "exit_fee": 130.6557,
+      "pnl": 875.3072,
+      "exit_slippage": 74.78,
+      "exit_reason": "target"
+     },
+     {
+      "entry_ts": 1789729200,
+      "side": "yes",
+      "contracts": 4543,
+      "price": 0.6,
+      "touch": 0.63,
+      "fee": 76.3224,
+      "slippage": -136.29,
+      "trigger": {
+       "close": 0.63,
+       "prev_close": 0.48,
+       "move": 0.15
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.65,
+      "exit_ts": 1790132400,
+      "exit_price": 0.56,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1789034400,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.52,
+      "limit": 0.51
+     },
+     {
+      "at": 1789048800,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.67,
+      "limit": 0.54
+     }
+    ],
+    "cash": 8407.5125,
+    "n": 3,
+    "wins": 3,
+    "losses": 0,
+    "realized_pnl": 1209.6349,
+    "fees": 687.0875,
+    "slippage": -2452.45,
+    "return_pct": -15.9249
+   },
+   "verdict": "inconclusive"
+  },
+  "deep-fade::KXSILVERMON-26SEP3017-T65.99": {
+   "username": "DeepFade",
+   "candles": 103,
+   "bar_span": [
+    1788368400,
+    1790132400
+   ],
+   "provenance": [
+    "candles-05"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 6249.96
+   },
+   "full": {
+    "trades": [
+     {
+      "entry_ts": 1789077600,
+      "side": "yes",
+      "contracts": 7457,
+      "price": 0.32,
+      "touch": 0.31,
+      "fee": 113.5851,
+      "slippage": 74.57,
+      "trigger": {
+       "close": 0.31,
+       "move": -0.25,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.33,
+      "exit_ts": 1790132400,
+      "exit_price": 0.56,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [
+     {
+      "at": 1788508800,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.55,
+      "limit": 0.47
+     },
+     {
+      "at": 1788555600,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.49,
+      "limit": 0.47
+     },
+     {
+      "at": 1788915600,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.44,
+      "limit": 0.34
+     }
+    ],
+    "cash": 7500.1749,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 113.5851,
+    "slippage": 74.57,
+    "return_pct": -24.9983
+   },
+   "development": {
+    "trades": [],
+    "skips": [
+     {
+      "at": 1788508800,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.55,
+      "limit": 0.47
+     },
+     {
+      "at": 1788555600,
+      "side": "no",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.49,
+      "limit": 0.47
+     },
+     {
+      "at": 1788915600,
+      "side": "yes",
+      "reason": "open-worse-than-limit",
+      "exec_price": 0.44,
+      "limit": 0.34
+     }
+    ],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [
+     {
+      "entry_ts": 1789077600,
+      "side": "yes",
+      "contracts": 7457,
+      "price": 0.32,
+      "touch": 0.31,
+      "fee": 113.5851,
+      "slippage": 74.57,
+      "trigger": {
+       "close": 0.31,
+       "move": -0.25,
+       "note": "fade-the-drop"
+      },
+      "bar_provenance": "candles-05",
+      "bar_sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+      "limit": 0.33,
+      "exit_ts": 1790132400,
+      "exit_price": 0.56,
+      "exit_fee": 0.0,
+      "pnl": null,
+      "exit_slippage": 0.0,
+      "exit_reason": "open-at-data-end",
+      "marked": true
+     }
+    ],
+    "skips": [],
+    "cash": 7500.1749,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 113.5851,
+    "slippage": 74.57,
+    "return_pct": -24.9983
+   },
+   "verdict": "inconclusive"
+  },
+  "macro-closer::KXSILVERMON-26SEP3017-T65.99": {
+   "username": "MacroCloser",
+   "candles": 103,
+   "bar_span": [
+    1788368400,
+    1790132400
+   ],
+   "provenance": [
+    "candles-05"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 6249.96
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  },
+  "commodity-drift::KXSILVERMON-26SEP3017-T65.99": {
+   "username": "CommodityDrift",
+   "candles": 103,
+   "bar_span": [
+    1788368400,
+    1790132400
+   ],
+   "provenance": [
+    "candles-05"
+   ],
+   "market": {
+    "result": null,
+    "status": "active",
+    "close_ts": 1790802000,
+    "volume": 6249.96
+   },
+   "full": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "development": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "validation": {
+    "trades": [],
+    "skips": [],
+    "cash": 10000.0,
+    "n": 0,
+    "wins": 0,
+    "losses": 0,
+    "realized_pnl": 0,
+    "fees": 0,
+    "slippage": 0,
+    "return_pct": 0.0
+   },
+   "verdict": "inconclusive"
+  }
+ }
 }

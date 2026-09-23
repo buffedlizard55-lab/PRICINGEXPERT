@@ -1,0 +1,12 @@
+{
+ "bytes": 185540,
+ "fetched_at": "2026-09-23T03:08:18Z",
+ "http_status": 200,
+ "id": "candles-06",
+ "note": "kind:candlesticks \u2014 KXGOLDMON-26SEP3017-T4370.99: active Sep month, vol 9,735 (vol24 842) \u2014 top gold monthly strike; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads",
+ "series": "KXGOLDMON",
+ "sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+ "ticker": "KXGOLDMON-26SEP3017-T4370.99",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXGOLDMON/markets/KXGOLDMON-26SEP3017-T4370.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
+}

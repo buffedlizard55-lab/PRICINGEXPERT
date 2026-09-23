@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-23T02:54:10Z",
+ "built_at": "2026-09-23T03:08:21Z",
  "hypotheses": [
   {
    "basis": "Documented in prediction-market literature (CEPR/VoxEU analysis of 300k+ Kalshi contracts; classic parimutuel favourite-longshot bias). For THIS exchange and THIS season it is a hypothesis to be tested by the forward ledger, not an assumption.",
@@ -112,7 +112,7 @@
    "event_ticker": "KXSILVERMON-26AUG3117",
    "exchange_index": 0,
    "expected_expiration_ts": 1788210000,
-   "fetched_at": "2026-09-23T02:54:09Z",
+   "fetched_at": "2026-09-23T03:08:19Z",
    "last": 0.06,
    "liquidity_dollars": 0.0,
    "no_ask": 1.0,
@@ -149,7 +149,7 @@
    "event_ticker": "KXSILVERMON-26AUG3117",
    "exchange_index": 0,
    "expected_expiration_ts": 1788210000,
-   "fetched_at": "2026-09-23T02:54:09Z",
+   "fetched_at": "2026-09-23T03:08:19Z",
    "last": 0.06,
    "liquidity_dollars": 0.0,
    "no_ask": 1.0,
@@ -186,7 +186,7 @@
    "event_ticker": "KXSILVERMON-26AUG3117",
    "exchange_index": 0,
    "expected_expiration_ts": 1788210000,
-   "fetched_at": "2026-09-23T02:54:09Z",
+   "fetched_at": "2026-09-23T03:08:19Z",
    "last": 0.06,
    "liquidity_dollars": 0.0,
    "no_ask": 1.0,
@@ -223,7 +223,7 @@
    "event_ticker": "KXSILVERMON-26AUG3117",
    "exchange_index": 0,
    "expected_expiration_ts": 1788210000,
-   "fetched_at": "2026-09-23T02:54:09Z",
+   "fetched_at": "2026-09-23T03:08:19Z",
    "last": 0.05,
    "liquidity_dollars": 0.0,
    "no_ask": 1.0,
@@ -485,5 +485,692 @@
    "verdict_note": "The literature citation (CEPR) covers the whole exchange but is third-party; per-family ledger samples are the primary evidence for this project."
   }
  ],
- "tests": []
+ "tests": [
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-06"
+   ],
+   "data_range": "1788289200..1790114400 (epoch s), 172 bars",
+   "hypothesis": "commodity-drift",
+   "id": "BT-commodity-drift-KXGOLDMON-26SEP3017-T4370.99",
+   "market": "KXGOLDMON-26SEP3017-T4370.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-07"
+   ],
+   "data_range": "1789794000..1790128800 (epoch s), 34 bars",
+   "hypothesis": "commodity-drift",
+   "id": "BT-commodity-drift-KXGOLDW-26SEP2517-T4362.99",
+   "market": "KXGOLDW-26SEP2517-T4362.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-01"
+   ],
+   "data_range": "1785852000..1788206400 (epoch s), 122 bars",
+   "hypothesis": "commodity-drift",
+   "id": "BT-commodity-drift-KXSILVERMON-26AUG3117-T67.99",
+   "market": "KXSILVERMON-26AUG3117-T67.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-02"
+   ],
+   "data_range": "1785859200..1788195600 (epoch s), 91 bars",
+   "hypothesis": "commodity-drift",
+   "id": "BT-commodity-drift-KXSILVERMON-26AUG3117-T68.99",
+   "market": "KXSILVERMON-26AUG3117-T68.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-03"
+   ],
+   "data_range": "1785852000..1788188400 (epoch s), 64 bars",
+   "hypothesis": "commodity-drift",
+   "id": "BT-commodity-drift-KXSILVERMON-26AUG3117-T69.99",
+   "market": "KXSILVERMON-26AUG3117-T69.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-04"
+   ],
+   "data_range": "1785679200..1788098400 (epoch s), 49 bars",
+   "hypothesis": "commodity-drift",
+   "id": "BT-commodity-drift-KXSILVERMON-26AUG3117-T70.99",
+   "market": "KXSILVERMON-26AUG3117-T70.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-05"
+   ],
+   "data_range": "1788368400..1790132400 (epoch s), 103 bars",
+   "hypothesis": "commodity-drift",
+   "id": "BT-commodity-drift-KXSILVERMON-26SEP3017-T65.99",
+   "market": "KXSILVERMON-26SEP3017-T65.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-06"
+   ],
+   "data_range": "1788289200..1790114400 (epoch s), 172 bars",
+   "hypothesis": "deep-fade",
+   "id": "BT-deep-fade-KXGOLDMON-26SEP3017-T4370.99",
+   "market": "KXGOLDMON-26SEP3017-T4370.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-07"
+   ],
+   "data_range": "1789794000..1790128800 (epoch s), 34 bars",
+   "hypothesis": "deep-fade",
+   "id": "BT-deep-fade-KXGOLDW-26SEP2517-T4362.99",
+   "market": "KXGOLDW-26SEP2517-T4362.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-01"
+   ],
+   "data_range": "1785852000..1788206400 (epoch s), 122 bars",
+   "hypothesis": "deep-fade",
+   "id": "BT-deep-fade-KXSILVERMON-26AUG3117-T67.99",
+   "market": "KXSILVERMON-26AUG3117-T67.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=2 W/L=2/0 PnL=5117.5414 fees=743.1944 slip=-2357.75; validation: n=1 PnL=2029.8746",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-02"
+   ],
+   "data_range": "1785859200..1788195600 (epoch s), 91 bars",
+   "hypothesis": "deep-fade",
+   "id": "BT-deep-fade-KXSILVERMON-26AUG3117-T68.99",
+   "market": "KXSILVERMON-26AUG3117-T68.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=2 W/L=2/0 PnL=5380.0169 fees=512.7631 slip=124.02; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-03"
+   ],
+   "data_range": "1785852000..1788188400 (epoch s), 64 bars",
+   "hypothesis": "deep-fade",
+   "id": "BT-deep-fade-KXSILVERMON-26AUG3117-T69.99",
+   "market": "KXSILVERMON-26AUG3117-T69.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=115.1724 slip=76.92; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-04"
+   ],
+   "data_range": "1785679200..1788098400 (epoch s), 49 bars",
+   "hypothesis": "deep-fade",
+   "id": "BT-deep-fade-KXSILVERMON-26AUG3117-T70.99",
+   "market": "KXSILVERMON-26AUG3117-T70.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=1 W/L=1/0 PnL=1195.3808 fees=481.8216 slip=-8161.06; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-05"
+   ],
+   "data_range": "1788368400..1790132400 (epoch s), 103 bars",
+   "hypothesis": "deep-fade",
+   "id": "BT-deep-fade-KXSILVERMON-26SEP3017-T65.99",
+   "market": "KXSILVERMON-26SEP3017-T65.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=113.5851 slip=74.57; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-06"
+   ],
+   "data_range": "1788289200..1790114400 (epoch s), 172 bars",
+   "hypothesis": "last-mile",
+   "id": "BT-last-mile-KXGOLDMON-26SEP3017-T4370.99",
+   "market": "KXGOLDMON-26SEP3017-T4370.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-07"
+   ],
+   "data_range": "1789794000..1790128800 (epoch s), 34 bars",
+   "hypothesis": "last-mile",
+   "id": "BT-last-mile-KXGOLDW-26SEP2517-T4362.99",
+   "market": "KXGOLDW-26SEP2517-T4362.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-01"
+   ],
+   "data_range": "1785852000..1788206400 (epoch s), 122 bars",
+   "hypothesis": "last-mile",
+   "id": "BT-last-mile-KXSILVERMON-26AUG3117-T67.99",
+   "market": "KXSILVERMON-26AUG3117-T67.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-02"
+   ],
+   "data_range": "1785859200..1788195600 (epoch s), 91 bars",
+   "hypothesis": "last-mile",
+   "id": "BT-last-mile-KXSILVERMON-26AUG3117-T68.99",
+   "market": "KXSILVERMON-26AUG3117-T68.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-03"
+   ],
+   "data_range": "1785852000..1788188400 (epoch s), 64 bars",
+   "hypothesis": "last-mile",
+   "id": "BT-last-mile-KXSILVERMON-26AUG3117-T69.99",
+   "market": "KXSILVERMON-26AUG3117-T69.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-04"
+   ],
+   "data_range": "1785679200..1788098400 (epoch s), 49 bars",
+   "hypothesis": "last-mile",
+   "id": "BT-last-mile-KXSILVERMON-26AUG3117-T70.99",
+   "market": "KXSILVERMON-26AUG3117-T70.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-05"
+   ],
+   "data_range": "1788368400..1790132400 (epoch s), 103 bars",
+   "hypothesis": "last-mile",
+   "id": "BT-last-mile-KXSILVERMON-26SEP3017-T65.99",
+   "market": "KXSILVERMON-26SEP3017-T65.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-06"
+   ],
+   "data_range": "1788289200..1790114400 (epoch s), 172 bars",
+   "hypothesis": "longshot-fader",
+   "id": "BT-longshot-fader-KXGOLDMON-26SEP3017-T4370.99",
+   "market": "KXGOLDMON-26SEP3017-T4370.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-07"
+   ],
+   "data_range": "1789794000..1790128800 (epoch s), 34 bars",
+   "hypothesis": "longshot-fader",
+   "id": "BT-longshot-fader-KXGOLDW-26SEP2517-T4362.99",
+   "market": "KXGOLDW-26SEP2517-T4362.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-01"
+   ],
+   "data_range": "1785852000..1788206400 (epoch s), 122 bars",
+   "hypothesis": "longshot-fader",
+   "id": "BT-longshot-fader-KXSILVERMON-26AUG3117-T67.99",
+   "market": "KXSILVERMON-26AUG3117-T67.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=24.2558 slip=0.0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-02"
+   ],
+   "data_range": "1785859200..1788195600 (epoch s), 91 bars",
+   "hypothesis": "longshot-fader",
+   "id": "BT-longshot-fader-KXSILVERMON-26AUG3117-T68.99",
+   "market": "KXSILVERMON-26AUG3117-T68.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=22.5397 slip=56.94; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-03"
+   ],
+   "data_range": "1785852000..1788188400 (epoch s), 64 bars",
+   "hypothesis": "longshot-fader",
+   "id": "BT-longshot-fader-KXSILVERMON-26AUG3117-T69.99",
+   "market": "KXSILVERMON-26AUG3117-T69.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=15.6511 slip=27.3; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-04"
+   ],
+   "data_range": "1785679200..1788098400 (epoch s), 49 bars",
+   "hypothesis": "longshot-fader",
+   "id": "BT-longshot-fader-KXSILVERMON-26AUG3117-T70.99",
+   "market": "KXSILVERMON-26AUG3117-T70.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=8.7182 slip=-52.44; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-05"
+   ],
+   "data_range": "1788368400..1790132400 (epoch s), 103 bars",
+   "hypothesis": "longshot-fader",
+   "id": "BT-longshot-fader-KXSILVERMON-26SEP3017-T65.99",
+   "market": "KXSILVERMON-26SEP3017-T65.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-06"
+   ],
+   "data_range": "1788289200..1790114400 (epoch s), 172 bars",
+   "hypothesis": "macro-closer",
+   "id": "BT-macro-closer-KXGOLDMON-26SEP3017-T4370.99",
+   "market": "KXGOLDMON-26SEP3017-T4370.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-07"
+   ],
+   "data_range": "1789794000..1790128800 (epoch s), 34 bars",
+   "hypothesis": "macro-closer",
+   "id": "BT-macro-closer-KXGOLDW-26SEP2517-T4362.99",
+   "market": "KXGOLDW-26SEP2517-T4362.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-01"
+   ],
+   "data_range": "1785852000..1788206400 (epoch s), 122 bars",
+   "hypothesis": "macro-closer",
+   "id": "BT-macro-closer-KXSILVERMON-26AUG3117-T67.99",
+   "market": "KXSILVERMON-26AUG3117-T67.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-02"
+   ],
+   "data_range": "1785859200..1788195600 (epoch s), 91 bars",
+   "hypothesis": "macro-closer",
+   "id": "BT-macro-closer-KXSILVERMON-26AUG3117-T68.99",
+   "market": "KXSILVERMON-26AUG3117-T68.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-03"
+   ],
+   "data_range": "1785852000..1788188400 (epoch s), 64 bars",
+   "hypothesis": "macro-closer",
+   "id": "BT-macro-closer-KXSILVERMON-26AUG3117-T69.99",
+   "market": "KXSILVERMON-26AUG3117-T69.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-04"
+   ],
+   "data_range": "1785679200..1788098400 (epoch s), 49 bars",
+   "hypothesis": "macro-closer",
+   "id": "BT-macro-closer-KXSILVERMON-26AUG3117-T70.99",
+   "market": "KXSILVERMON-26AUG3117-T70.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-05"
+   ],
+   "data_range": "1788368400..1790132400 (epoch s), 103 bars",
+   "hypothesis": "macro-closer",
+   "id": "BT-macro-closer-KXSILVERMON-26SEP3017-T65.99",
+   "market": "KXSILVERMON-26SEP3017-T65.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-06"
+   ],
+   "data_range": "1788289200..1790114400 (epoch s), 172 bars",
+   "hypothesis": "sure-penny",
+   "id": "BT-sure-penny-KXGOLDMON-26SEP3017-T4370.99",
+   "market": "KXGOLDMON-26SEP3017-T4370.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-07"
+   ],
+   "data_range": "1789794000..1790128800 (epoch s), 34 bars",
+   "hypothesis": "sure-penny",
+   "id": "BT-sure-penny-KXGOLDW-26SEP2517-T4362.99",
+   "market": "KXGOLDW-26SEP2517-T4362.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-01"
+   ],
+   "data_range": "1785852000..1788206400 (epoch s), 122 bars",
+   "hypothesis": "sure-penny",
+   "id": "BT-sure-penny-KXSILVERMON-26AUG3117-T67.99",
+   "market": "KXSILVERMON-26AUG3117-T67.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-02"
+   ],
+   "data_range": "1785859200..1788195600 (epoch s), 91 bars",
+   "hypothesis": "sure-penny",
+   "id": "BT-sure-penny-KXSILVERMON-26AUG3117-T68.99",
+   "market": "KXSILVERMON-26AUG3117-T68.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-03"
+   ],
+   "data_range": "1785852000..1788188400 (epoch s), 64 bars",
+   "hypothesis": "sure-penny",
+   "id": "BT-sure-penny-KXSILVERMON-26AUG3117-T69.99",
+   "market": "KXSILVERMON-26AUG3117-T69.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-04"
+   ],
+   "data_range": "1785679200..1788098400 (epoch s), 49 bars",
+   "hypothesis": "sure-penny",
+   "id": "BT-sure-penny-KXSILVERMON-26AUG3117-T70.99",
+   "market": "KXSILVERMON-26AUG3117-T70.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-05"
+   ],
+   "data_range": "1788368400..1790132400 (epoch s), 103 bars",
+   "hypothesis": "sure-penny",
+   "id": "BT-sure-penny-KXSILVERMON-26SEP3017-T65.99",
+   "market": "KXSILVERMON-26SEP3017-T65.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=0 slip=0; validation: n=0 PnL=0",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-06"
+   ],
+   "data_range": "1788289200..1790114400 (epoch s), 172 bars",
+   "hypothesis": "tape-rider",
+   "id": "BT-tape-rider-KXGOLDMON-26SEP3017-T4370.99",
+   "market": "KXGOLDMON-26SEP3017-T4370.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=1 W/L=1/0 PnL=456.74 fees=223.584 slip=174.46; validation: n=5 PnL=-16.848",
+   "verdict": "refuted"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-07"
+   ],
+   "data_range": "1789794000..1790128800 (epoch s), 34 bars",
+   "hypothesis": "tape-rider",
+   "id": "BT-tape-rider-KXGOLDW-26SEP2517-T4362.99",
+   "market": "KXGOLDW-26SEP2517-T4362.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=0 W/L=0/0 PnL=0 fees=84.525 slip=-386.4; validation: n=1 PnL=-78.9621",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-01"
+   ],
+   "data_range": "1785852000..1788206400 (epoch s), 122 bars",
+   "hypothesis": "tape-rider",
+   "id": "BT-tape-rider-KXSILVERMON-26AUG3117-T67.99",
+   "market": "KXSILVERMON-26AUG3117-T67.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=1 W/L=0/1 PnL=-75.0043 fees=198.1868 slip=-4164.3; validation: n=5 PnL=-381.8821",
+   "verdict": "refuted"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-02"
+   ],
+   "data_range": "1785859200..1788195600 (epoch s), 91 bars",
+   "hypothesis": "tape-rider",
+   "id": "BT-tape-rider-KXSILVERMON-26AUG3117-T68.99",
+   "market": "KXSILVERMON-26AUG3117-T68.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=5 W/L=4/1 PnL=2237.937 fees=997.1642 slip=-39655.73; validation: n=4 PnL=339.2429",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-03"
+   ],
+   "data_range": "1785852000..1788188400 (epoch s), 64 bars",
+   "hypothesis": "tape-rider",
+   "id": "BT-tape-rider-KXSILVERMON-26AUG3117-T69.99",
+   "market": "KXSILVERMON-26AUG3117-T69.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=5 W/L=3/2 PnL=2418.251 fees=886.299 slip=-3220.3; validation: n=3 PnL=4632.2391",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-04"
+   ],
+   "data_range": "1785679200..1788098400 (epoch s), 49 bars",
+   "hypothesis": "tape-rider",
+   "id": "BT-tape-rider-KXSILVERMON-26AUG3117-T70.99",
+   "market": "KXSILVERMON-26AUG3117-T70.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=6 W/L=2/4 PnL=948.5837 fees=1435.1946 slip=-19461.34; validation: n=3 PnL=13.7259",
+   "verdict": "inconclusive"
+  },
+  {
+   "caveat": "candle-proxied fills, NOT book-verified; walk-forward split 60/40",
+   "data_files": [
+    "data/season-2026/backtest/results.json",
+    "candle rows cite: candles-05"
+   ],
+   "data_range": "1788368400..1790132400 (epoch s), 103 bars",
+   "hypothesis": "tape-rider",
+   "id": "BT-tape-rider-KXSILVERMON-26SEP3017-T65.99",
+   "market": "KXSILVERMON-26SEP3017-T65.99",
+   "method": "candle-replay (signal on close, fill at next open, documented buffer)",
+   "result": "full: n=6 W/L=5/1 PnL=2655.0778 fees=1298.4594 slip=-3088.12; validation: n=3 PnL=1209.6349",
+   "verdict": "inconclusive"
+  }
+ ]
 }

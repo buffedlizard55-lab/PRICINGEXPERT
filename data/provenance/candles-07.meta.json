@@ -1,0 +1,12 @@
+{
+ "bytes": 32370,
+ "fetched_at": "2026-09-23T03:08:18Z",
+ "http_status": 200,
+ "id": "candles-07",
+ "note": "kind:candlesticks \u2014 KXGOLDW-26SEP2517-T4362.99: active Sep week, vol 2,413 (vol24 1,103) \u2014 top gold weekly strike; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads",
+ "series": "KXGOLDW",
+ "sha256": "3c7fd11bfa84ec4c66d6b0499a966f09d27d8594bcbd8c15a9a207457902a918",
+ "ticker": "KXGOLDW-26SEP2517-T4362.99",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXGOLDW/markets/KXGOLDW-26SEP2517-T4362.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
+}

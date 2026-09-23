@@ -1,6 +1,84 @@
 {
- "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
- "backtest": [],
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe. Backtest (candle-replay, verified data only): KXGOLDMON-26SEP3017-T4370.99: refuted, KXGOLDW-26SEP2517-T4362.99: inconclusive, KXSILVERMON-26AUG3117-T67.99: refuted, KXSILVERMON-26AUG3117-T68.99: inconclusive, KXSILVERMON-26AUG3117-T69.99: inconclusive, KXSILVERMON-26AUG3117-T70.99: inconclusive, KXSILVERMON-26SEP3017-T65.99: inconclusive.",
+ "backtest": [
+  {
+   "candles": 172,
+   "fees": 223.584,
+   "market": "KXGOLDMON-26SEP3017-T4370.99",
+   "n": 1,
+   "realized_pnl": 456.74,
+   "return_pct": -21.5727,
+   "validation_n": 5,
+   "validation_pnl": -16.848,
+   "verdict": "refuted"
+  },
+  {
+   "candles": 34,
+   "fees": 84.525,
+   "market": "KXGOLDW-26SEP2517-T4362.99",
+   "n": 0,
+   "realized_pnl": 0,
+   "return_pct": -24.9952,
+   "validation_n": 1,
+   "validation_pnl": -78.9621,
+   "verdict": "inconclusive"
+  },
+  {
+   "candles": 122,
+   "fees": 198.1868,
+   "market": "KXSILVERMON-26AUG3117-T67.99",
+   "n": 1,
+   "realized_pnl": -75.0043,
+   "return_pct": -25.5619,
+   "validation_n": 5,
+   "validation_pnl": -381.8821,
+   "verdict": "refuted"
+  },
+  {
+   "candles": 91,
+   "fees": 997.1642,
+   "market": "KXSILVERMON-26AUG3117-T68.99",
+   "n": 5,
+   "realized_pnl": 2237.937,
+   "return_pct": -8.2154,
+   "validation_n": 4,
+   "validation_pnl": 339.2429,
+   "verdict": "inconclusive"
+  },
+  {
+   "candles": 64,
+   "fees": 886.299,
+   "market": "KXSILVERMON-26AUG3117-T69.99",
+   "n": 5,
+   "realized_pnl": 2418.251,
+   "return_pct": 24.1825,
+   "validation_n": 3,
+   "validation_pnl": 4632.2391,
+   "verdict": "inconclusive"
+  },
+  {
+   "candles": 49,
+   "fees": 1435.1946,
+   "market": "KXSILVERMON-26AUG3117-T70.99",
+   "n": 6,
+   "realized_pnl": 948.5837,
+   "return_pct": -17.8835,
+   "validation_n": 3,
+   "validation_pnl": 13.7259,
+   "verdict": "inconclusive"
+  },
+  {
+   "candles": 103,
+   "fees": 1298.4594,
+   "market": "KXSILVERMON-26SEP3017-T65.99",
+   "n": 6,
+   "realized_pnl": 2655.0778,
+   "return_pct": -5.0849,
+   "validation_n": 3,
+   "validation_pnl": 1209.6349,
+   "verdict": "inconclusive"
+  }
+ ],
  "curve": [],
  "evidence": [
   {

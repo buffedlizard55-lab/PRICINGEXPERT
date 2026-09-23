@@ -1,8 +1,64 @@
 {
  "files": {
+  "candles-01": {
+   "bytes": 247568,
+   "fetched_at": "2026-09-23T03:08:16Z",
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T67.99: finalized Aug month, vol 9,269 \u2014 full-month candle history; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads",
+   "sha256": "08fe13b0267af2cb5bdccdda7e74d764fe8c3ef2393eca47141e757c4d07c957",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T67.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
+  },
+  "candles-02": {
+   "bytes": 244123,
+   "fetched_at": "2026-09-23T03:08:17Z",
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T68.99: finalized Aug month, vol 6,490; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads",
+   "sha256": "2cd362aeffc9338d0fa569335c822a9e2bfc2ef3dcea7f062ee0bcdba169f62b",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T68.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
+  },
+  "candles-03": {
+   "bytes": 231240,
+   "fetched_at": "2026-09-23T03:08:17Z",
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T69.99: finalized Aug month, vol 7,675; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads",
+   "sha256": "150d6422e7c36f530e2e9ab63ae8193d82c7b2324adb5f340acca84e3a60e189",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T69.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
+  },
+  "candles-04": {
+   "bytes": 228511,
+   "fetched_at": "2026-09-23T03:08:17Z",
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T70.99: finalized Aug month, vol 6,164; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads",
+   "sha256": "129d6add7be5d6c810b8d688238246611cba2b1aa1439daa98c22a49981355fb",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T70.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
+  },
+  "candles-05": {
+   "bytes": 179194,
+   "fetched_at": "2026-09-23T03:08:18Z",
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26SEP3017-T65.99: active Sep month, vol 6,250 (vol24 1,195); hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads",
+   "sha256": "f4fc4a1a2f5f2c387c004f9b1e36cc8a03c21c739ed3090ca904a89b3d120338",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26SEP3017-T65.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
+  },
+  "candles-06": {
+   "bytes": 185540,
+   "fetched_at": "2026-09-23T03:08:18Z",
+   "note": "kind:candlesticks \u2014 KXGOLDMON-26SEP3017-T4370.99: active Sep month, vol 9,735 (vol24 842) \u2014 top gold monthly strike; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads",
+   "sha256": "a31515c786425fdb2e36fb3ce90c518d615b15322f3e099af67d001901cad9b1",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXGOLDMON/markets/KXGOLDMON-26SEP3017-T4370.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
+  },
+  "candles-07": {
+   "bytes": 32370,
+   "fetched_at": "2026-09-23T03:08:18Z",
+   "note": "kind:candlesticks \u2014 KXGOLDW-26SEP2517-T4362.99: active Sep week, vol 2,413 (vol24 1,103) \u2014 top gold weekly strike; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads",
+   "sha256": "3c7fd11bfa84ec4c66d6b0499a966f09d27d8594bcbd8c15a9a207457902a918",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXGOLDW/markets/KXGOLDW-26SEP2517-T4362.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
+  },
+  "candles-08": {
+   "bytes": 22518,
+   "fetched_at": "2026-09-23T03:08:18Z",
+   "note": "kind:candlesticks \u2014 KXSILVERW-26SEP2517-T80.99: active Sep week, vol 525 (vol24 525 \u2014 all volume today); hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads",
+   "sha256": "4d446a820b3a17d2e3a1ce6dd6f3ede13e853952e91620dd5c8f2f46bbe2d442",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERW/markets/KXSILVERW-26SEP2517-T80.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=60"
+  },
   "exchange-status": {
    "bytes": 667,
-   "fetched_at": "2026-09-23T02:54:07Z",
+   "fetched_at": "2026-09-23T03:08:16Z",
    "note": "kind:exchange_status \u2014 liveness",
    "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
    "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
@@ -16,28 +72,28 @@
   },
   "market-01": {
    "bytes": 2221,
-   "fetched_at": "2026-09-23T02:54:09Z",
+   "fetched_at": "2026-09-23T03:08:19Z",
    "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T67.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)",
    "sha256": "422e7b77f2fdb3154498f489e770eb99d9101539e2272fa9a8a3f6246d86a314",
    "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T67.99"
   },
   "market-02": {
    "bytes": 2221,
-   "fetched_at": "2026-09-23T02:54:09Z",
+   "fetched_at": "2026-09-23T03:08:19Z",
    "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T68.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)",
    "sha256": "7a906b5acf7c144d716ce92cb92eb149a72d61708cfba66103a86489ad59e1e5",
    "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T68.99"
   },
   "market-03": {
    "bytes": 2221,
-   "fetched_at": "2026-09-23T02:54:09Z",
+   "fetched_at": "2026-09-23T03:08:19Z",
    "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T69.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)",
    "sha256": "220914783ef3dcb60a86b55cd7ef36e3eafb7875fc71059339c9d07ff011198b",
    "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T69.99"
   },
   "market-04": {
    "bytes": 2221,
-   "fetched_at": "2026-09-23T02:54:09Z",
+   "fetched_at": "2026-09-23T03:08:19Z",
    "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T70.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)",
    "sha256": "b14e5e033ed2dd17593a022955d15515a0f58d81ea2b9e888080934337684925",
    "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T70.99"
@@ -876,6 +932,6 @@
    "url": "https://api.elections.kalshi.com/trade-api/v2/series"
   }
  },
- "generated_at": "2026-09-23T02:54:09Z",
+ "generated_at": "2026-09-23T03:08:20Z",
  "generator": "scripts/make_manifest.py"
 }
