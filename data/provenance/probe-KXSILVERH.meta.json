@@ -1,0 +1,10 @@
+{
+ "bytes": 41822,
+ "fetched_at": "2026-09-23T02:41:13Z",
+ "http_status": 200,
+ "id": "probe-KXSILVERH",
+ "note": "kind:markets \u2014 per-series probe KXSILVERH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+ "sha256": "1ff38d79fcbe66e09abbb30d6442482f907b8352dedf6c1a02483013016f70c1",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSILVERH&limit=20"
+}

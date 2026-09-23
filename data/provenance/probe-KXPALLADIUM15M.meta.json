@@ -1,0 +1,10 @@
+{
+ "bytes": 41001,
+ "fetched_at": "2026-09-23T02:41:24Z",
+ "http_status": 200,
+ "id": "probe-KXPALLADIUM15M",
+ "note": "kind:markets \u2014 per-series probe KXPALLADIUM15M (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+ "sha256": "129d11f6074c0eee629e9193eab4feec18c80ab49bea088422a13b5eac0b99f2",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXPALLADIUM15M&limit=20"
+}

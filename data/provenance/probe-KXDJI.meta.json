@@ -1,0 +1,10 @@
+{
+ "bytes": 47046,
+ "fetched_at": "2026-09-23T02:41:12Z",
+ "http_status": 200,
+ "id": "probe-KXDJI",
+ "note": "kind:markets \u2014 per-series probe KXDJI (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+ "sha256": "e14d23e6c9ec6b5e8e07bda301dd14ba9d120554cd0491f7a2ef5536090a0d6d",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXDJI&limit=20"
+}

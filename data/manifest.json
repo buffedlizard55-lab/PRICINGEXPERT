@@ -2,7 +2,7 @@
  "files": {
   "exchange-status": {
    "bytes": 667,
-   "fetched_at": "2026-09-23T02:39:37Z",
+   "fetched_at": "2026-09-23T02:41:11Z",
    "note": "kind:exchange_status \u2014 liveness",
    "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
    "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
@@ -294,6 +294,440 @@
    "sha256": "2442a6ed16e82fa8ecb0ae4e59354ade6e922f99a5ffbba64488878655cbffcc",
    "url": "https://api.elections.kalshi.com/trade-api/v2/markets?limit=200&cursor=CgwIkvfM1QYQwMmiqAESL0tYTVZFQ1JPU1NDQVRFR09SWS1TMjAyNjlFNENDQjdDQkFELUFEQjlCNTNFODU3"
   },
+  "probe-CPI": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:26Z",
+   "note": "kind:markets \u2014 per-series probe CPI (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=CPI&limit=20"
+  },
+  "probe-CPIAPPAREL": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:27Z",
+   "note": "kind:markets \u2014 per-series probe CPIAPPAREL (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=CPIAPPAREL&limit=20"
+  },
+  "probe-CPICORE": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:26Z",
+   "note": "kind:markets \u2014 per-series probe CPICORE (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=CPICORE&limit=20"
+  },
+  "probe-CPICOREYOY": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:27Z",
+   "note": "kind:markets \u2014 per-series probe CPICOREYOY (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=CPICOREYOY&limit=20"
+  },
+  "probe-CPIFOOD": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:27Z",
+   "note": "kind:markets \u2014 per-series probe CPIFOOD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=CPIFOOD&limit=20"
+  },
+  "probe-CPIGAS": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:28Z",
+   "note": "kind:markets \u2014 per-series probe CPIGAS (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=CPIGAS&limit=20"
+  },
+  "probe-CPISHELTER": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:27Z",
+   "note": "kind:markets \u2014 per-series probe CPISHELTER (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=CPISHELTER&limit=20"
+  },
+  "probe-CPIUSEDCAR": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:28Z",
+   "note": "kind:markets \u2014 per-series probe CPIUSEDCAR (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=CPIUSEDCAR&limit=20"
+  },
+  "probe-KXAUDUSDAH": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:22Z",
+   "note": "kind:markets \u2014 per-series probe KXAUDUSDAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXAUDUSDAH&limit=20"
+  },
+  "probe-KXAUDUSDH": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:20Z",
+   "note": "kind:markets \u2014 per-series probe KXAUDUSDH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXAUDUSDH&limit=20"
+  },
+  "probe-KXBNB": {
+   "bytes": 36562,
+   "fetched_at": "2026-09-23T02:41:18Z",
+   "note": "kind:markets \u2014 per-series probe KXBNB (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "c9e50571d6a3fb9a78bd3b3e23708d8d41efbcd30c02013d5476cf71279a62a9",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXBNB&limit=20"
+  },
+  "probe-KXBNBD": {
+   "bytes": 36220,
+   "fetched_at": "2026-09-23T02:41:18Z",
+   "note": "kind:markets \u2014 per-series probe KXBNBD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "62c1699b3e39f3cf900c2e2413e1f387e41e32021da5359c5aa7ab040285feec",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXBNBD&limit=20"
+  },
+  "probe-KXBTC": {
+   "bytes": 38240,
+   "fetched_at": "2026-09-23T02:41:11Z",
+   "note": "kind:markets \u2014 per-series probe KXBTC (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "852542fbfd7789c646228e58671a0727ad048626efa598960209675499b09e76",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXBTC&limit=20"
+  },
+  "probe-KXBTCD": {
+   "bytes": 37522,
+   "fetched_at": "2026-09-23T02:41:15Z",
+   "note": "kind:markets \u2014 per-series probe KXBTCD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "036c75af9835b27fdec217118b35bfae1da2341ac7a8cf645bf170371e622e20",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXBTCD&limit=20"
+  },
+  "probe-KXDJI": {
+   "bytes": 47046,
+   "fetched_at": "2026-09-23T02:41:12Z",
+   "note": "kind:markets \u2014 per-series probe KXDJI (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "e14d23e6c9ec6b5e8e07bda301dd14ba9d120554cd0491f7a2ef5536090a0d6d",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXDJI&limit=20"
+  },
+  "probe-KXDOGE": {
+   "bytes": 36113,
+   "fetched_at": "2026-09-23T02:41:16Z",
+   "note": "kind:markets \u2014 per-series probe KXDOGE (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "507be074c683818e0786bdda00dae99da96d65fdb1decf605d22c05ddf17f4a0",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXDOGE&limit=20"
+  },
+  "probe-KXDOGED": {
+   "bytes": 35583,
+   "fetched_at": "2026-09-23T02:41:16Z",
+   "note": "kind:markets \u2014 per-series probe KXDOGED (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "aefb6fa9bac9b6de8c3850c3323f2f80545c72fa36ae6abbdb0ec7483c2f8052",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXDOGED&limit=20"
+  },
+  "probe-KXETH": {
+   "bytes": 38189,
+   "fetched_at": "2026-09-23T02:41:11Z",
+   "note": "kind:markets \u2014 per-series probe KXETH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "e56b15eee8570f65141e2dff3c8a598633d35e47695bc1f0196d1dbbd4cff16c",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXETH&limit=20"
+  },
+  "probe-KXETHD": {
+   "bytes": 37661,
+   "fetched_at": "2026-09-23T02:41:15Z",
+   "note": "kind:markets \u2014 per-series probe KXETHD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "be4e0402f89ccbb531c119d172ae80bca3fdde65406b1e89a85ccd99c82dd4e8",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXETHD&limit=20"
+  },
+  "probe-KXEURUSDH": {
+   "bytes": 28942,
+   "fetched_at": "2026-09-23T02:41:12Z",
+   "note": "kind:markets \u2014 per-series probe KXEURUSDH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "6b9e590aab1802544a29e8fda6e1cc3311024a0ea84d7559fbfa66614152b9c3",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXEURUSDH&limit=20"
+  },
+  "probe-KXGBPUSDH": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:20Z",
+   "note": "kind:markets \u2014 per-series probe KXGBPUSDH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGBPUSDH&limit=20"
+  },
+  "probe-KXGOLDD": {
+   "bytes": 42218,
+   "fetched_at": "2026-09-23T02:41:23Z",
+   "note": "kind:markets \u2014 per-series probe KXGOLDD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "33bda2d15346f10026559c08fbdc6405bd77cf97489d719ae461daabd37fed3b",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDD&limit=20"
+  },
+  "probe-KXGOLDH": {
+   "bytes": 41801,
+   "fetched_at": "2026-09-23T02:41:13Z",
+   "note": "kind:markets \u2014 per-series probe KXGOLDH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "d0747ceb17f75b721a986982a93b3751dffe75c8e0c51e1bfad26483ef50edeb",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDH&limit=20"
+  },
+  "probe-KXHYPE": {
+   "bytes": 36887,
+   "fetched_at": "2026-09-23T02:41:17Z",
+   "note": "kind:markets \u2014 per-series probe KXHYPE (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "75c33471b2c9840409c22801065fa06ee79ba1d472b0a61eb88d72d7a63bcf07",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXHYPE&limit=20"
+  },
+  "probe-KXHYPED": {
+   "bytes": 36404,
+   "fetched_at": "2026-09-23T02:41:17Z",
+   "note": "kind:markets \u2014 per-series probe KXHYPED (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "220523fe1701e9737203ea6d3aa9e2ee644f854984f71a68f26330074ff06fc1",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXHYPED&limit=20"
+  },
+  "probe-KXINXI": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:12Z",
+   "note": "kind:markets \u2014 per-series probe KXINXI (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXINXI&limit=20"
+  },
+  "probe-KXINXU": {
+   "bytes": 36545,
+   "fetched_at": "2026-09-23T02:41:14Z",
+   "note": "kind:markets \u2014 per-series probe KXINXU (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "00cb98639a84d38b29ca062deae558179820edadae8549078773f1a59771e4a0",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXINXU&limit=20"
+  },
+  "probe-KXKR200": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:15Z",
+   "note": "kind:markets \u2014 per-series probe KXKR200 (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXKR200&limit=20"
+  },
+  "probe-KXNASDAQ100I": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:14Z",
+   "note": "kind:markets \u2014 per-series probe KXNASDAQ100I (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNASDAQ100I&limit=20"
+  },
+  "probe-KXNASDAQ100U": {
+   "bytes": 37094,
+   "fetched_at": "2026-09-23T02:41:12Z",
+   "note": "kind:markets \u2014 per-series probe KXNASDAQ100U (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "1e0e5e741413bcd50f1dc40542df52a8a2e57574ce0b0bf60f2fb14ce8749680",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNASDAQ100U&limit=20"
+  },
+  "probe-KXNEAR": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:20Z",
+   "note": "kind:markets \u2014 per-series probe KXNEAR (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNEAR&limit=20"
+  },
+  "probe-KXNEARD": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:20Z",
+   "note": "kind:markets \u2014 per-series probe KXNEARD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNEARD&limit=20"
+  },
+  "probe-KXNKY": {
+   "bytes": 46820,
+   "fetched_at": "2026-09-23T02:41:15Z",
+   "note": "kind:markets \u2014 per-series probe KXNKY (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "1255c77c479790b44166e40ed81c4a0288b54dc9b7a007d2864ad486f1a38c7a",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNKY&limit=20"
+  },
+  "probe-KXNZDUSDAH": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:21Z",
+   "note": "kind:markets \u2014 per-series probe KXNZDUSDAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNZDUSDAH&limit=20"
+  },
+  "probe-KXPALLADIUM15M": {
+   "bytes": 41001,
+   "fetched_at": "2026-09-23T02:41:24Z",
+   "note": "kind:markets \u2014 per-series probe KXPALLADIUM15M (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "129d11f6074c0eee629e9193eab4feec18c80ab49bea088422a13b5eac0b99f2",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXPALLADIUM15M&limit=20"
+  },
+  "probe-KXPALLADIUMH": {
+   "bytes": 42189,
+   "fetched_at": "2026-09-23T02:41:24Z",
+   "note": "kind:markets \u2014 per-series probe KXPALLADIUMH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "3bcb2ff116fad31b1a47ed2dec640426c702692e061ddf60b76668831aa35619",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXPALLADIUMH&limit=20"
+  },
+  "probe-KXSILVERD": {
+   "bytes": 42355,
+   "fetched_at": "2026-09-23T02:41:23Z",
+   "note": "kind:markets \u2014 per-series probe KXSILVERD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "9910213f051f870187d582c4c8021ebaf433036ca23693d814fea480d753a900",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSILVERD&limit=20"
+  },
+  "probe-KXSILVERH": {
+   "bytes": 41822,
+   "fetched_at": "2026-09-23T02:41:13Z",
+   "note": "kind:markets \u2014 per-series probe KXSILVERH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "1ff38d79fcbe66e09abbb30d6442482f907b8352dedf6c1a02483013016f70c1",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSILVERH&limit=20"
+  },
+  "probe-KXSOL": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:16Z",
+   "note": "kind:markets \u2014 per-series probe KXSOL (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSOL&limit=20"
+  },
+  "probe-KXSOLD": {
+   "bytes": 36322,
+   "fetched_at": "2026-09-23T02:41:16Z",
+   "note": "kind:markets \u2014 per-series probe KXSOLD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "ec86c0fa236fd98b5ebdf3a0651259502ebacc0fac5392270b468dc87021db2f",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSOLD&limit=20"
+  },
+  "probe-KXTEMPBOSH": {
+   "bytes": 43964,
+   "fetched_at": "2026-09-23T02:41:26Z",
+   "note": "kind:markets \u2014 per-series probe KXTEMPBOSH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "653a95f6d0da62bd019066bcf876aa6bfb1a0e42275ecb5cb8a22ae8372fd0d5",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPBOSH&limit=20"
+  },
+  "probe-KXTEMPCHIH": {
+   "bytes": 41935,
+   "fetched_at": "2026-09-23T02:41:25Z",
+   "note": "kind:markets \u2014 per-series probe KXTEMPCHIH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "12ae6b3b0af73d35744f7933112772345ca1b48432ca94cf862af595cc02e1af",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPCHIH&limit=20"
+  },
+  "probe-KXTEMPCHIHS": {
+   "bytes": 37657,
+   "fetched_at": "2026-09-23T02:41:25Z",
+   "note": "kind:markets \u2014 per-series probe KXTEMPCHIHS (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "f03db644011dbd6e17c7d28c1d692e03dfeef44f9b2eed4b1034620bd0a83ccf",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPCHIHS&limit=20"
+  },
+  "probe-KXTEMPLAXH": {
+   "bytes": 42086,
+   "fetched_at": "2026-09-23T02:41:24Z",
+   "note": "kind:markets \u2014 per-series probe KXTEMPLAXH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "04a91f78e08674e1b06feaa4223de298f4654aad9e78ff5989ed6cf3b22be84e",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPLAXH&limit=20"
+  },
+  "probe-KXTEMPLAXHS": {
+   "bytes": 37691,
+   "fetched_at": "2026-09-23T02:41:25Z",
+   "note": "kind:markets \u2014 per-series probe KXTEMPLAXHS (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "a07b5ba3eaf1e25a5e5e09b75526a9a6f2c97e731daabde9332a6e673ef59e16",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPLAXHS&limit=20"
+  },
+  "probe-KXTEMPMIAH": {
+   "bytes": 37747,
+   "fetched_at": "2026-09-23T02:41:25Z",
+   "note": "kind:markets \u2014 per-series probe KXTEMPMIAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "9dea1b55fc9209db9ea883d04638029ccbb38c13d0d32d019352caba11de88a8",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPMIAH&limit=20"
+  },
+  "probe-KXTEMPNYCH": {
+   "bytes": 42388,
+   "fetched_at": "2026-09-23T02:41:14Z",
+   "note": "kind:markets \u2014 per-series probe KXTEMPNYCH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "bd755d997c4b48c71cd8b60e3ad6e7a240981379e4bf1830e6b858021dccf75f",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPNYCH&limit=20"
+  },
+  "probe-KXTEMPNYCHS": {
+   "bytes": 37909,
+   "fetched_at": "2026-09-23T02:41:24Z",
+   "note": "kind:markets \u2014 per-series probe KXTEMPNYCHS (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "ce8108d486ad559a966291eab21e5aab5a48254072788695b6214089c4ba03e1",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPNYCHS&limit=20"
+  },
+  "probe-KXTON": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:19Z",
+   "note": "kind:markets \u2014 per-series probe KXTON (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTON&limit=20"
+  },
+  "probe-KXTOND": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:19Z",
+   "note": "kind:markets \u2014 per-series probe KXTOND (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTOND&limit=20"
+  },
+  "probe-KXUSDBRLAH": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:22Z",
+   "note": "kind:markets \u2014 per-series probe KXUSDBRLAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXUSDBRLAH&limit=20"
+  },
+  "probe-KXUSDCADAH": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:22Z",
+   "note": "kind:markets \u2014 per-series probe KXUSDCADAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXUSDCADAH&limit=20"
+  },
+  "probe-KXUSDCHFAH": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:21Z",
+   "note": "kind:markets \u2014 per-series probe KXUSDCHFAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXUSDCHFAH&limit=20"
+  },
+  "probe-KXUSDINRAH": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:21Z",
+   "note": "kind:markets \u2014 per-series probe KXUSDINRAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXUSDINRAH&limit=20"
+  },
+  "probe-KXUSDJPYH": {
+   "bytes": 29044,
+   "fetched_at": "2026-09-23T02:41:21Z",
+   "note": "kind:markets \u2014 per-series probe KXUSDJPYH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "769361b8a0f1194b07e5cc0b4fdf8e925dabe0e56e2a3fcfb05629cb3e855329",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXUSDJPYH&limit=20"
+  },
+  "probe-KXUSDNOKAH": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:22Z",
+   "note": "kind:markets \u2014 per-series probe KXUSDNOKAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXUSDNOKAH&limit=20"
+  },
+  "probe-KXWTIH": {
+   "bytes": 41657,
+   "fetched_at": "2026-09-23T02:41:13Z",
+   "note": "kind:markets \u2014 per-series probe KXWTIH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "d0809fa9b631cd7f427c937df0da0ab1cb47f98e75daee595befb117e2a21a88",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXWTIH&limit=20"
+  },
+  "probe-KXXRP": {
+   "bytes": 40769,
+   "fetched_at": "2026-09-23T02:41:17Z",
+   "note": "kind:markets \u2014 per-series probe KXXRP (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "1ad539f217c4f6b5bed8e8345c56c04bc4d97957a7472c4d512dc00bdbba6a68",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXXRP&limit=20"
+  },
+  "probe-KXXRPD": {
+   "bytes": 41180,
+   "fetched_at": "2026-09-23T02:41:18Z",
+   "note": "kind:markets \u2014 per-series probe KXXRPD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "e927b6ad47a46ef1adbe858db6d91dbae0a9c6f17d508a2c6013f45cbf1206d6",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXXRPD&limit=20"
+  },
+  "probe-KXZEC": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:18Z",
+   "note": "kind:markets \u2014 per-series probe KXZEC (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXZEC&limit=20"
+  },
+  "probe-KXZECD": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:19Z",
+   "note": "kind:markets \u2014 per-series probe KXZECD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXZECD&limit=20"
+  },
+  "probe-WTIH": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:41:23Z",
+   "note": "kind:markets \u2014 per-series probe WTIH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=WTIH&limit=20"
+  },
   "series-catalog": {
    "bytes": 17505797,
    "fetched_at": "2026-09-23T02:28:42Z",
@@ -302,6 +736,6 @@
    "url": "https://api.elections.kalshi.com/trade-api/v2/series"
   }
  },
- "generated_at": "2026-09-23T02:39:44Z",
+ "generated_at": "2026-09-23T02:41:28Z",
  "generator": "scripts/make_manifest.py"
 }

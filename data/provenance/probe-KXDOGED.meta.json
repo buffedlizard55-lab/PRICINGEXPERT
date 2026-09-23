@@ -1,0 +1,10 @@
+{
+ "bytes": 35583,
+ "fetched_at": "2026-09-23T02:41:16Z",
+ "http_status": 200,
+ "id": "probe-KXDOGED",
+ "note": "kind:markets \u2014 per-series probe KXDOGED (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)",
+ "sha256": "aefb6fa9bac9b6de8c3850c3323f2f80545c72fa36ae6abbdb0ec7483c2f8052",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXDOGED&limit=20"
+}
