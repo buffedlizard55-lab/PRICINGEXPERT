@@ -27,11 +27,20 @@ jobs:
         run: python3 scripts/collect.py --plan data/collect_plan.json --out data
       - name: Regenerate manifest
         run: python3 scripts/make_manifest.py data
+      - name: Derive (observations + candle archive)
+        run: python3 scripts/derive.py data
+      - name: Backtest on committed candle archive (if any)
+        run: python3 scripts/backtest.py data || echo "backtest skipped (no candles yet)"
+      - name: Rebuild site data
+        run: python3 scripts/build_site.py data
+      - name: Verification gate
+        run: python3 scripts/verify.py data
       - name: Commit evidence + report
         run: |
           git config user.name "pricingexpert-desk[bot]"
           git config user.email "desk@users.noreply.github.com"
-          git add data/raw data/provenance data/calls.json data/manifest.json data/collect-report.json
+          git add data/raw data/provenance data/calls.json data/manifest.json data/collect-report.json \
+                  data/candles data/observations.jsonl data/season-2026/backtest data/research data/site
           if git diff --cached --quiet; then
             echo "no new evidence to commit"
           else

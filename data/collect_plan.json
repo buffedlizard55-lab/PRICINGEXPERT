@@ -1,6 +1,6 @@
 {
- "plan_version": 7,
- "note": "Plan 7 \u2014 long-dated series for the backtest archive. Verified plan-6 findings: liquid markets are weather hourly (MIA 15,014 / NYCHS 6,807 / LAXHS 4,183 / CHIHS 3,360 vol), gold daily (13,819), silver daily (1,469), DJI hourly (1,960); the KX-prefixed commodity HOURLY ladders, the CPI family and ALL crypto probes had zero volume/OI. But hourly/daily contracts only carry ~1h/1d of candle history \u2014 too short for backtests. The weekly/monthly contracts (tickers verified in the series catalog: KXGOLDW, KXGOLDMON, KXSILVERW, KXSILVERMON, KXWEEKHTNYC/MIA/LAX, KXINXW) span days-to-months, so their candles reach deep into the 2026-07-24 history cutoff. This plan probes them via the new series_pick kind (series list + policy pick + live book). Plan 8 (next) captures candlesticks for the liquid long-dated tickers this run commits \u2014 building the backtest archive for the cross-market transfer tests (commodity weekly vs weather weekly vs financials weekly).",
+ "plan_version": 8,
+ "note": "Plan 8 \u2014 build the backtest candle archive. Plan 7 verified the long-dated liquid markets: KXSILVERMON total vol 86,138 (four FINALIZED August contracts carrying 6-9k each \u2014 the only multi-month history available inside the 2026-07-24 public-history cutoff), KXGOLDMON 70,229 (active Sep month only), KXGOLDW 10,875, KXSILVERW 3,061; KXWEEKHT* and KXINXW returned ZERO markets (verified empty on this host). This plan captures hourly candles for the 8 most voluminous long-dated contracts (4 finalized Aug silver strikes, 4 active). derive.py turns them into data/candles/*.csv (provenance-bound) and backtest.py replays every strategy against them \u2014 the first real-data backtest, feeding research/tests.json. Cross-market transfer tests (commodity vs commodity weekly strikes, vs weather) follow once more archives land. The four finalized Aug silver strikes also get single-market captures (kind:market) so backtest.py settles them against the official result field.",
  "endpoints": [
   {
    "id": "exchange-status",
@@ -8,100 +8,132 @@
    "note": "kind:exchange_status \u2014 liveness"
   },
   {
-   "id": "pick-KXGOLDW",
-   "kind": "series_pick",
+   "id": "candles-01",
+   "kind": "candlesticks",
    "params": {
-    "series_ticker": "KXGOLDW",
-    "limit": 50,
-    "top_n": 1,
-    "close_margin_sec": 5400,
-    "depth": 50
+    "series": "KXSILVERMON",
+    "ticker": "KXSILVERMON-26AUG3117-T67.99",
+    "start_ts": 1784851200,
+    "end_ts": 1790132400,
+    "period_interval": 3600
    },
-   "note": "kind:series_pick \u2014 KXGOLDW: Commodities weekly \u2014 contract spans a full week (candle history back to the 2026-07-24 cutoff); top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T67.99: finalized Aug month, vol 9,269 \u2014 full-month candle history; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
-   "id": "pick-KXGOLDMON",
-   "kind": "series_pick",
+   "id": "candles-02",
+   "kind": "candlesticks",
    "params": {
-    "series_ticker": "KXGOLDMON",
-    "limit": 50,
-    "top_n": 1,
-    "close_margin_sec": 5400,
-    "depth": 50
+    "series": "KXSILVERMON",
+    "ticker": "KXSILVERMON-26AUG3117-T68.99",
+    "start_ts": 1784851200,
+    "end_ts": 1790132400,
+    "period_interval": 3600
    },
-   "note": "kind:series_pick \u2014 KXGOLDMON: Commodities monthly \u2014 contract spans a month; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T68.99: finalized Aug month, vol 6,490; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
-   "id": "pick-KXSILVERW",
-   "kind": "series_pick",
+   "id": "candles-03",
+   "kind": "candlesticks",
    "params": {
-    "series_ticker": "KXSILVERW",
-    "limit": 50,
-    "top_n": 1,
-    "close_margin_sec": 5400,
-    "depth": 50
+    "series": "KXSILVERMON",
+    "ticker": "KXSILVERMON-26AUG3117-T69.99",
+    "start_ts": 1784851200,
+    "end_ts": 1790132400,
+    "period_interval": 3600
    },
-   "note": "kind:series_pick \u2014 KXSILVERW: Commodities weekly; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T69.99: finalized Aug month, vol 7,675; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
-   "id": "pick-KXSILVERMON",
-   "kind": "series_pick",
+   "id": "candles-04",
+   "kind": "candlesticks",
    "params": {
-    "series_ticker": "KXSILVERMON",
-    "limit": 50,
-    "top_n": 1,
-    "close_margin_sec": 5400,
-    "depth": 50
+    "series": "KXSILVERMON",
+    "ticker": "KXSILVERMON-26AUG3117-T70.99",
+    "start_ts": 1784851200,
+    "end_ts": 1790132400,
+    "period_interval": 3600
    },
-   "note": "kind:series_pick \u2014 KXSILVERMON: Commodities monthly; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T70.99: finalized Aug month, vol 6,164; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
-   "id": "pick-KXWEEKHTNYC",
-   "kind": "series_pick",
+   "id": "candles-05",
+   "kind": "candlesticks",
    "params": {
-    "series_ticker": "KXWEEKHTNYC",
-    "limit": 50,
-    "top_n": 1,
-    "close_margin_sec": 5400,
-    "depth": 50
+    "series": "KXSILVERMON",
+    "ticker": "KXSILVERMON-26SEP3017-T65.99",
+    "start_ts": 1784851200,
+    "end_ts": 1790132400,
+    "period_interval": 3600
    },
-   "note": "kind:series_pick \u2014 KXWEEKHTNYC: Climate weekly high temp NYC \u2014 multi-day weather contract, different market class for transfer tests; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26SEP3017-T65.99: active Sep month, vol 6,250 (vol24 1,195); hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
-   "id": "pick-KXWEEKHTMIA",
-   "kind": "series_pick",
+   "id": "candles-06",
+   "kind": "candlesticks",
    "params": {
-    "series_ticker": "KXWEEKHTMIA",
-    "limit": 50,
-    "top_n": 1,
-    "close_margin_sec": 5400,
-    "depth": 50
+    "series": "KXGOLDMON",
+    "ticker": "KXGOLDMON-26SEP3017-T4370.99",
+    "start_ts": 1784851200,
+    "end_ts": 1790132400,
+    "period_interval": 3600
    },
-   "note": "kind:series_pick \u2014 KXWEEKHTMIA: Climate weekly high temp Miami; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
+   "note": "kind:candlesticks \u2014 KXGOLDMON-26SEP3017-T4370.99: active Sep month, vol 9,735 (vol24 842) \u2014 top gold monthly strike; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
-   "id": "pick-KXWEEKHTLAX",
-   "kind": "series_pick",
+   "id": "candles-07",
+   "kind": "candlesticks",
    "params": {
-    "series_ticker": "KXWEEKHTLAX",
-    "limit": 50,
-    "top_n": 1,
-    "close_margin_sec": 5400,
-    "depth": 50
+    "series": "KXGOLDW",
+    "ticker": "KXGOLDW-26SEP2517-T4362.99",
+    "start_ts": 1784851200,
+    "end_ts": 1790132400,
+    "period_interval": 3600
    },
-   "note": "kind:series_pick \u2014 KXWEEKHTLAX: Climate weekly high temp LA; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
+   "note": "kind:candlesticks \u2014 KXGOLDW-26SEP2517-T4362.99: active Sep week, vol 2,413 (vol24 1,103) \u2014 top gold weekly strike; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
-   "id": "pick-KXINXW",
-   "kind": "series_pick",
+   "id": "candles-08",
+   "kind": "candlesticks",
    "params": {
-    "series_ticker": "KXINXW",
-    "limit": 50,
-    "top_n": 1,
-    "close_margin_sec": 5400,
-    "depth": 50
+    "series": "KXSILVERW",
+    "ticker": "KXSILVERW-26SEP2517-T80.99",
+    "start_ts": 1784851200,
+    "end_ts": 1790132400,
+    "period_interval": 3600
    },
-   "note": "kind:series_pick \u2014 KXINXW: Financials weekly \u2014 S&P 500 range; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
+   "note": "kind:candlesticks \u2014 KXSILVERW-26SEP2517-T80.99: active Sep week, vol 525 (vol24 525 \u2014 all volume today); hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
+  },
+  {
+   "id": "market-01",
+   "kind": "market",
+   "params": {
+    "ticker": "KXSILVERMON-26AUG3117-T67.99"
+   },
+   "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T67.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)"
+  },
+  {
+   "id": "market-02",
+   "kind": "market",
+   "params": {
+    "ticker": "KXSILVERMON-26AUG3117-T68.99"
+   },
+   "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T68.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)"
+  },
+  {
+   "id": "market-03",
+   "kind": "market",
+   "params": {
+    "ticker": "KXSILVERMON-26AUG3117-T69.99"
+   },
+   "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T69.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)"
+  },
+  {
+   "id": "market-04",
+   "kind": "market",
+   "params": {
+    "ticker": "KXSILVERMON-26AUG3117-T70.99"
+   },
+   "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T70.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)"
   }
  ]
 }
