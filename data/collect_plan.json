@@ -1,6 +1,6 @@
 {
- "plan_version": 3,
- "note": "Plan 3 (first real-data iteration). Plan 2.1 landed: exchange-status, historical-cutoff (boundary 2026-07-24T00:00:00Z \u2014 public history is ~2 months), series-catalog (14,288 series, 71 hourly / 298 daily). The markets sweep status=active filter was rejected by the host (400) \u2014 dropped; the desk filters by payload status. This plan discovers active market tickers for 10 pilot hourly series spanning crypto / financials / commodities / climate \u2014 the cross-market transfer pool. Plan 4 adds candlesticks + orderbooks for the discovered tickers and populates universe.json.",
+ "plan_version": 4,
+ "note": "Plan 4 \u2014 real-market discovery. Plan 3 proved the API: 10 pilot series resolve to real tickers, but per-strike hourly ladder markets are thin (liq $0, vol 0; flow sits on top strikes / directional series) and the most-recently-updated sweep is dominated by freshly created sports combos. So: paginate 15 x 200 markets (offset 0..2800) to build a ~3000-market cross-section; rank locally by volume_24h / liquidity for (a) the forward desk universe (active, live, with books) and (b) the backtest archive (long-dated markets whose candles reach back to the 2026-07-24 history cutoff). Next plan (5) captures candlesticks for the winners and populates universe.json so the cron forward desk starts trading against real books.",
  "endpoints": [
   {
    "id": "exchange-status",
@@ -8,102 +8,139 @@
    "note": "kind:exchange_status \u2014 liveness"
   },
   {
-   "id": "markets-sweep-nostatus",
+   "id": "markets-sweep-p00",
    "kind": "markets",
    "params": {
-    "limit": 200
+    "limit": 200,
+    "offset": 0
    },
-   "note": "kind:markets-sweep \u2014 status filter rejected by this host (400 invalid status filter); desk filters active markets itself from the payload status field"
+   "note": "kind:markets \u2014 paginated discovery sample (offset 0, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
   },
   {
-   "id": "markets-KXBTC",
+   "id": "markets-sweep-p01",
    "kind": "markets",
    "params": {
-    "series_ticker": "KXBTC",
-    "limit": 10
+    "limit": 200,
+    "offset": 200
    },
-   "note": "kind:markets \u2014 pilot series market discovery (Crypto \u2014 Bitcoin range (hourly))"
+   "note": "kind:markets \u2014 paginated discovery sample (offset 200, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
   },
   {
-   "id": "markets-KXETH",
+   "id": "markets-sweep-p02",
    "kind": "markets",
    "params": {
-    "series_ticker": "KXETH",
-    "limit": 10
+    "limit": 200,
+    "offset": 400
    },
-   "note": "kind:markets \u2014 pilot series market discovery (Crypto \u2014 Ethereum range (hourly))"
+   "note": "kind:markets \u2014 paginated discovery sample (offset 400, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
   },
   {
-   "id": "markets-KXDJI",
+   "id": "markets-sweep-p03",
    "kind": "markets",
    "params": {
-    "series_ticker": "KXDJI",
-    "limit": 10
+    "limit": 200,
+    "offset": 600
    },
-   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 DJI Hourly)"
+   "note": "kind:markets \u2014 paginated discovery sample (offset 600, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
   },
   {
-   "id": "markets-KXINXI",
+   "id": "markets-sweep-p04",
    "kind": "markets",
    "params": {
-    "series_ticker": "KXINXI",
-    "limit": 10
+    "limit": 200,
+    "offset": 800
    },
-   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 S&P500 hourly)"
+   "note": "kind:markets \u2014 paginated discovery sample (offset 800, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
   },
   {
-   "id": "markets-KXNASDAQ100U",
+   "id": "markets-sweep-p05",
    "kind": "markets",
    "params": {
-    "series_ticker": "KXNASDAQ100U",
-    "limit": 10
+    "limit": 200,
+    "offset": 1000
    },
-   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 Nasdaq above/below)"
+   "note": "kind:markets \u2014 paginated discovery sample (offset 1000, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
   },
   {
-   "id": "markets-KXEURUSDH",
+   "id": "markets-sweep-p06",
    "kind": "markets",
    "params": {
-    "series_ticker": "KXEURUSDH",
-    "limit": 10
+    "limit": 200,
+    "offset": 1200
    },
-   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 EUR/USD hourly)"
+   "note": "kind:markets \u2014 paginated discovery sample (offset 1200, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
   },
   {
-   "id": "markets-KXWTIH",
+   "id": "markets-sweep-p07",
    "kind": "markets",
    "params": {
-    "series_ticker": "KXWTIH",
-    "limit": 10
+    "limit": 200,
+    "offset": 1400
    },
-   "note": "kind:markets \u2014 pilot series market discovery (Commodities \u2014 WTI Hourly)"
+   "note": "kind:markets \u2014 paginated discovery sample (offset 1400, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
   },
   {
-   "id": "markets-KXGOLDH",
+   "id": "markets-sweep-p08",
    "kind": "markets",
    "params": {
-    "series_ticker": "KXGOLDH",
-    "limit": 10
+    "limit": 200,
+    "offset": 1600
    },
-   "note": "kind:markets \u2014 pilot series market discovery (Commodities \u2014 Gold Hourly)"
+   "note": "kind:markets \u2014 paginated discovery sample (offset 1600, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
   },
   {
-   "id": "markets-KXSILVERH",
+   "id": "markets-sweep-p09",
    "kind": "markets",
    "params": {
-    "series_ticker": "KXSILVERH",
-    "limit": 10
+    "limit": 200,
+    "offset": 1800
    },
-   "note": "kind:markets \u2014 pilot series market discovery (Commodities \u2014 Silver Hourly)"
+   "note": "kind:markets \u2014 paginated discovery sample (offset 1800, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
   },
   {
-   "id": "markets-KXTEMPNYCH",
+   "id": "markets-sweep-p10",
    "kind": "markets",
    "params": {
-    "series_ticker": "KXTEMPNYCH",
-    "limit": 10
+    "limit": 200,
+    "offset": 2000
    },
-   "note": "kind:markets \u2014 pilot series market discovery (Climate \u2014 NYC temperature hourly)"
+   "note": "kind:markets \u2014 paginated discovery sample (offset 2000, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
+  },
+  {
+   "id": "markets-sweep-p11",
+   "kind": "markets",
+   "params": {
+    "limit": 200,
+    "offset": 2200
+   },
+   "note": "kind:markets \u2014 paginated discovery sample (offset 2200, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
+  },
+  {
+   "id": "markets-sweep-p12",
+   "kind": "markets",
+   "params": {
+    "limit": 200,
+    "offset": 2400
+   },
+   "note": "kind:markets \u2014 paginated discovery sample (offset 2400, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
+  },
+  {
+   "id": "markets-sweep-p13",
+   "kind": "markets",
+   "params": {
+    "limit": 200,
+    "offset": 2600
+   },
+   "note": "kind:markets \u2014 paginated discovery sample (offset 2600, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
+  },
+  {
+   "id": "markets-sweep-p14",
+   "kind": "markets",
+   "params": {
+    "limit": 200,
+    "offset": 2800
+   },
+   "note": "kind:markets \u2014 paginated discovery sample (offset 2800, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
   }
  ]
 }
