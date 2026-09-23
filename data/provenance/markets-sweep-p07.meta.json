@@ -1,0 +1,10 @@
+{
+ "bytes": 794897,
+ "fetched_at": "2026-09-23T02:32:05Z",
+ "http_status": 200,
+ "id": "markets-sweep-p07",
+ "note": "kind:markets \u2014 paginated discovery sample (offset 1400, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)",
+ "sha256": "422f1e60de5dedd7caea892963c8b226eef7d23dc615d71c47e49bff4dd62792",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?limit=200"
+}
