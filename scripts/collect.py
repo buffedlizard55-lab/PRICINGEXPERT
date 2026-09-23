@@ -14,6 +14,13 @@ Every endpoint id in the plan becomes:
   data/raw/<id>.json             verbatim response body
   data/provenance/<id>.meta.json {url, fetched_at, sha256, bytes, http_status, tool}
   data/calls.json                append-style call log (one JSON array)
+
+Pagination (verified against the live host, 2026-09-23): /markets ignores an
+`offset` query param and paginates by `cursor`. A step may therefore carry
+  "params": {"limit": 200, "paginate": {"max_pages": 15}}
+and each page is stored verbatim as <id>-pNN.json with its own provenance
+sidecar (per-page URL + SHA-256). No derived/concatenated files are written to
+raw/ — raw/ holds only verbatim API responses; consumers merge pages themselves.
 """
 from __future__ import annotations
 
@@ -39,44 +46,65 @@ def dump(path: Path, obj):
     path.write_text(json.dumps(obj, indent=1, sort_keys=True) + "\n", encoding="utf-8")
 
 
-def fetch_step(client: KalshiClient, step: dict) -> tuple[bytes, str, str] | None:
+def markets_query(params: dict) -> dict:
+    q = {
+        "status": params.get("status"),
+        "series_ticker": params.get("series_ticker"),
+        "min_close_ts": params.get("min_close_ts"),
+        "max_close_ts": params.get("max_close_ts"),
+        "limit": params.get("limit", 200)}
+    return q
+
+
+def fetch_step(client: KalshiClient, step: dict) -> list[tuple[bytes, str, dict]]:
+    """Fetch one step; return a list of (raw, url, payload) — one entry per page.
+
+    A `markets` step with params.paginate follows the response `cursor` up to
+    max_pages times (the host ignores `offset`; see module docstring).
+    """
     kind = step["kind"]
     params = step.get("params") or {}
     if kind == "exchange_status":
         payload, raw, url = client.get("exchange/status")
-        return raw, url, payload
+        return [(raw, url, payload)]
     if kind == "historical_cutoff":
         payload, raw, url = client.get("historical/cutoff")
-        return raw, url, payload
+        return [(raw, url, payload)]
     if kind == "series_list":
         payload, raw, url = client.get("series", {"limit": params.get("limit")})
-        return raw, url, payload
+        return [(raw, url, payload)]
     if kind == "series":
         payload, raw, url = client.get(f"series/{params['ticker']}")
-        return raw, url, payload
+        return [(raw, url, payload)]
     if kind == "markets":
-        payload, raw, url = client.get("markets", {
-            "status": params.get("status"),
-            "series_ticker": params.get("series_ticker"),
-            "min_close_ts": params.get("min_close_ts"),
-            "max_close_ts": params.get("max_close_ts"),
-            "limit": params.get("limit", 200)})
-        return raw, url, payload
+        pages: list[tuple[bytes, str, dict]] = []
+        cursor = params.get("cursor")
+        max_pages = int((params.get("paginate") or {}).get("max_pages", 1))
+        for _ in range(max_pages):
+            q = markets_query(params)
+            if cursor:
+                q["cursor"] = cursor
+            payload, raw, url = client.get("markets", q)
+            pages.append((raw, url, payload))
+            cursor = payload.get("cursor")
+            if not cursor:
+                break
+        return pages
     if kind == "market":
         payload, raw, url = client.market(params["ticker"])
-        return raw, url, payload
+        return [(raw, url, payload)]
     if kind == "orderbook":
         payload, raw, url = client.orderbook(params["ticker"], depth=params.get("depth", 50))
-        return raw, url, payload
+        return [(raw, url, payload)]
     if kind == "trades":
         payload, raw, url = client.trades(params.get("ticker"), limit=params.get("limit", 500),
                                           min_ts=params.get("min_ts"), max_ts=params.get("max_ts"))
-        return raw, url, payload
+        return [(raw, url, payload)]
     if kind == "candlesticks":
         payload, raw, url = client.candlesticks(params["series"], params["ticker"],
                                                 params["start_ts"], params["end_ts"],
                                                 params.get("period_interval", 3600))
-        return raw, url, payload
+        return [(raw, url, payload)]
     raise SystemExit(f"unknown endpoint kind {kind!r}")
 
 
@@ -94,38 +122,45 @@ def main() -> int:
     ok = failed = skipped = 0
     for step in plan.get("endpoints", []):
         sid = step["id"]
+        params = step.get("params") or {}
         if args.only and sid not in args.only:
             skipped += 1
             continue
         try:
-            raw, url, _payload = fetch_step(client, step)
+            pages = fetch_step(client, step)
         except Exception as error:  # noqa: BLE001 - one bad step must not kill the run
             calls.append({"id": sid, "status": "error", "error": str(error)[:300],
                           "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")})
             failed += 1
             continue
-        raw_path = out / "raw" / f"{sid}.json"
-        meta = {
-            "id": sid,
-            "url": url,
-            "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "sha256": hashlib.sha256(raw).hexdigest(),
-            "bytes": len(raw),
-            "http_status": 200,
-            "tool": TOOL,
-            "note": step.get("note", ""),
-        }
-        if step["kind"] == "candlesticks":
-            meta["ticker"] = params["ticker"]
-            meta["series"] = params["series"]
-        if step["kind"] == "trades":
-            meta["ticker"] = params.get("ticker")
-        raw_path.parent.mkdir(parents=True, exist_ok=True)
-        raw_path.write_bytes(raw)
-        dump(out / "provenance" / f"{sid}.meta.json", meta)
-        calls.append({"id": sid, "status": 200, "bytes": len(raw), "sha256": meta["sha256"],
-                      "at": meta["fetched_at"], "url": url})
-        ok += 1
+        for pi, (raw, url, _payload) in enumerate(pages, 1):
+            file_id = sid if len(pages) == 1 else f"{sid}-p{pi:02d}"
+            raw_path = out / "raw" / f"{file_id}.json"
+            meta = {
+                "id": file_id,
+                "url": url,
+                "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "sha256": hashlib.sha256(raw).hexdigest(),
+                "bytes": len(raw),
+                "http_status": 200,
+                "tool": TOOL,
+                "note": step.get("note", ""),
+            }
+            if len(pages) > 1:
+                meta["page"] = pi
+                meta["pages"] = len(pages)
+            if step["kind"] == "candlesticks":
+                meta["ticker"] = params["ticker"]
+                meta["series"] = params["series"]
+            if step["kind"] == "trades":
+                meta["ticker"] = params.get("ticker")
+            raw_path.parent.mkdir(parents=True, exist_ok=True)
+            raw_path.write_bytes(raw)
+            dump(out / "provenance" / f"{file_id}.meta.json", meta)
+            calls.append({"id": file_id, "status": 200, "bytes": len(raw),
+                          "sha256": meta["sha256"],
+                          "at": meta["fetched_at"], "url": url})
+            ok += 1
     (out / "calls.json").write_text(json.dumps(calls, indent=1) + "\n", encoding="utf-8")
     report = {"ok": ok, "failed": failed, "skipped": skipped,
               "calls_logged": len(calls),

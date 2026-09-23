@@ -1,6 +1,6 @@
 {
- "plan_version": 4,
- "note": "Plan 4 \u2014 real-market discovery. Plan 3 proved the API: 10 pilot series resolve to real tickers, but per-strike hourly ladder markets are thin (liq $0, vol 0; flow sits on top strikes / directional series) and the most-recently-updated sweep is dominated by freshly created sports combos. So: paginate 15 x 200 markets (offset 0..2800) to build a ~3000-market cross-section; rank locally by volume_24h / liquidity for (a) the forward desk universe (active, live, with books) and (b) the backtest archive (long-dated markets whose candles reach back to the 2026-07-24 history cutoff). Next plan (5) captures candlesticks for the winners and populates universe.json so the cron forward desk starts trading against real books.",
+ "plan_version": 5,
+ "note": "Plan 5 \u2014 real-market discovery, v2. Plan 4 discovered a host constraint: /markets ignores `offset` (15 offset pages all returned the same 200 markets) and paginates by `cursor`; scripts/collect.py now follows cursors (params.paginate.max_pages), tested (tests/test_collect.py). This plan: 25-page cursor sweep (~5000 markets) + the 4 directional above/below series (KXBTCD, KXETHD, KXINXU, KXNASDAQ100U) where the pilot data showed the only real flow (vol24=4 on the NASDAQ100U top strike). Next plan (6) selects: universe.json targets (active, liquid, book-bearing) + backtest-archive markets (long-dated, candles back to the 2026-07-24 cutoff).",
  "endpoints": [
   {
    "id": "exchange-status",
@@ -8,139 +8,51 @@
    "note": "kind:exchange_status \u2014 liveness"
   },
   {
-   "id": "markets-sweep-p00",
+   "id": "markets-sweep",
    "kind": "markets",
    "params": {
     "limit": 200,
-    "offset": 0
+    "paginate": {
+     "max_pages": 25
+    }
    },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 0, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
+   "note": "kind:markets + cursor pagination (the host ignores offset \u2014 plan 4 proved all 15 offset pages returned identical data): up to 25 x 200 = 5000 most-recently-updated markets, stored per-page as markets-sweep-pNN.json with per-page provenance"
   },
   {
-   "id": "markets-sweep-p01",
+   "id": "markets-KXBTCD",
    "kind": "markets",
    "params": {
-    "limit": 200,
-    "offset": 200
+    "series_ticker": "KXBTCD",
+    "limit": 20
    },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 200, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
+   "note": "kind:markets \u2014 KXBTCD: directional/above-below series (hourly 2-outcome; the pilot data shows flow sits on these, not on per-strike ladders)"
   },
   {
-   "id": "markets-sweep-p02",
+   "id": "markets-KXETHD",
    "kind": "markets",
    "params": {
-    "limit": 200,
-    "offset": 400
+    "series_ticker": "KXETHD",
+    "limit": 20
    },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 400, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
+   "note": "kind:markets \u2014 KXETHD: directional/above-below series (hourly 2-outcome; the pilot data shows flow sits on these, not on per-strike ladders)"
   },
   {
-   "id": "markets-sweep-p03",
+   "id": "markets-KXINXU",
    "kind": "markets",
    "params": {
-    "limit": 200,
-    "offset": 600
+    "series_ticker": "KXINXU",
+    "limit": 20
    },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 600, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
+   "note": "kind:markets \u2014 KXINXU: directional/above-below series (hourly 2-outcome; the pilot data shows flow sits on these, not on per-strike ladders)"
   },
   {
-   "id": "markets-sweep-p04",
+   "id": "markets-KXNASDAQ100U",
    "kind": "markets",
    "params": {
-    "limit": 200,
-    "offset": 800
+    "series_ticker": "KXNASDAQ100U",
+    "limit": 20
    },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 800, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
-  },
-  {
-   "id": "markets-sweep-p05",
-   "kind": "markets",
-   "params": {
-    "limit": 200,
-    "offset": 1000
-   },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 1000, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
-  },
-  {
-   "id": "markets-sweep-p06",
-   "kind": "markets",
-   "params": {
-    "limit": 200,
-    "offset": 1200
-   },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 1200, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
-  },
-  {
-   "id": "markets-sweep-p07",
-   "kind": "markets",
-   "params": {
-    "limit": 200,
-    "offset": 1400
-   },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 1400, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
-  },
-  {
-   "id": "markets-sweep-p08",
-   "kind": "markets",
-   "params": {
-    "limit": 200,
-    "offset": 1600
-   },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 1600, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
-  },
-  {
-   "id": "markets-sweep-p09",
-   "kind": "markets",
-   "params": {
-    "limit": 200,
-    "offset": 1800
-   },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 1800, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
-  },
-  {
-   "id": "markets-sweep-p10",
-   "kind": "markets",
-   "params": {
-    "limit": 200,
-    "offset": 2000
-   },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 2000, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
-  },
-  {
-   "id": "markets-sweep-p11",
-   "kind": "markets",
-   "params": {
-    "limit": 200,
-    "offset": 2200
-   },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 2200, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
-  },
-  {
-   "id": "markets-sweep-p12",
-   "kind": "markets",
-   "params": {
-    "limit": 200,
-    "offset": 2400
-   },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 2400, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
-  },
-  {
-   "id": "markets-sweep-p13",
-   "kind": "markets",
-   "params": {
-    "limit": 200,
-    "offset": 2600
-   },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 2600, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
-  },
-  {
-   "id": "markets-sweep-p14",
-   "kind": "markets",
-   "params": {
-    "limit": 200,
-    "offset": 2800
-   },
-   "note": "kind:markets \u2014 paginated discovery sample (offset 2800, 15 pages / ~3000 markets); ranked locally for universe (liquid live) and backtest archive (long-dated volume)"
+   "note": "kind:markets \u2014 KXNASDAQ100U: directional/above-below series (hourly 2-outcome; the pilot data shows flow sits on these, not on per-strike ladders)"
   }
  ]
 }

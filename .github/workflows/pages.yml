@@ -31,6 +31,7 @@ jobs:
         run: |
           python3 tests/test_paper_engine.py
           python3 tests/test_forward_desk.py
+          python3 tests/test_collect.py
       - name: Unit tests (browser engine, node)
         run: node tests/engine.test.mjs
       - name: Verification gate (hashes, ledger, fees, books, links-local)
