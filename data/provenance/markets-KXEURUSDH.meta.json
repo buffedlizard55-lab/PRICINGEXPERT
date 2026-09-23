@@ -1,0 +1,10 @@
+{
+ "bytes": 14513,
+ "fetched_at": "2026-09-23T02:30:55Z",
+ "http_status": 200,
+ "id": "markets-KXEURUSDH",
+ "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 EUR/USD hourly)",
+ "sha256": "1325bfab7d90470466ff70de503128aaa8c651da9fc08405dafbd54efd3dddf4",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXEURUSDH&limit=10"
+}

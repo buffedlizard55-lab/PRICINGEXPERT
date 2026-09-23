@@ -1,0 +1,10 @@
+{
+ "bytes": 20944,
+ "fetched_at": "2026-09-23T02:30:56Z",
+ "http_status": 200,
+ "id": "markets-KXSILVERH",
+ "note": "kind:markets \u2014 pilot series market discovery (Commodities \u2014 Silver Hourly)",
+ "sha256": "b50e36abfbc5cd1a2e72f4ef84e4916d7d9db775716eeb8d50c21c560198e209",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSILVERH&limit=10"
+}

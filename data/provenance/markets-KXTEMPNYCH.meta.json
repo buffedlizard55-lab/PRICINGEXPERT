@@ -1,0 +1,10 @@
+{
+ "bytes": 21250,
+ "fetched_at": "2026-09-23T02:30:56Z",
+ "http_status": 200,
+ "id": "markets-KXTEMPNYCH",
+ "note": "kind:markets \u2014 pilot series market discovery (Climate \u2014 NYC temperature hourly)",
+ "sha256": "0213a9ad330b994960559f3bfc444508232462627d4caefee1a523c81fbe8786",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPNYCH&limit=10"
+}

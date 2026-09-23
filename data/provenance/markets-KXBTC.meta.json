@@ -1,0 +1,10 @@
+{
+ "bytes": 19120,
+ "fetched_at": "2026-09-23T02:30:54Z",
+ "http_status": 200,
+ "id": "markets-KXBTC",
+ "note": "kind:markets \u2014 pilot series market discovery (Crypto \u2014 Bitcoin range (hourly))",
+ "sha256": "0dfb94bbadab96d10f0f19d1bc3bffc56729332c7fe77591f2316eb9695edaa0",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXBTC&limit=10"
+}

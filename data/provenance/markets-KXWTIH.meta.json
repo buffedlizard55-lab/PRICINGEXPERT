@@ -1,0 +1,10 @@
+{
+ "bytes": 20867,
+ "fetched_at": "2026-09-23T02:30:55Z",
+ "http_status": 200,
+ "id": "markets-KXWTIH",
+ "note": "kind:markets \u2014 pilot series market discovery (Commodities \u2014 WTI Hourly)",
+ "sha256": "0b49189b690d04d017fe8c42447f7d12f8a44ba8cb1808e4724d63ed96232a31",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXWTIH&limit=10"
+}

@@ -1,0 +1,10 @@
+{
+ "bytes": 19099,
+ "fetched_at": "2026-09-23T02:30:54Z",
+ "http_status": 200,
+ "id": "markets-KXETH",
+ "note": "kind:markets \u2014 pilot series market discovery (Crypto \u2014 Ethereum range (hourly))",
+ "sha256": "88cff24eeb6df79146a09e4be092481b02c98769438ccd8b7a9abecc3e0c740b",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXETH&limit=10"
+}

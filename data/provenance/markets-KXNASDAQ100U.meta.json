@@ -1,0 +1,10 @@
+{
+ "bytes": 18594,
+ "fetched_at": "2026-09-23T02:30:55Z",
+ "http_status": 200,
+ "id": "markets-KXNASDAQ100U",
+ "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 Nasdaq above/below)",
+ "sha256": "b2571c02874ff4f9fe21de6ed776355b187c8615a36295e8545d60588208617f",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNASDAQ100U&limit=10"
+}

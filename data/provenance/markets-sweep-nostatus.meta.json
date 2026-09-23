@@ -1,0 +1,10 @@
+{
+ "bytes": 696453,
+ "fetched_at": "2026-09-23T02:30:53Z",
+ "http_status": 200,
+ "id": "markets-sweep-nostatus",
+ "note": "kind:markets-sweep \u2014 status filter rejected by this host (400 invalid status filter); desk filters active markets itself from the payload status field",
+ "sha256": "a2cf33ac8df0be816ec83f63e12f42c91e127c250b4dadb09366eb2e34c8d943",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?limit=200"
+}

@@ -4,29 +4,95 @@
   "status": 200,
   "bytes": 667,
   "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
-  "at": "2026-09-23T02:28:41Z",
+  "at": "2026-09-23T02:30:53Z",
   "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
  },
  {
-  "id": "historical-cutoff",
+  "id": "markets-sweep-nostatus",
   "status": 200,
-  "bytes": 188,
-  "sha256": "73fc551822f965a42226c173e255f642d9be7ac966698e8b9aa76248709ad7e1",
-  "at": "2026-09-23T02:28:42Z",
-  "url": "https://api.elections.kalshi.com/trade-api/v2/historical/cutoff"
+  "bytes": 696453,
+  "sha256": "a2cf33ac8df0be816ec83f63e12f42c91e127c250b4dadb09366eb2e34c8d943",
+  "at": "2026-09-23T02:30:53Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?limit=200"
  },
  {
-  "id": "series-catalog",
+  "id": "markets-KXBTC",
   "status": 200,
-  "bytes": 17505797,
-  "sha256": "af04b45aabd739cd0d3f78d782b327cdb72e7c23e6300e45566319d2da28a59a",
-  "at": "2026-09-23T02:28:42Z",
-  "url": "https://api.elections.kalshi.com/trade-api/v2/series"
+  "bytes": 19120,
+  "sha256": "0dfb94bbadab96d10f0f19d1bc3bffc56729332c7fe77591f2316eb9695edaa0",
+  "at": "2026-09-23T02:30:54Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXBTC&limit=10"
  },
  {
-  "id": "markets-active-sweep-1",
-  "status": "error",
-  "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/markets?status=active&limit=200: b'{\"error\":{\"code\":\"bad_request\",\"message\":\"bad request\",\"details\":\"invalid status filter\"}}'",
-  "at": "2026-09-23T02:28:42Z"
+  "id": "markets-KXETH",
+  "status": 200,
+  "bytes": 19099,
+  "sha256": "88cff24eeb6df79146a09e4be092481b02c98769438ccd8b7a9abecc3e0c740b",
+  "at": "2026-09-23T02:30:54Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXETH&limit=10"
+ },
+ {
+  "id": "markets-KXDJI",
+  "status": 200,
+  "bytes": 23547,
+  "sha256": "ac765a585b1392c3de1020e2abf3e709d46776f317042df3edd2b7c9dc3d6f2e",
+  "at": "2026-09-23T02:30:54Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXDJI&limit=10"
+ },
+ {
+  "id": "markets-KXINXI",
+  "status": 200,
+  "bytes": 27,
+  "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+  "at": "2026-09-23T02:30:54Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXINXI&limit=10"
+ },
+ {
+  "id": "markets-KXNASDAQ100U",
+  "status": 200,
+  "bytes": 18594,
+  "sha256": "b2571c02874ff4f9fe21de6ed776355b187c8615a36295e8545d60588208617f",
+  "at": "2026-09-23T02:30:55Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNASDAQ100U&limit=10"
+ },
+ {
+  "id": "markets-KXEURUSDH",
+  "status": 200,
+  "bytes": 14513,
+  "sha256": "1325bfab7d90470466ff70de503128aaa8c651da9fc08405dafbd54efd3dddf4",
+  "at": "2026-09-23T02:30:55Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXEURUSDH&limit=10"
+ },
+ {
+  "id": "markets-KXWTIH",
+  "status": 200,
+  "bytes": 20867,
+  "sha256": "0b49189b690d04d017fe8c42447f7d12f8a44ba8cb1808e4724d63ed96232a31",
+  "at": "2026-09-23T02:30:55Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXWTIH&limit=10"
+ },
+ {
+  "id": "markets-KXGOLDH",
+  "status": 200,
+  "bytes": 20942,
+  "sha256": "35b4b208177c4c76cfbf2c268886d3b30f6a09a45b27c35890f74c662d2e4413",
+  "at": "2026-09-23T02:30:55Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDH&limit=10"
+ },
+ {
+  "id": "markets-KXSILVERH",
+  "status": 200,
+  "bytes": 20944,
+  "sha256": "b50e36abfbc5cd1a2e72f4ef84e4916d7d9db775716eeb8d50c21c560198e209",
+  "at": "2026-09-23T02:30:56Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSILVERH&limit=10"
+ },
+ {
+  "id": "markets-KXTEMPNYCH",
+  "status": 200,
+  "bytes": 21250,
+  "sha256": "0213a9ad330b994960559f3bfc444508232462627d4caefee1a523c81fbe8786",
+  "at": "2026-09-23T02:30:56Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPNYCH&limit=10"
  }
 ]

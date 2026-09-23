@@ -2,7 +2,7 @@
  "files": {
   "exchange-status": {
    "bytes": 667,
-   "fetched_at": "2026-09-23T02:28:41Z",
+   "fetched_at": "2026-09-23T02:30:53Z",
    "note": "kind:exchange_status \u2014 liveness",
    "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
    "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
@@ -14,6 +14,83 @@
    "sha256": "73fc551822f965a42226c173e255f642d9be7ac966698e8b9aa76248709ad7e1",
    "url": "https://api.elections.kalshi.com/trade-api/v2/historical/cutoff"
   },
+  "markets-KXBTC": {
+   "bytes": 19120,
+   "fetched_at": "2026-09-23T02:30:54Z",
+   "note": "kind:markets \u2014 pilot series market discovery (Crypto \u2014 Bitcoin range (hourly))",
+   "sha256": "0dfb94bbadab96d10f0f19d1bc3bffc56729332c7fe77591f2316eb9695edaa0",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXBTC&limit=10"
+  },
+  "markets-KXDJI": {
+   "bytes": 23547,
+   "fetched_at": "2026-09-23T02:30:54Z",
+   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 DJI Hourly)",
+   "sha256": "ac765a585b1392c3de1020e2abf3e709d46776f317042df3edd2b7c9dc3d6f2e",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXDJI&limit=10"
+  },
+  "markets-KXETH": {
+   "bytes": 19099,
+   "fetched_at": "2026-09-23T02:30:54Z",
+   "note": "kind:markets \u2014 pilot series market discovery (Crypto \u2014 Ethereum range (hourly))",
+   "sha256": "88cff24eeb6df79146a09e4be092481b02c98769438ccd8b7a9abecc3e0c740b",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXETH&limit=10"
+  },
+  "markets-KXEURUSDH": {
+   "bytes": 14513,
+   "fetched_at": "2026-09-23T02:30:55Z",
+   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 EUR/USD hourly)",
+   "sha256": "1325bfab7d90470466ff70de503128aaa8c651da9fc08405dafbd54efd3dddf4",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXEURUSDH&limit=10"
+  },
+  "markets-KXGOLDH": {
+   "bytes": 20942,
+   "fetched_at": "2026-09-23T02:30:55Z",
+   "note": "kind:markets \u2014 pilot series market discovery (Commodities \u2014 Gold Hourly)",
+   "sha256": "35b4b208177c4c76cfbf2c268886d3b30f6a09a45b27c35890f74c662d2e4413",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDH&limit=10"
+  },
+  "markets-KXINXI": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:30:54Z",
+   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 S&P500 hourly)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXINXI&limit=10"
+  },
+  "markets-KXNASDAQ100U": {
+   "bytes": 18594,
+   "fetched_at": "2026-09-23T02:30:55Z",
+   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 Nasdaq above/below)",
+   "sha256": "b2571c02874ff4f9fe21de6ed776355b187c8615a36295e8545d60588208617f",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNASDAQ100U&limit=10"
+  },
+  "markets-KXSILVERH": {
+   "bytes": 20944,
+   "fetched_at": "2026-09-23T02:30:56Z",
+   "note": "kind:markets \u2014 pilot series market discovery (Commodities \u2014 Silver Hourly)",
+   "sha256": "b50e36abfbc5cd1a2e72f4ef84e4916d7d9db775716eeb8d50c21c560198e209",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSILVERH&limit=10"
+  },
+  "markets-KXTEMPNYCH": {
+   "bytes": 21250,
+   "fetched_at": "2026-09-23T02:30:56Z",
+   "note": "kind:markets \u2014 pilot series market discovery (Climate \u2014 NYC temperature hourly)",
+   "sha256": "0213a9ad330b994960559f3bfc444508232462627d4caefee1a523c81fbe8786",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPNYCH&limit=10"
+  },
+  "markets-KXWTIH": {
+   "bytes": 20867,
+   "fetched_at": "2026-09-23T02:30:55Z",
+   "note": "kind:markets \u2014 pilot series market discovery (Commodities \u2014 WTI Hourly)",
+   "sha256": "0b49189b690d04d017fe8c42447f7d12f8a44ba8cb1808e4724d63ed96232a31",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXWTIH&limit=10"
+  },
+  "markets-sweep-nostatus": {
+   "bytes": 696453,
+   "fetched_at": "2026-09-23T02:30:53Z",
+   "note": "kind:markets-sweep \u2014 status filter rejected by this host (400 invalid status filter); desk filters active markets itself from the payload status field",
+   "sha256": "a2cf33ac8df0be816ec83f63e12f42c91e127c250b4dadb09366eb2e34c8d943",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?limit=200"
+  },
   "series-catalog": {
    "bytes": 17505797,
    "fetched_at": "2026-09-23T02:28:42Z",
@@ -22,6 +99,6 @@
    "url": "https://api.elections.kalshi.com/trade-api/v2/series"
   }
  },
- "generated_at": "2026-09-23T02:28:42Z",
+ "generated_at": "2026-09-23T02:30:56Z",
  "generator": "scripts/make_manifest.py"
 }
