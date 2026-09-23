@@ -1,0 +1,153 @@
+[
+  {
+    "id": "sure-penny",
+    "username": "SurePenny",
+    "name": "Heavy Favourite Holder",
+    "tag": "favourite-longshot",
+    "status": "active",
+    "rule": "On an active universe market with volume >= 10,000 contracts, buy the side whose ask is between 0.85 and 0.97 and whose displayed spread is <= 4c, sizing 25% of cash, and hold to the official settlement.",
+    "why": "Favourite-longshot bias: the over-bought side is the longshot, so heavy favourites are (if the bias exists) slightly under-priced and pay a small, repeatable edge at settlement. No exit logic: the trade is the settlement.",
+    "failure_mode": "Every settled upset costs nearly the whole stake; a run of upsets erases many wins. Fees on high-volume favourites are also the largest in absolute dollars.",
+    "evidence": [
+      {"claim": "Favourite-longshot bias is documented across parimutuel and prediction markets; a CEPR/VoxEU column analyses 300k+ Kalshi contracts specifically.", "status": "literature-linked", "url": "https://cepr.org/voxeu/columns/economics-kalshi-prediction-market"},
+      {"claim": "Kalshi quadratic taker fee 0.07*C*P*(1-P) applied to every fill in the ledger.", "status": "verified-api-doc", "url": "https://trading-api.readme.io/reference/fees"}
+    ],
+    "params": {"min_volume": 10000, "ask_low": 0.85, "ask_high": 0.97, "max_spread": 0.04, "cash_fraction": 0.25, "exit": "settlement"},
+    "backtest_eligible": true
+  },
+  {
+    "id": "longshot-fader",
+    "username": "LongshotFader",
+    "name": "Longshot Fader",
+    "tag": "favourite-longshot",
+    "status": "active",
+    "rule": "On an active universe market with 24h volume >= 5,000, when the cheap side's ask is between 0.03 and 0.15 and the opposite side's ask is between 0.85 and 0.97 with displayed spread <= 5c, buy the opposite (85-97c) side, sizing 25% of cash, and hold to settlement.",
+    "why": "Same bias viewed from the longshot side: when a market is quoting 3-15c for the underdog, the favourite is the side the bias says is cheap. Entering from the longshot quote makes the trigger observable without estimating anything.",
+    "failure_mode": "Identical to SurePenny: upsets are near-total losses. Extra risk: thin 24h volume can mean the 3-15c quote is stale, so the fill may be worse than the displayed ask.",
+    "evidence": [
+      {"claim": "Same CEPR/VoxEU favourite-longshot analysis as SurePenny.", "status": "literature-linked", "url": "https://cepr.org/voxeu/columns/economics-kalshi-prediction-market"}
+    ],
+    "params": {"min_volume_24h": 5000, "longshot_ask_low": 0.03, "longshot_ask_high": 0.15, "fav_ask_low": 0.85, "fav_ask_high": 0.97, "max_spread": 0.05, "cash_fraction": 0.25, "exit": "settlement"},
+    "backtest_eligible": true
+  },
+  {
+    "id": "last-mile",
+    "username": "LastMile",
+    "name": "Expiry Convergence",
+    "tag": "expiry",
+    "status": "active",
+    "rule": "Inside 24 hours of expected_expiration_time (or close_time when no expected time is published), buy any side whose ask is between 0.90 and 0.99 on a universe market with volume >= 1,000, sizing 20% of cash, and hold to the official settlement.",
+    "why": "In the final hours the remaining uncertainty is small and the 90-99c side is usually right; convergence trades pay 1-10c per contract with a high hit rate. Return-seeking: capital is kept working rather than parked.",
+    "failure_mode": "One 2% probability upset per trade destroys ~50 winners at this stake. Settlement rules disputes (can_close_early, rules_primary wording) are the tail risk; the ledger records rules_primary with every entry.",
+    "evidence": [
+      {"claim": "Rule is a documented convergence hypothesis; the independent test is the forward ledger itself (verified fills and official settlements only).", "status": "hypothesis-only"}
+    ],
+    "params": {"horizon_hours": 24, "ask_low": 0.90, "ask_high": 0.99, "min_volume": 1000, "cash_fraction": 0.2, "exit": "settlement"},
+    "backtest_eligible": true
+  },
+  {
+    "id": "tape-rider",
+    "username": "TapeRider",
+    "name": "24h Momentum Rider",
+    "tag": "momentum",
+    "status": "active",
+    "rule": "When the market's official previous_price_dollars exists, the market is >= 24h old, and |last - previous| >= 0.03, buy the direction of the move at its ask with a +2c limit, sizing 15% of cash. Exit: sell when the bid is >= entry + 5c, else hold to settlement.",
+    "why": "Short-horizon momentum: a 3c+ one-day move on an event contract often reflects information that is still being priced. Both the signal (previous_price_dollars) and the dates come from the official market object.",
+    "failure_mode": "The previous_price field is the previous day's close, which can be stale on thin markets; fills are book-dependent so a stale signal plus a thin book is the worst case. The 5c target rarely hits, so most trades ride to settlement.",
+    "evidence": [
+      {"claim": "Momentum is a tested anomaly family in equity and futures markets; transfer to event contracts is UNVERIFIED and the forward ledger is the test.", "status": "hypothesis-only"}
+    ],
+    "params": {"min_move": 0.03, "limit_buffer": 0.02, "cash_fraction": 0.15, "exit_target_over_entry": 0.05, "exit": "target-or-settlement"},
+    "backtest_eligible": true
+  },
+  {
+    "id": "deep-fade",
+    "username": "DeepFade",
+    "name": "10c Mean Reversion",
+    "tag": "mean-reversion",
+    "status": "active",
+    "rule": "When |last - previous| >= 0.10: if last <= previous - 0.10 and last <= 0.45, buy YES at its ask (limit ask + 2c); if last >= previous + 0.10 and last >= 0.55, buy NO at its ask. Size 15% of cash. Exit at 2x entry if the bid reaches it, else hold to settlement.",
+    "why": "Large one-day moves on binary contracts can overshoot: paying <= 45c for a side that 'dropped' 10c is betting the move exaggerated. The 2x target caps the winner size; settlement is the default exit.",
+    "failure_mode": "If the move is news (a real regime change), the fade keeps losing: adverse selection is the whole story. The backtest on verified candles decides whether this rule even earns a forward slot.",
+    "evidence": [
+      {"claim": "Mean reversion vs momentum in short-horizon binaries is an open question for event contracts; treated as a hypothesis to be tested on this data, not assumed.", "status": "hypothesis-only"}
+    ],
+    "params": {"min_move": 0.10, "limit_buffer": 0.02, "cash_fraction": 0.15, "exit_multiple": 2.0, "exit": "multiple-or-settlement"},
+    "backtest_eligible": true
+  },
+  {
+    "id": "cross-hunt",
+    "username": "CrossHunt",
+    "name": "Crossed-Book Hunter",
+    "tag": "arbitrage",
+    "status": "active",
+    "rule": "If the derived quotes satisfy YES ask + NO ask <= 0.99 (buying both sides costs under $1.00), buy equal quantities of both sides (size: the larger affordable side at 10% of cash). Both legs pay exactly $1.00 at settlement, so the gross capture is (1.00 - total cost) per pair minus both taker fees.",
+    "why": "A strict, self-verifying arbitrage: no forecast, no model, just two displayed asks that cannot both be fair. In a consistent reciprocal book this condition should never hold — so the rule doubles as a book-consistency monitor: if it never triggers, that is itself a verified observation.",
+    "failure_mode": "Leg risk: if the NO ask quote disappears between reading the book and the simulated fill, the strategy logs a BLOCKED intent instead of guessing. Fees can eat a 1-2c capture, which the ledger shows per trade.",
+    "evidence": [
+      {"claim": "Reciprocal quoting (YES ask = 1 - NO bid) is the exchange's own documented structure; a crossing condition is a direct arithmetic consequence of it.", "status": "verified-api-doc", "url": "https://trading-api.readme.io/reference/get-market-order-book"}
+    ],
+    "params": {"max_pair_cost": 0.99, "cash_fraction": 0.1, "exit": "settlement"},
+    "backtest_eligible": false
+  },
+  {
+    "id": "depth-diver",
+    "username": "DepthDiver",
+    "name": "Depth Imbalance Diver",
+    "tag": "microstructure",
+    "status": "active",
+    "rule": "On a universe market with displayed bid depth on BOTH sides, compute imbalance = (YES depth - NO depth) / (YES depth + NO depth). If |imbalance| >= 0.40, buy the heavier side at its ask (limit ask + 2c), sizing 15% of cash, and hold to settlement.",
+    "why": "Visible resting liquidity is a cheap public signal: persistent one-sided depth can reflect informed flow or stale quotes. The rule logs the full level list with every fill so the claim can be audited bar by bar.",
+    "failure_mode": "Displayed depth can be pulled (stale quotes) or is genuinely uninformative; imbalance can also mean the heavy side is about to be hit through. The forward ledger is the test — similarity to order-flow imbalance in equity microstructure is explicitly NOT assumed to transfer.",
+    "evidence": [
+      {"claim": "Order-book imbalance is a documented short-horizon signal in equity microstructure literature; transfer to prediction markets is UNVERIFIED here.", "status": "hypothesis-only"}
+    ],
+    "params": {"min_imbalance": 0.4, "limit_buffer": 0.02, "cash_fraction": 0.15, "exit": "settlement"},
+    "backtest_eligible": false
+  },
+  {
+    "id": "penny-lotto",
+    "username": "PennyLotto",
+    "name": "Penny Longshot Lottery",
+    "tag": "lottery",
+    "status": "active",
+    "rule": "On a universe market with traded volume, buy any side whose ask is between 0.01 and 0.05, sizing 10% of cash. Exit when the bid is >= 2x entry, else hold to the official settlement.",
+    "why": "Deliberate max-return construction: pay pennies, and a win pays 100-200x. If the market over-prices longshots (the same bias SurePenny trades from the other side), the pennies are cheap; if the bias is absent, this is the strategy that bleeds — and the ledger will show exactly that.",
+    "failure_mode": "Most tickets settle at zero; exits are rare because one-sided books keep the bid at 0.00, so the 2x target usually never prints. Expect the worst equity curve in the race.",
+    "evidence": [
+      {"claim": "Lottery demand for longshots is documented in prediction markets (demand for low-probability outcomes); treated here as a hypothesis, sized down, and tracked separately.", "status": "hypothesis-only"}
+    ],
+    "params": {"ask_low": 0.01, "ask_high": 0.05, "cash_fraction": 0.1, "exit_multiple": 2.0, "exit": "multiple-or-settlement"},
+    "backtest_eligible": false
+  },
+  {
+    "id": "macro-closer",
+    "username": "MacroCloser",
+    "name": "Macro Expiry Closer",
+    "tag": "macro-expiry",
+    "status": "active",
+    "rule": "On official macro series (KXCPI, KXFED, KXU6, KXNFP — final universe tickers listed in data/universe.json), inside 6 hours of close_time, buy the side whose ask is between 0.80 and 0.97 with displayed spread <= 3c, sizing 25% of cash, and hold to settlement.",
+    "why": "Macro binary markets converge fast near release time: once the print is out or the range is nearly certain, the heavy side is cheap relative to its true probability. Small edge, very high hit rate, capital always working.",
+    "failure_mode": "Macro upsets are fat-tailed exactly when they matter (surprise prints); a single 90c loss costs ~10 wins. The rules_primary text (which exact print/threshold settles the market) is logged on every entry because rule wording IS the risk.",
+    "evidence": [
+      {"claim": "The convergence pattern is observed in the committed candle archive (data/candles/) for KXCPI/KXFED markets; the forward ledger is the independent test.", "status": "to-be-verified-by-backtest"}
+    ],
+    "params": {"horizon_hours": 6, "ask_low": 0.80, "ask_high": 0.97, "max_spread": 0.03, "cash_fraction": 0.25, "exit": "settlement"},
+    "backtest_eligible": true
+  },
+  {
+    "id": "commodity-drift",
+    "username": "CommodityDrift",
+    "name": "Commodity Directional Drift",
+    "tag": "commodity",
+    "status": "active",
+    "rule": "On the official daily commodity/crypto direction markets in the universe (e.g. KXWTI, KXBTC, KXGOLD, KXETH — final tickers in data/universe.json), when the market's own last price implies a >= 0.70 probability for one direction and it is inside 12 hours of settlement, buy that side at ask (limit ask + 2c), sizing 20% of cash, hold to settlement.",
+    "why": "Daily price-direction binaries on established commodities embed the spot-vs-strike gap; in the final 12h the gap usually holds, so the 70-97c side should be slightly cheap. This is the cross-market bridge: the 'signal' is the market's own pricing of a physical commodity, which can be cross-checked against official commodity data (see research DB).",
+    "failure_mode": "Commodity gaps over the settlement window (overnight moves, exchange close rules) break the 70c+ side. Settlement uses the official source named in the market's rules; if that source's final print differs from the live spot, the trade loses regardless of the model.",
+    "evidence": [
+      {"claim": "The spot-vs-strike relationship is checked against the official settlement source named in each market's rules_primary; the forward ledger is the test.", "status": "hypothesis-only"}
+    ],
+    "params": {"min_probability": 0.7, "horizon_hours": 12, "limit_buffer": 0.02, "cash_fraction": 0.2, "exit": "settlement"},
+    "backtest_eligible": true
+  }
+]

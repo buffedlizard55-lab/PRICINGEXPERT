@@ -1,0 +1,39 @@
+{
+ "checked_at": "see CI",
+ "local_check": "well-formed only",
+ "remote_check": "scripts/probe_links.py in CI",
+ "urls": {
+  "https://api.elections.kalshi.com/trade-api/v2": [
+   "index.html",
+   "src/live.js"
+  ],
+  "https://api.elections.kalshi.com/trade-api/v2/exchange/status": [
+   "index.html"
+  ],
+  "https://buffedlizard55-lab.github.io/MasterSite/": [
+   "index.html"
+  ],
+  "https://github.com/buffedlizard55-lab/PRICINGEXPERT": [
+   "index.html",
+   "strategy.html"
+  ],
+  "https://kalshi.com/markets": [
+   "src/live.js"
+  ],
+  "https://specials.candlecharts.com/contest/": [
+   "index.html"
+  ],
+  "https://trading-api.readme.io/reference": [
+   "index.html"
+  ],
+  "https://www.kalshi.com": [
+   "index.html"
+  ],
+  "https://www.trade-ideas.com/stock-trading-competition/": [
+   "index.html"
+  ],
+  "https://www.tradingview.com/the-leap/tradestation-july-2026/rules/": [
+   "index.html"
+  ]
+ }
+}

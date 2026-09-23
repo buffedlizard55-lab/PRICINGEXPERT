@@ -1,0 +1,74 @@
+[
+  {
+    "id": "H-01",
+    "statement": "Favourite-longshot bias exists on Kalshi: heavy favourites (85-97c) on liquid markets are slightly under-priced, so buying them and holding to settlement earns a small positive edge after the quadratic taker fee.",
+    "markets": ["KX-macro", "KX-game", "KX-weather", "universe-wide"],
+    "basis": "Documented in prediction-market literature (CEPR/VoxEU analysis of 300k+ Kalshi contracts; classic parimutuel favourite-longshot bias). For THIS exchange and THIS season it is a hypothesis to be tested by the forward ledger, not an assumption.",
+    "status": "untested",
+    "evidence": ["data/source-registry.json#cepr-kalshi-column (literature-linked, not a price source)"]
+  },
+  {
+    "id": "H-02",
+    "statement": "Expiry convergence: in the final hours before expected_expiration, 90-99c sides win often enough that 20% sizing at 90-99c is a positive-expectation trade net of fees.",
+    "markets": ["universe-wide"],
+    "basis": "Pure forward-test hypothesis; no literature claim is asserted for Kalshi specifically.",
+    "status": "untested",
+    "evidence": []
+  },
+  {
+    "id": "H-03",
+    "statement": "24h momentum transfers from equity/futures anomaly literature to event contracts: a 3c+ official one-day move (previous_price_dollars) predicts continuation over the holding horizon.",
+    "markets": ["universe-wide"],
+    "basis": "Cross-market transfer hypothesis. The source domain (equities) is NOT this market; the transfer must be proven on Kalshi's own verified prices (backtest on candles, then forward).",
+    "status": "untested",
+    "evidence": []
+  },
+  {
+    "id": "H-04",
+    "statement": "Mean reversion on large moves: after a 10c+ one-day move, buying the dropped side (<=45c) reverts; equivalently the move overstates and the market corrects.",
+    "markets": ["universe-wide"],
+    "basis": "Opposite of H-03. Exactly one of {H-03, H-04} should show up on a given horizon if either is real; the walk-forward split decides. Both stay in the competition so the ledger keeps both samples growing.",
+    "status": "untested",
+    "evidence": []
+  },
+  {
+    "id": "H-05",
+    "statement": "Book consistency: the reciprocal quote structure (YES ask = 1 - NO bid) means a displayed pair cost YES ask + NO ask <= 0.99 should essentially never occur. When it does, it is a verified arbitrage, not a forecast.",
+    "markets": ["universe-wide"],
+    "basis": "Arithmetic consequence of the exchange's own quoting structure; the CrossHunt rule doubles as a consistency monitor — zero triggers over a season is itself a verified observation.",
+    "status": "untested",
+    "evidence": ["data/source-registry.json#kalshi-api-docs (quoting structure doc)"]
+  },
+  {
+    "id": "H-06",
+    "statement": "Displayed bid-depth imbalance >= 40% predicts short-run direction on the heavier side.",
+    "markets": ["universe-wide"],
+    "basis": "Microstructure transfer hypothesis (order-book imbalance is documented in equity literature). Explicitly NOT assumed to transfer; the forward ledger with full level logging is the test.",
+    "status": "untested",
+    "evidence": []
+  },
+  {
+    "id": "H-07",
+    "statement": "Penny longshots (1-5c) are over-priced: the market's lottery-ticket demand makes the cheap side negative-expectation, so buying pennies is the strategy that should lose the most — tracked as the competition's deliberate failure control.",
+    "markets": ["universe-wide"],
+    "basis": "Max-return competition design: include the obvious lottery so the board shows what naive return-seeking costs. If PennyLotto ever wins, that is a research finding about longshot supply, not a fluke.",
+    "status": "untested",
+    "evidence": []
+  },
+  {
+    "id": "H-08",
+    "statement": "Macro expiry closer: macro binaries (CPI/Fed) converge so fast near release that 80-97c entries inside 6h of close are positive-expectation net of fees.",
+    "markets": ["KXCPI", "KXFED", "KXU6", "KXNFP (final tickers per universe.json)"],
+    "basis": "To be verified against the committed candle archive for these series (backtest), then forward-tested. Settlement wording (rules_primary) is the risk factor and is logged per entry.",
+    "status": "untested",
+    "evidence": []
+  },
+  {
+    "id": "H-09",
+    "statement": "Commodity direction drift: daily price-direction binaries on established commodities sit at >=70c for one direction in the final 12h and stay there; buying that side at ask is positive-expectation.",
+    "markets": ["KXWTI", "KXBTC", "KXGOLD", "KXETH (final tickers per universe.json)"],
+    "basis": "The spot-vs-strike gap argument, cross-checkable against the official settlement source named in each market's rules_primary. The market's own pricing of a physical commodity is the bridge to the cross-market DB.",
+    "status": "untested",
+    "evidence": []
+  }
+]

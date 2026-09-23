@@ -1,0 +1,45 @@
+{
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
+ "backtest": [],
+ "curve": [],
+ "evidence": [
+  {
+   "claim": "Mean reversion vs momentum in short-horizon binaries is an open question for event contracts; treated as a hypothesis to be tested on this data, not assumed.",
+   "status": "hypothesis-only"
+  }
+ ],
+ "failure_mode": "If the move is news (a real regime change), the fade keeps losing: adverse selection is the whole story. The backtest on verified candles decides whether this rule even earns a forward slot.",
+ "id": "deep-fade",
+ "intents": [],
+ "name": "10c Mean Reversion",
+ "params": {
+  "cash_fraction": 0.15,
+  "exit": "multiple-or-settlement",
+  "exit_multiple": 2.0,
+  "limit_buffer": 0.02,
+  "min_move": 0.1
+ },
+ "positions": [],
+ "rule": "When |last - previous| >= 0.10: if last <= previous - 0.10 and last <= 0.45, buy YES at its ask (limit ask + 2c); if last >= previous + 0.10 and last >= 0.55, buy NO at its ask. Size 15% of cash. Exit at 2x entry if the bid reaches it, else hold to settlement.",
+ "stats": {
+  "avg_entry": null,
+  "cash": 10000.0,
+  "equity": 10000.0,
+  "exits": 0,
+  "fees": 0.0,
+  "fills": 0,
+  "losses": 0,
+  "open_positions": 0,
+  "realized_pnl": 0.0,
+  "return_pct": 0.0,
+  "settlements": 0,
+  "slippage": 0.0,
+  "starting_cash": 10000.0,
+  "wins": 0
+ },
+ "status": "active",
+ "tag": "mean-reversion",
+ "trades": [],
+ "username": "DeepFade",
+ "why": "Large one-day moves on binary contracts can overshoot: paying <= 45c for a side that 'dropped' 10c is betting the move exaggerated. The 2x target caps the winner size; settlement is the default exit."
+}

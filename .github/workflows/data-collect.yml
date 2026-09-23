@@ -1,0 +1,35 @@
+name: Data collect (plan-triggered)
+
+# Fires ONLY when data/collect_plan.json changes: no loop risk (evidence commits
+# never touch the plan file). The runner has full egress, so this is the permanent
+# collection route for the session (IRR-01). Read-only official API only.
+on:
+  push:
+    paths:
+      - "data/collect_plan.json"
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Collect evidence per plan (official public API, read-only)
+        continue-on-error: true   # failures are diagnosed via data/collect-report.json
+        run: python3 scripts/collect.py --plan data/collect_plan.json --out data
+      - name: Regenerate manifest
+        run: python3 scripts/make_manifest.py data
+      - name: Commit evidence + report
+        run: |
+          git config user.name "pricingexpert-desk[bot]"
+          git config user.email "desk@users.noreply.github.com"
+          git add data/raw data/provenance data/calls.json data/manifest.json data/collect-report.json
+          if git diff --cached --quiet; then
+            echo "no new evidence to commit"
+          else
+            git commit -m "evidence: collect_plan run $(date -u +%Y%m%dT%H%M%SZ)Z"
+            git push
+          fi

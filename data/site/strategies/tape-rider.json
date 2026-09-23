@@ -1,0 +1,45 @@
+{
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
+ "backtest": [],
+ "curve": [],
+ "evidence": [
+  {
+   "claim": "Momentum is a tested anomaly family in equity and futures markets; transfer to event contracts is UNVERIFIED and the forward ledger is the test.",
+   "status": "hypothesis-only"
+  }
+ ],
+ "failure_mode": "The previous_price field is the previous day's close, which can be stale on thin markets; fills are book-dependent so a stale signal plus a thin book is the worst case. The 5c target rarely hits, so most trades ride to settlement.",
+ "id": "tape-rider",
+ "intents": [],
+ "name": "24h Momentum Rider",
+ "params": {
+  "cash_fraction": 0.15,
+  "exit": "target-or-settlement",
+  "exit_target_over_entry": 0.05,
+  "limit_buffer": 0.02,
+  "min_move": 0.03
+ },
+ "positions": [],
+ "rule": "When the market's official previous_price_dollars exists, the market is >= 24h old, and |last - previous| >= 0.03, buy the direction of the move at its ask with a +2c limit, sizing 15% of cash. Exit: sell when the bid is >= entry + 5c, else hold to settlement.",
+ "stats": {
+  "avg_entry": null,
+  "cash": 10000.0,
+  "equity": 10000.0,
+  "exits": 0,
+  "fees": 0.0,
+  "fills": 0,
+  "losses": 0,
+  "open_positions": 0,
+  "realized_pnl": 0.0,
+  "return_pct": 0.0,
+  "settlements": 0,
+  "slippage": 0.0,
+  "starting_cash": 10000.0,
+  "wins": 0
+ },
+ "status": "active",
+ "tag": "momentum",
+ "trades": [],
+ "username": "TapeRider",
+ "why": "Short-horizon momentum: a 3c+ one-day move on an event contract often reflects information that is still being priced. Both the signal (previous_price_dollars) and the dates come from the official market object."
+}

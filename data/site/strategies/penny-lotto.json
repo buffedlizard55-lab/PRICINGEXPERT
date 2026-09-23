@@ -1,0 +1,45 @@
+{
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
+ "backtest": [],
+ "curve": [],
+ "evidence": [
+  {
+   "claim": "Lottery demand for longshots is documented in prediction markets (demand for low-probability outcomes); treated here as a hypothesis, sized down, and tracked separately.",
+   "status": "hypothesis-only"
+  }
+ ],
+ "failure_mode": "Most tickets settle at zero; exits are rare because one-sided books keep the bid at 0.00, so the 2x target usually never prints. Expect the worst equity curve in the race.",
+ "id": "penny-lotto",
+ "intents": [],
+ "name": "Penny Longshot Lottery",
+ "params": {
+  "ask_high": 0.05,
+  "ask_low": 0.01,
+  "cash_fraction": 0.1,
+  "exit": "multiple-or-settlement",
+  "exit_multiple": 2.0
+ },
+ "positions": [],
+ "rule": "On a universe market with traded volume, buy any side whose ask is between 0.01 and 0.05, sizing 10% of cash. Exit when the bid is >= 2x entry, else hold to the official settlement.",
+ "stats": {
+  "avg_entry": null,
+  "cash": 10000.0,
+  "equity": 10000.0,
+  "exits": 0,
+  "fees": 0.0,
+  "fills": 0,
+  "losses": 0,
+  "open_positions": 0,
+  "realized_pnl": 0.0,
+  "return_pct": 0.0,
+  "settlements": 0,
+  "slippage": 0.0,
+  "starting_cash": 10000.0,
+  "wins": 0
+ },
+ "status": "active",
+ "tag": "lottery",
+ "trades": [],
+ "username": "PennyLotto",
+ "why": "Deliberate max-return construction: pay pennies, and a win pays 100-200x. If the market over-prices longshots (the same bias SurePenny trades from the other side), the pennies are cheap; if the bias is absent, this is the strategy that bleeds \u2014 and the ledger will show exactly that."
+}

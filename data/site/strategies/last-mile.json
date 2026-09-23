@@ -1,0 +1,46 @@
+{
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
+ "backtest": [],
+ "curve": [],
+ "evidence": [
+  {
+   "claim": "Rule is a documented convergence hypothesis; the independent test is the forward ledger itself (verified fills and official settlements only).",
+   "status": "hypothesis-only"
+  }
+ ],
+ "failure_mode": "One 2% probability upset per trade destroys ~50 winners at this stake. Settlement rules disputes (can_close_early, rules_primary wording) are the tail risk; the ledger records rules_primary with every entry.",
+ "id": "last-mile",
+ "intents": [],
+ "name": "Expiry Convergence",
+ "params": {
+  "ask_high": 0.99,
+  "ask_low": 0.9,
+  "cash_fraction": 0.2,
+  "exit": "settlement",
+  "horizon_hours": 24,
+  "min_volume": 1000
+ },
+ "positions": [],
+ "rule": "Inside 24 hours of expected_expiration_time (or close_time when no expected time is published), buy any side whose ask is between 0.90 and 0.99 on a universe market with volume >= 1,000, sizing 20% of cash, and hold to the official settlement.",
+ "stats": {
+  "avg_entry": null,
+  "cash": 10000.0,
+  "equity": 10000.0,
+  "exits": 0,
+  "fees": 0.0,
+  "fills": 0,
+  "losses": 0,
+  "open_positions": 0,
+  "realized_pnl": 0.0,
+  "return_pct": 0.0,
+  "settlements": 0,
+  "slippage": 0.0,
+  "starting_cash": 10000.0,
+  "wins": 0
+ },
+ "status": "active",
+ "tag": "expiry",
+ "trades": [],
+ "username": "LastMile",
+ "why": "In the final hours the remaining uncertainty is small and the 90-99c side is usually right; convergence trades pay 1-10c per contract with a high hit rate. Return-seeking: capital is kept working rather than parked."
+}

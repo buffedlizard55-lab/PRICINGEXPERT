@@ -1,0 +1,44 @@
+{
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
+ "backtest": [],
+ "curve": [],
+ "evidence": [
+  {
+   "claim": "Reciprocal quoting (YES ask = 1 - NO bid) is the exchange's own documented structure; a crossing condition is a direct arithmetic consequence of it.",
+   "status": "verified-api-doc",
+   "url": "https://trading-api.readme.io/reference/get-market-order-book"
+  }
+ ],
+ "failure_mode": "Leg risk: if the NO ask quote disappears between reading the book and the simulated fill, the strategy logs a BLOCKED intent instead of guessing. Fees can eat a 1-2c capture, which the ledger shows per trade.",
+ "id": "cross-hunt",
+ "intents": [],
+ "name": "Crossed-Book Hunter",
+ "params": {
+  "cash_fraction": 0.1,
+  "exit": "settlement",
+  "max_pair_cost": 0.99
+ },
+ "positions": [],
+ "rule": "If the derived quotes satisfy YES ask + NO ask <= 0.99 (buying both sides costs under $1.00), buy equal quantities of both sides (size: the larger affordable side at 10% of cash). Both legs pay exactly $1.00 at settlement, so the gross capture is (1.00 - total cost) per pair minus both taker fees.",
+ "stats": {
+  "avg_entry": null,
+  "cash": 10000.0,
+  "equity": 10000.0,
+  "exits": 0,
+  "fees": 0.0,
+  "fills": 0,
+  "losses": 0,
+  "open_positions": 0,
+  "realized_pnl": 0.0,
+  "return_pct": 0.0,
+  "settlements": 0,
+  "slippage": 0.0,
+  "starting_cash": 10000.0,
+  "wins": 0
+ },
+ "status": "active",
+ "tag": "arbitrage",
+ "trades": [],
+ "username": "CrossHunt",
+ "why": "A strict, self-verifying arbitrage: no forecast, no model, just two displayed asks that cannot both be fair. In a consistent reciprocal book this condition should never hold \u2014 so the rule doubles as a book-consistency monitor: if it never triggers, that is itself a verified observation."
+}

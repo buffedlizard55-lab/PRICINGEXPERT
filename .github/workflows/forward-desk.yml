@@ -1,0 +1,58 @@
+name: Forward desk (30-min collector)
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"   # :07 and :37 UTC — two desk cycles per hour
+  workflow_dispatch:
+
+concurrency:
+  group: forward-desk
+  cancel-in-progress: false
+
+jobs:
+  cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Plan the next cycle
+        id: plan
+        run: |
+          OUT=$(python3 scripts/make_cycle_plan.py data)
+          CYCLE=$(python3 -c "import json,sys; print(json.loads(sys.argv[1])['cycle'])" "$OUT")
+          echo "cycle=$CYCLE" >> "$GITHUB_OUTPUT"
+          echo "$OUT"
+      - name: Collect verified evidence (official public API, read-only)
+        # --out is the CYCLE's evidence dir: the desk only fills against books
+        # captured there (run_cycle reads <cycle>/evidence/{raw,provenance}).
+        run: python3 scripts/collect.py --plan "data/season-2026/forward/${{ steps.plan.outputs.cycle }}/plan.json" --out "data/season-2026/forward/${{ steps.plan.outputs.cycle }}/evidence"
+      - name: Run the desk cycle (fills, exits, settlements, marks)
+        run: |
+          NOW=$(date +%s)
+          python3 scripts/forward_desk.py "data/season-2026/forward/${{ steps.plan.outputs.cycle }}" \
+            data/season-2026 data/strategies.json "$NOW"
+      - name: Refresh derivations
+        run: python3 scripts/derive.py data
+      - name: Backtest on committed candle archive (if any)
+        run: python3 scripts/backtest.py data || echo "backtest skipped (no candles yet)"
+      - name: Rebuild site data
+        run: python3 scripts/build_site.py data
+      - name: Verification gate
+        run: python3 scripts/verify.py data
+      - name: Commit cycle evidence + ledger
+        run: |
+          git config user.name "pricingexpert-desk[bot]"
+          git config user.email "desk@users.noreply.github.com"
+          CYCLE="${{ steps.plan.outputs.cycle }}"
+          git add data/ .nojekyll index.html styles.css src/ strategy.html
+          if git diff --cached --quiet; then
+            echo "no changes this cycle (all evidence already committed)"
+          else
+            git commit -m "forward desk $CYCLE: verified evidence + ledger"
+            git push
+          fi

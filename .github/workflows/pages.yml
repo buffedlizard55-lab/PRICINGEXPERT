@@ -1,0 +1,74 @@
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Unit tests (python)
+        run: |
+          python3 tests/test_paper_engine.py
+          python3 tests/test_forward_desk.py
+      - name: Unit tests (browser engine, node)
+        run: node tests/engine.test.mjs
+      - name: Verification gate (hashes, ledger, fees, books, links-local)
+        run: python3 scripts/verify.py data
+
+  build:
+    runs-on: ubuntu-latest
+    needs: verify
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      # Transparency probes: results are published in data/site/. Failures are a
+      # finding, never a deploy blocker (the site has a labelled snapshot fallback).
+      - name: Remote link probe (all external URLs in site assets)
+        continue-on-error: true
+        run: python3 scripts/probe_links.py data || true
+      - name: Endpoint probe (official API liveness)
+        continue-on-error: true
+        run: python3 scripts/probe_endpoints.py data || true
+      - name: Rebuild published data (deterministic)
+        run: python3 scripts/build_site.py data
+      - name: Re-verify after rebuild
+        run: python3 scripts/verify.py data
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+          remove-matched-glob: |
+            .github/**
+            scripts/**
+            tests/**
+            research/**
+            tmp/**
+            **/__pycache__/**
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
