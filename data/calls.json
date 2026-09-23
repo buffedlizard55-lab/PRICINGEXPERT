@@ -1,0 +1,32 @@
+[
+ {
+  "id": "exchange-status",
+  "status": 200,
+  "bytes": 667,
+  "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
+  "at": "2026-09-23T02:28:41Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
+ },
+ {
+  "id": "historical-cutoff",
+  "status": 200,
+  "bytes": 188,
+  "sha256": "73fc551822f965a42226c173e255f642d9be7ac966698e8b9aa76248709ad7e1",
+  "at": "2026-09-23T02:28:42Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/historical/cutoff"
+ },
+ {
+  "id": "series-catalog",
+  "status": 200,
+  "bytes": 17505797,
+  "sha256": "af04b45aabd739cd0d3f78d782b327cdb72e7c23e6300e45566319d2da28a59a",
+  "at": "2026-09-23T02:28:42Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series"
+ },
+ {
+  "id": "markets-active-sweep-1",
+  "status": "error",
+  "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/markets?status=active&limit=200: b'{\"error\":{\"code\":\"bad_request\",\"message\":\"bad request\",\"details\":\"invalid status filter\"}}'",
+  "at": "2026-09-23T02:28:42Z"
+ }
+]

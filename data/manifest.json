@@ -1,5 +1,27 @@
 {
- "files": {},
- "generated_at": "2026-09-23T01:36:10Z",
+ "files": {
+  "exchange-status": {
+   "bytes": 667,
+   "fetched_at": "2026-09-23T02:28:41Z",
+   "note": "kind:exchange_status \u2014 liveness",
+   "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
+  },
+  "historical-cutoff": {
+   "bytes": 188,
+   "fetched_at": "2026-09-23T02:28:42Z",
+   "note": "kind:historical_cutoff \u2014 backtest data availability boundary",
+   "sha256": "73fc551822f965a42226c173e255f642d9be7ac966698e8b9aa76248709ad7e1",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/historical/cutoff"
+  },
+  "series-catalog": {
+   "bytes": 17505797,
+   "fetched_at": "2026-09-23T02:28:42Z",
+   "note": "kind:series_list \u2014 full series catalog with volume",
+   "sha256": "af04b45aabd739cd0d3f78d782b327cdb72e7c23e6300e45566319d2da28a59a",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/series"
+  }
+ },
+ "generated_at": "2026-09-23T02:28:42Z",
  "generator": "scripts/make_manifest.py"
 }

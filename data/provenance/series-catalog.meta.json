@@ -1,0 +1,10 @@
+{
+ "bytes": 17505797,
+ "fetched_at": "2026-09-23T02:28:42Z",
+ "http_status": 200,
+ "id": "series-catalog",
+ "note": "kind:series_list \u2014 full series catalog with volume",
+ "sha256": "af04b45aabd739cd0d3f78d782b327cdb72e7c23e6300e45566319d2da28a59a",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/series"
+}
