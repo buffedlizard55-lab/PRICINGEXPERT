@@ -113,18 +113,28 @@ def main() -> int:
             rows.append(row)
         elif note.startswith("kind:candlesticks"):
             sid = meta["id"]
-            candles = payload.get("candles") or []
+            # Verified 2026 shape (official docs, 2026-07-24): {"candlesticks":
+            # [{end_period_ts, price:{open_dollars, high_dollars, low_dollars,
+            # close_dollars, previous_dollars, ...}, volume_fp, open_interest_fp}]}
+            candles = payload.get("candlesticks") or payload.get("candles") or []
             ticker = meta["ticker"]
             series = meta["series"]
             out = data / "candles" / f"{series}-{ticker}.csv"
             out.parent.mkdir(parents=True, exist_ok=True)
             lines = ["ts,open,high,low,close,volume,provenance,sha256"]
             for c in candles:
-                o, h, lo, cl = (fnum(c.get(k)) for k in ("open", "high", "low", "close"))
-                ts = parse_ts(c.get("start_time"))
+                p = c.get("price") or {}
+                o = fnum(p.get("open_dollars")) if p else None
+                h = fnum(p.get("high_dollars")) if p else None
+                lo = fnum(p.get("low_dollars")) if p else None
+                cl = fnum(p.get("close_dollars")) if p else None
+                if None in (o, h, lo, cl):  # legacy flat shape fallback
+                    o, h, lo, cl = (fnum(c.get(k)) for k in ("open", "high", "low", "close"))
+                ts = parse_ts(c.get("end_period_ts")) or parse_ts(c.get("start_time"))
                 if None in (o, h, lo, cl, ts):
                     continue  # incomplete candle rows are unusable for replay; drop
-                lines.append(f"{ts},{o},{h},{lo},{cl},{fnum(c.get('volume')) or 0},{sid},{meta['sha256']}")
+                vol = fnum(c.get("volume_fp")) or fnum(c.get("volume")) or 0
+                lines.append(f"{ts},{o},{h},{lo},{cl},{vol},{sid},{meta['sha256']}")
             out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     out = data / "observations.jsonl"
     out.write_text("\n".join(json.dumps(r, sort_keys=True) for r in rows) + ("\n" if rows else ""),

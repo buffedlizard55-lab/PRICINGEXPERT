@@ -1,6 +1,6 @@
 {
- "plan_version": 8.1,
- "note": "(v8.1 = v8 re-trigger: the v8 run failed in its commit step - suspected git-add pathspec on a derived dir (data/candles) that never materialized if the candle fetches failed; the commit step now uses `git add -A data/` + set -x so the next failure is diagnosable from the log. Endpoints unchanged.) Plan 8 \u2014 build the backtest candle archive. Plan 7 verified the long-dated liquid markets: KXSILVERMON total vol 86,138 (four FINALIZED August contracts carrying 6-9k each \u2014 the only multi-month history available inside the 2026-07-24 public-history cutoff), KXGOLDMON 70,229 (active Sep month only), KXGOLDW 10,875, KXSILVERW 3,061; KXWEEKHT* and KXINXW returned ZERO markets (verified empty on this host). This plan captures hourly candles for the 8 most voluminous long-dated contracts (4 finalized Aug silver strikes, 4 active). derive.py turns them into data/candles/*.csv (provenance-bound) and backtest.py replays every strategy against them \u2014 the first real-data backtest, feeding research/tests.json. Cross-market transfer tests (commodity vs commodity weekly strikes, vs weather) follow once more archives land. The four finalized Aug silver strikes also get single-market captures (kind:market) so backtest.py settles them against the official result field.",
+ "plan_version": 8.2,
+ "note": "(v8.2: candle fix \u2014 plan 8/8.1 candle fetches all returned HTTP 400: period_interval is in MINUTES per the official docs (valid: 1, 60, 1440); 3600 (seconds) was rejected. Now 60 (1 hour). Also: the verified 2026 candle payload shape is {candlesticks:[{end_period_ts, price:{open_dollars,high_dollars,low_dollars,close_dollars}, volume_fp}]} \u2014 derive.py now parses that (legacy flat shape still accepted), tested in tests/test_derive_candles.py. Same 8 tickers.) (v8.1 = v8 re-trigger: the v8 run failed in its commit step - suspected git-add pathspec on a derived dir (data/candles) that never materialized if the candle fetches failed; the commit step now uses `git add -A data/` + set -x so the next failure is diagnosable from the log. Endpoints unchanged.) Plan 8 \u2014 build the backtest candle archive. Plan 7 verified the long-dated liquid markets: KXSILVERMON total vol 86,138 (four FINALIZED August contracts carrying 6-9k each \u2014 the only multi-month history available inside the 2026-07-24 public-history cutoff), KXGOLDMON 70,229 (active Sep month only), KXGOLDW 10,875, KXSILVERW 3,061; KXWEEKHT* and KXINXW returned ZERO markets (verified empty on this host). This plan captures hourly candles for the 8 most voluminous long-dated contracts (4 finalized Aug silver strikes, 4 active). derive.py turns them into data/candles/*.csv (provenance-bound) and backtest.py replays every strategy against them \u2014 the first real-data backtest, feeding research/tests.json. Cross-market transfer tests (commodity vs commodity weekly strikes, vs weather) follow once more archives land. The four finalized Aug silver strikes also get single-market captures (kind:market) so backtest.py settles them against the official result field.",
  "endpoints": [
   {
    "id": "exchange-status",
@@ -15,9 +15,9 @@
     "ticker": "KXSILVERMON-26AUG3117-T67.99",
     "start_ts": 1784851200,
     "end_ts": 1790132400,
-    "period_interval": 3600
+    "period_interval": 60
    },
-   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T67.99: finalized Aug month, vol 9,269 \u2014 full-month candle history; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T67.99: finalized Aug month, vol 9,269 \u2014 full-month candle history; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
    "id": "candles-02",
@@ -27,9 +27,9 @@
     "ticker": "KXSILVERMON-26AUG3117-T68.99",
     "start_ts": 1784851200,
     "end_ts": 1790132400,
-    "period_interval": 3600
+    "period_interval": 60
    },
-   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T68.99: finalized Aug month, vol 6,490; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T68.99: finalized Aug month, vol 6,490; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
    "id": "candles-03",
@@ -39,9 +39,9 @@
     "ticker": "KXSILVERMON-26AUG3117-T69.99",
     "start_ts": 1784851200,
     "end_ts": 1790132400,
-    "period_interval": 3600
+    "period_interval": 60
    },
-   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T69.99: finalized Aug month, vol 7,675; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T69.99: finalized Aug month, vol 7,675; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
    "id": "candles-04",
@@ -51,9 +51,9 @@
     "ticker": "KXSILVERMON-26AUG3117-T70.99",
     "start_ts": 1784851200,
     "end_ts": 1790132400,
-    "period_interval": 3600
+    "period_interval": 60
    },
-   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T70.99: finalized Aug month, vol 6,164; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26AUG3117-T70.99: finalized Aug month, vol 6,164; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
    "id": "candles-05",
@@ -63,9 +63,9 @@
     "ticker": "KXSILVERMON-26SEP3017-T65.99",
     "start_ts": 1784851200,
     "end_ts": 1790132400,
-    "period_interval": 3600
+    "period_interval": 60
    },
-   "note": "kind:candlesticks \u2014 KXSILVERMON-26SEP3017-T65.99: active Sep month, vol 6,250 (vol24 1,195); hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
+   "note": "kind:candlesticks \u2014 KXSILVERMON-26SEP3017-T65.99: active Sep month, vol 6,250 (vol24 1,195); hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
    "id": "candles-06",
@@ -75,9 +75,9 @@
     "ticker": "KXGOLDMON-26SEP3017-T4370.99",
     "start_ts": 1784851200,
     "end_ts": 1790132400,
-    "period_interval": 3600
+    "period_interval": 60
    },
-   "note": "kind:candlesticks \u2014 KXGOLDMON-26SEP3017-T4370.99: active Sep month, vol 9,735 (vol24 842) \u2014 top gold monthly strike; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
+   "note": "kind:candlesticks \u2014 KXGOLDMON-26SEP3017-T4370.99: active Sep month, vol 9,735 (vol24 842) \u2014 top gold monthly strike; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
    "id": "candles-07",
@@ -87,9 +87,9 @@
     "ticker": "KXGOLDW-26SEP2517-T4362.99",
     "start_ts": 1784851200,
     "end_ts": 1790132400,
-    "period_interval": 3600
+    "period_interval": 60
    },
-   "note": "kind:candlesticks \u2014 KXGOLDW-26SEP2517-T4362.99: active Sep week, vol 2,413 (vol24 1,103) \u2014 top gold weekly strike; hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
+   "note": "kind:candlesticks \u2014 KXGOLDW-26SEP2517-T4362.99: active Sep week, vol 2,413 (vol24 1,103) \u2014 top gold weekly strike; hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
    "id": "candles-08",
@@ -99,9 +99,9 @@
     "ticker": "KXSILVERW-26SEP2517-T80.99",
     "start_ts": 1784851200,
     "end_ts": 1790132400,
-    "period_interval": 3600
+    "period_interval": 60
    },
-   "note": "kind:candlesticks \u2014 KXSILVERW-26SEP2517-T80.99: active Sep week, vol 525 (vol24 525 \u2014 all volume today); hourly bars from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
+   "note": "kind:candlesticks \u2014 KXSILVERW-26SEP2517-T80.99: active Sep week, vol 525 (vol24 525 \u2014 all volume today); hourly bars (period_interval=60 MINUTES \u2014 the 2026 API takes minutes, not seconds; 3600s = 400) from the verified 2026-07-24 history cutoff; tickers + volumes verified from plan-7 committed payloads"
   },
   {
    "id": "market-01",

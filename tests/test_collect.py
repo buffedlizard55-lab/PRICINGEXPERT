@@ -182,9 +182,10 @@ class TestSeriesPick(unittest.TestCase):
                      "T-MID": ({"ticker": "T-MID"}, b"{}")},
             books={"T-BIG": ({"market_ticker": "T-BIG", "orderbook_fp": {}}, b"{}"),
                    "T-MID": ({"market_ticker": "T-MID", "orderbook_fp": {}}, b"{}")})
+        # sorted(): '-' (0x2D) < '.' (0x2E), so pick-TEST.json sorts LAST
         self.assertEqual(raws, ["pick-TEST-book-T-BIG.json", "pick-TEST-book-T-MID.json",
-                                "pick-TEST.json", "pick-TEST-market-T-BIG.json",
-                                "pick-TEST-market-T-MID.json"])
+                                "pick-TEST-market-T-BIG.json", "pick-TEST-market-T-MID.json",
+                                "pick-TEST.json"])
         self.assertEqual(report["ok"], 5)
         base = metas["pick-TEST.meta.json"]
         self.assertEqual(base["selected"], ["T-BIG", "T-MID"])  # oi desc: 900, 400
