@@ -37,10 +37,13 @@ jobs:
         run: python3 scripts/verify.py data
       - name: Commit evidence + report
         run: |
+          set -x   # trace every command: if a step fails, the log names the exact failing command
           git config user.name "pricingexpert-desk[bot]"
           git config user.email "desk@users.noreply.github.com"
-          git add data/raw data/provenance data/calls.json data/manifest.json data/collect-report.json \
-                  data/candles data/observations.jsonl data/season-2026/backtest data/research data/site
+          # Add everything under data/ that changed (raw, provenance, manifest, report,
+          # candles, observations, backtest, research, site) - robust to any of the
+          # derived dirs not existing when a collect step failed.
+          git add -A data/
           if git diff --cached --quiet; then
             echo "no new evidence to commit"
           else
