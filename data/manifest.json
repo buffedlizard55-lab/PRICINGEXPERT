@@ -2,7 +2,7 @@
  "files": {
   "exchange-status": {
    "bytes": 667,
-   "fetched_at": "2026-09-23T02:41:11Z",
+   "fetched_at": "2026-09-23T02:48:43Z",
    "note": "kind:exchange_status \u2014 liveness",
    "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
    "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
@@ -293,6 +293,118 @@
    "note": "kind:markets + cursor pagination (the host ignores offset \u2014 plan 4 proved all 15 offset pages returned identical data): up to 25 x 200 = 5000 most-recently-updated markets, stored per-page as markets-sweep-pNN.json with per-page provenance",
    "sha256": "2442a6ed16e82fa8ecb0ae4e59354ade6e922f99a5ffbba64488878655cbffcc",
    "url": "https://api.elections.kalshi.com/trade-api/v2/markets?limit=200&cursor=CgwIkvfM1QYQwMmiqAESL0tYTVZFQ1JPU1NDQVRFR09SWS1TMjAyNjlFNENDQjdDQkFELUFEQjlCNTNFODU3"
+  },
+  "pick-KXGOLDMON": {
+   "bytes": 106453,
+   "fetched_at": "2026-09-23T02:48:45Z",
+   "note": "kind:series_pick \u2014 series KXGOLDMON market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+   "sha256": "d9b6f153c85768d104b998c422874f0ac3cc06168a9a2cffa819d62e485042ac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDMON&limit=50"
+  },
+  "pick-KXGOLDMON-book-KXGOLDMON-26SEP3017-T4370.99": {
+   "bytes": 550,
+   "fetched_at": "2026-09-23T02:48:45Z",
+   "note": "kind:orderbook \u2014 captured book for KXGOLDMON-26SEP3017-T4370.99 (series_pick KXGOLDMON, fill evidence)",
+   "sha256": "8048eb476d9495915faa9d1def5f7f0b81ccc0460d283a37b9f03cef1b082292",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXGOLDMON-26SEP3017-T4370.99/orderbook?depth=50"
+  },
+  "pick-KXGOLDMON-market-KXGOLDMON-26SEP3017-T4370.99": {
+   "bytes": 2145,
+   "fetched_at": "2026-09-23T02:48:45Z",
+   "note": "kind:market \u2014 market object for KXGOLDMON-26SEP3017-T4370.99 (series_pick KXGOLDMON)",
+   "sha256": "41e2dbb26f01d3fea366740308670fd8e76ce9f165bbe31ca249446a9c62c0a3",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXGOLDMON-26SEP3017-T4370.99"
+  },
+  "pick-KXGOLDW": {
+   "bytes": 107117,
+   "fetched_at": "2026-09-23T02:48:44Z",
+   "note": "kind:series_pick \u2014 series KXGOLDW market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+   "sha256": "cf599693d68ec1e8bdbc76ce54aab9d71cceae126d01efeb39a7b14aca6f0951",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDW&limit=50"
+  },
+  "pick-KXGOLDW-book-KXGOLDW-26SEP2517-T4382.99": {
+   "bytes": 404,
+   "fetched_at": "2026-09-23T02:48:44Z",
+   "note": "kind:orderbook \u2014 captured book for KXGOLDW-26SEP2517-T4382.99 (series_pick KXGOLDW, fill evidence)",
+   "sha256": "3edbb390944f405659ac87e638db39494ef70d8d7590a332b0f91357f3ee76b9",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXGOLDW-26SEP2517-T4382.99/orderbook?depth=50"
+  },
+  "pick-KXGOLDW-market-KXGOLDW-26SEP2517-T4382.99": {
+   "bytes": 2140,
+   "fetched_at": "2026-09-23T02:48:44Z",
+   "note": "kind:market \u2014 market object for KXGOLDW-26SEP2517-T4382.99 (series_pick KXGOLDW)",
+   "sha256": "7dfba89bbb0ca8d6ce4c93cb487f2be1e51905765684b31691fbac79d21eb660",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXGOLDW-26SEP2517-T4382.99"
+  },
+  "pick-KXINXW": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:48:48Z",
+   "note": "kind:series_pick \u2014 series KXINXW market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXINXW&limit=50"
+  },
+  "pick-KXSILVERMON": {
+   "bytes": 107153,
+   "fetched_at": "2026-09-23T02:48:47Z",
+   "note": "kind:series_pick \u2014 series KXSILVERMON market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+   "sha256": "717d0903a9375ab509d1bfe43fe1e7a9021ccb64a6227786c6d0364dfe037869",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSILVERMON&limit=50"
+  },
+  "pick-KXSILVERMON-book-KXSILVERMON-26SEP3017-T65.99": {
+   "bytes": 510,
+   "fetched_at": "2026-09-23T02:48:47Z",
+   "note": "kind:orderbook \u2014 captured book for KXSILVERMON-26SEP3017-T65.99 (series_pick KXSILVERMON, fill evidence)",
+   "sha256": "6639a667836dd2c9f2faecda1b5a8e09aa73220e978f976c1dd22c9bd8a2e9fa",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26SEP3017-T65.99/orderbook?depth=50"
+  },
+  "pick-KXSILVERMON-market-KXSILVERMON-26SEP3017-T65.99": {
+   "bytes": 2140,
+   "fetched_at": "2026-09-23T02:48:47Z",
+   "note": "kind:market \u2014 market object for KXSILVERMON-26SEP3017-T65.99 (series_pick KXSILVERMON)",
+   "sha256": "fefcfbf8844a9de0bcfc4ba45be66248ad5c72ffcb400d09d637e25a16fdb9a3",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26SEP3017-T65.99"
+  },
+  "pick-KXSILVERW": {
+   "bytes": 106799,
+   "fetched_at": "2026-09-23T02:48:46Z",
+   "note": "kind:series_pick \u2014 series KXSILVERW market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+   "sha256": "4aced7bfd83aae6f81b8e92994c404aa7338ea168e7313ab52bd5e03497a27ca",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSILVERW&limit=50"
+  },
+  "pick-KXSILVERW-book-KXSILVERW-26SEP2517-T80.99": {
+   "bytes": 319,
+   "fetched_at": "2026-09-23T02:48:46Z",
+   "note": "kind:orderbook \u2014 captured book for KXSILVERW-26SEP2517-T80.99 (series_pick KXSILVERW, fill evidence)",
+   "sha256": "6a65a5d936c8b6fab5dfe8bb4970011bbd044f018c7ce37463260d54d6a63827",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERW-26SEP2517-T80.99/orderbook?depth=50"
+  },
+  "pick-KXSILVERW-market-KXSILVERW-26SEP2517-T80.99": {
+   "bytes": 2131,
+   "fetched_at": "2026-09-23T02:48:46Z",
+   "note": "kind:market \u2014 market object for KXSILVERW-26SEP2517-T80.99 (series_pick KXSILVERW)",
+   "sha256": "45b9323843cc2c94f6a3bf784c6e68e68c791b66f812f4e95df17fce34a44ef6",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERW-26SEP2517-T80.99"
+  },
+  "pick-KXWEEKHTLAX": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:48:47Z",
+   "note": "kind:series_pick \u2014 series KXWEEKHTLAX market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXWEEKHTLAX&limit=50"
+  },
+  "pick-KXWEEKHTMIA": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:48:47Z",
+   "note": "kind:series_pick \u2014 series KXWEEKHTMIA market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXWEEKHTMIA&limit=50"
+  },
+  "pick-KXWEEKHTNYC": {
+   "bytes": 27,
+   "fetched_at": "2026-09-23T02:48:47Z",
+   "note": "kind:series_pick \u2014 series KXWEEKHTNYC market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+   "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXWEEKHTNYC&limit=50"
   },
   "probe-CPI": {
    "bytes": 27,
@@ -736,6 +848,6 @@
    "url": "https://api.elections.kalshi.com/trade-api/v2/series"
   }
  },
- "generated_at": "2026-09-23T02:41:28Z",
+ "generated_at": "2026-09-23T02:48:48Z",
  "generator": "scripts/make_manifest.py"
 }

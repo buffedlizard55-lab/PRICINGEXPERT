@@ -1,0 +1,15 @@
+{
+ "bytes": 27,
+ "close_margin_sec": 5400,
+ "fetched_at": "2026-09-23T02:48:48Z",
+ "http_status": 200,
+ "id": "pick-KXINXW",
+ "note": "kind:series_pick \u2014 series KXINXW market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+ "pick_now_ts": 1790131728,
+ "selected": [],
+ "series": "KXINXW",
+ "sha256": "50699ea1db13415ea46ec367dcfa58decd9660083271c5dc061561f38337fbac",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "top_n": 1,
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXINXW&limit=50"
+}

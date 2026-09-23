@@ -1,0 +1,17 @@
+{
+ "bytes": 106453,
+ "close_margin_sec": 5400,
+ "fetched_at": "2026-09-23T02:48:45Z",
+ "http_status": 200,
+ "id": "pick-KXGOLDMON",
+ "note": "kind:series_pick \u2014 series KXGOLDMON market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+ "pick_now_ts": 1790131724,
+ "selected": [
+  "KXGOLDMON-26SEP3017-T4370.99"
+ ],
+ "series": "KXGOLDMON",
+ "sha256": "d9b6f153c85768d104b998c422874f0ac3cc06168a9a2cffa819d62e485042ac",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "top_n": 1,
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDMON&limit=50"
+}
