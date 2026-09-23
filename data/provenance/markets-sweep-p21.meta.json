@@ -1,12 +1,12 @@
 {
- "bytes": 775656,
+ "bytes": 853684,
  "fetched_at": "2026-09-23T02:39:43Z",
  "http_status": 200,
- "id": "markets-sweep-p14",
+ "id": "markets-sweep-p21",
  "note": "kind:markets + cursor pagination (the host ignores offset \u2014 plan 4 proved all 15 offset pages returned identical data): up to 25 x 200 = 5000 most-recently-updated markets, stored per-page as markets-sweep-pNN.json with per-page provenance",
- "page": 14,
+ "page": 21,
  "pages": 25,
- "sha256": "8b882f71b3cee091a2048131cd0c18a2d3bd638d6da1687ed02c5b800dc82879",
+ "sha256": "34c599aa14089171d8b2489854ecae9066414991839ed3a8c1b3d20749240871",
  "tool": "scripts/collect.py (python urllib, read-only)",
- "url": "https://api.elections.kalshi.com/trade-api/v2/markets?limit=200&cursor=CgwIs_fM1QYQyO7nqgISL0tYTVZFQ1JPU1NDQVRFR09SWS1TMjAyNjBGNENERjA0NjIyLTJGRjdBNENDMzY5"
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?limit=200&cursor=CgwInffM1QYQ8OKvqgISL0tYTVZFQ1JPU1NDQVRFR09SWS1TMjAyNjkyMEZCQTMzRTExLTQ4NDdCM0NFRkZB"
 }

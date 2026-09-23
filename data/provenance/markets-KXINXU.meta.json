@@ -1,0 +1,10 @@
+{
+ "bytes": 36543,
+ "fetched_at": "2026-09-23T02:39:44Z",
+ "http_status": 200,
+ "id": "markets-KXINXU",
+ "note": "kind:markets \u2014 KXINXU: directional/above-below series (hourly 2-outcome; the pilot data shows flow sits on these, not on per-strike ladders)",
+ "sha256": "e98b72f9f3865a57104bd5beb670cba028f0762b5d4e6356943640eb8646bd4b",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXINXU&limit=20"
+}
