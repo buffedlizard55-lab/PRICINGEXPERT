@@ -1,5 +1,12 @@
-name: Pages
+name: Pages gate
 
+# The repo's GitHub Pages source is set to "Deploy from a branch" (main, /) — the
+# site deploys from the committed main branch. (Switching the source to "GitHub
+# Actions" requires a Settings click or an admin API token the session integration
+# does not hold; doing so makes this workflow's rebuild the published artifact.)
+# This workflow is the integrity gate for whatever main is about to serve:
+# unit tests, the V1-V13 verification gate, a deterministic rebuild re-check, and
+# the remote probes (link reachability + official API liveness, non-blocking).
 on:
   push:
     branches: [main]
@@ -7,8 +14,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -39,36 +44,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      # Transparency probes: results are published in data/site/. Failures are a
-      # finding, never a deploy blocker (the site has a labelled snapshot fallback).
+      # Transparency probes: run with runner egress. Failures are a finding (logged
+      # in the run), never a blocker — the site has a labelled snapshot fallback.
       - name: Remote link probe (all external URLs in site assets)
         continue-on-error: true
         run: python3 scripts/probe_links.py data || true
       - name: Endpoint probe (official API liveness)
         continue-on-error: true
         run: python3 scripts/probe_endpoints.py data || true
-      - name: Rebuild published data (deterministic)
+      - name: Rebuild published data (deterministic re-check)
         run: python3 scripts/build_site.py data
       - name: Re-verify after rebuild
         run: python3 scripts/verify.py data
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-          remove-matched-glob: |
-            .github/**
-            scripts/**
-            tests/**
-            research/**
-            tmp/**
-            **/__pycache__/**
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4

@@ -71,10 +71,15 @@ data/
   site/                published JSON for the site (leaderboard, strategy pages,
                        research, verification, upcoming, live snapshot fallback)
 .github/workflows/
-  pages.yml            verify (tests + gate + probes) → build → deploy GitHub Pages
+  pages.yml            "Pages gate": tests + V1-V13 gate + deterministic rebuild
+                       re-check + remote probes on every push to main
   forward-desk.yml     cron :07/:37 UTC — collect evidence, run cycle, verify, commit
-  data-collect.yml     plan-triggered collection (session route; fires only when
-                       data/collect_plan.json changes — no loop)
+  data-collect.yml     plan-triggered collection (fires only when
+                       data/collect_plan.json changes — no loop) + manual dispatch
+# Site deploy: the repo's Pages source is "Deploy from a branch" (main, /) — the
+# committed site IS the main branch. The Pages gate workflow verifies what main is
+# about to serve. (If the source is switched to "GitHub Actions", pages.yml's
+# rebuild job becomes the published artifact.)
 tests/                 engine parity (node) + engine (python) + forward-desk cycle tests
 ```
 
