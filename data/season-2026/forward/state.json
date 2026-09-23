@@ -1,0 +1,127 @@
+{
+ "cycles_completed": 0,
+ "season": "2026",
+ "starting_cash": 10000.0,
+ "strategies": {
+  "commodity-drift": {
+   "cash": 10000.0,
+   "exits": 0,
+   "fees_paid": 0.0,
+   "fills": 0,
+   "losses": 0,
+   "positions": {},
+   "realized_pnl": 0.0,
+   "settlements": 0,
+   "slippage_paid": 0.0,
+   "wins": 0
+  },
+  "cross-hunt": {
+   "cash": 10000.0,
+   "exits": 0,
+   "fees_paid": 0.0,
+   "fills": 0,
+   "losses": 0,
+   "positions": {},
+   "realized_pnl": 0.0,
+   "settlements": 0,
+   "slippage_paid": 0.0,
+   "wins": 0
+  },
+  "deep-fade": {
+   "cash": 10000.0,
+   "exits": 0,
+   "fees_paid": 0.0,
+   "fills": 0,
+   "losses": 0,
+   "positions": {},
+   "realized_pnl": 0.0,
+   "settlements": 0,
+   "slippage_paid": 0.0,
+   "wins": 0
+  },
+  "depth-diver": {
+   "cash": 10000.0,
+   "exits": 0,
+   "fees_paid": 0.0,
+   "fills": 0,
+   "losses": 0,
+   "positions": {},
+   "realized_pnl": 0.0,
+   "settlements": 0,
+   "slippage_paid": 0.0,
+   "wins": 0
+  },
+  "last-mile": {
+   "cash": 10000.0,
+   "exits": 0,
+   "fees_paid": 0.0,
+   "fills": 0,
+   "losses": 0,
+   "positions": {},
+   "realized_pnl": 0.0,
+   "settlements": 0,
+   "slippage_paid": 0.0,
+   "wins": 0
+  },
+  "longshot-fader": {
+   "cash": 10000.0,
+   "exits": 0,
+   "fees_paid": 0.0,
+   "fills": 0,
+   "losses": 0,
+   "positions": {},
+   "realized_pnl": 0.0,
+   "settlements": 0,
+   "slippage_paid": 0.0,
+   "wins": 0
+  },
+  "macro-closer": {
+   "cash": 10000.0,
+   "exits": 0,
+   "fees_paid": 0.0,
+   "fills": 0,
+   "losses": 0,
+   "positions": {},
+   "realized_pnl": 0.0,
+   "settlements": 0,
+   "slippage_paid": 0.0,
+   "wins": 0
+  },
+  "penny-lotto": {
+   "cash": 10000.0,
+   "exits": 0,
+   "fees_paid": 0.0,
+   "fills": 0,
+   "losses": 0,
+   "positions": {},
+   "realized_pnl": 0.0,
+   "settlements": 0,
+   "slippage_paid": 0.0,
+   "wins": 0
+  },
+  "sure-penny": {
+   "cash": 10000.0,
+   "exits": 0,
+   "fees_paid": 0.0,
+   "fills": 0,
+   "losses": 0,
+   "positions": {},
+   "realized_pnl": 0.0,
+   "settlements": 0,
+   "slippage_paid": 0.0,
+   "wins": 0
+  },
+  "tape-rider": {
+   "cash": 10000.0,
+   "exits": 0,
+   "fees_paid": 0.0,
+   "fills": 0,
+   "losses": 0,
+   "positions": {},
+   "realized_pnl": 0.0,
+   "settlements": 0,
+   "slippage_paid": 0.0,
+   "wins": 0
+  }
+ }
+}

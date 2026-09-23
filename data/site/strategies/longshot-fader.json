@@ -1,0 +1,49 @@
+{
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
+ "backtest": [],
+ "curve": [],
+ "evidence": [
+  {
+   "claim": "Same CEPR/VoxEU favourite-longshot analysis as SurePenny.",
+   "status": "literature-linked",
+   "url": "https://cepr.org/voxeu/columns/economics-kalshi-prediction-market"
+  }
+ ],
+ "failure_mode": "Identical to SurePenny: upsets are near-total losses. Extra risk: thin 24h volume can mean the 3-15c quote is stale, so the fill may be worse than the displayed ask.",
+ "id": "longshot-fader",
+ "intents": [],
+ "name": "Longshot Fader",
+ "params": {
+  "cash_fraction": 0.25,
+  "exit": "settlement",
+  "fav_ask_high": 0.97,
+  "fav_ask_low": 0.85,
+  "longshot_ask_high": 0.15,
+  "longshot_ask_low": 0.03,
+  "max_spread": 0.05,
+  "min_volume_24h": 5000
+ },
+ "positions": [],
+ "rule": "On an active universe market with 24h volume >= 5,000, when the cheap side's ask is between 0.03 and 0.15 and the opposite side's ask is between 0.85 and 0.97 with displayed spread <= 5c, buy the opposite (85-97c) side, sizing 25% of cash, and hold to settlement.",
+ "stats": {
+  "avg_entry": null,
+  "cash": 10000.0,
+  "equity": 10000.0,
+  "exits": 0,
+  "fees": 0.0,
+  "fills": 0,
+  "losses": 0,
+  "open_positions": 0,
+  "realized_pnl": 0.0,
+  "return_pct": 0.0,
+  "settlements": 0,
+  "slippage": 0.0,
+  "starting_cash": 10000.0,
+  "wins": 0
+ },
+ "status": "active",
+ "tag": "favourite-longshot",
+ "trades": [],
+ "username": "LongshotFader",
+ "why": "Same bias viewed from the longshot side: when a market is quoting 3-15c for the underdog, the favourite is the side the bias says is cheap. Entering from the longshot quote makes the trigger observable without estimating anything."
+}

@@ -28,7 +28,9 @@ jobs:
           echo "cycle=$CYCLE" >> "$GITHUB_OUTPUT"
           echo "$OUT"
       - name: Collect verified evidence (official public API, read-only)
-        run: python3 scripts/collect.py --plan "data/season-2026/forward/${{ steps.plan.outputs.cycle }}/plan.json" --out data
+        # --out is the CYCLE's evidence dir: the desk only fills against books
+        # captured there (run_cycle reads <cycle>/evidence/{raw,provenance}).
+        run: python3 scripts/collect.py --plan "data/season-2026/forward/${{ steps.plan.outputs.cycle }}/plan.json" --out "data/season-2026/forward/${{ steps.plan.outputs.cycle }}/evidence"
       - name: Run the desk cycle (fills, exits, settlements, marks)
         run: |
           NOW=$(date +%s)

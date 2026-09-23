@@ -113,7 +113,7 @@ class TestForwardDesk(unittest.TestCase):
 
     def test_cycle_produces_ledger_and_consistent_cash(self):
         cycle = self.make_cycle()
-        summary = run_cycle(cycle, self.season, {"markets": ["TEST-A-1", "TEST-B-2"]}, NOW)
+        summary = run_cycle(cycle, self.season, {"markets": ["TEST-A-1", "TEST-B-2"]}, NOW, REPO / "data" / "strategies.json")
         self.assertGreater(summary["actions"], 0)
         state = json.loads((self.season / "forward" / "state.json").read_text(encoding="utf-8"))
         trades = [json.loads(l) for l in
@@ -175,8 +175,8 @@ class TestForwardDesk(unittest.TestCase):
                        book_payload("TEST-B-2",
                                     yes_levels=[(0.48, 300)], no_levels=[(0.48, 300)]),
                        "kind:orderbook")
-        run_cycle(cycle, self.season, {"markets": ["TEST-A-1", "TEST-B-2"]}, NOW)
-        run_cycle(cycle2, self.season, {"markets": ["TEST-A-1", "TEST-B-2"]}, NOW + 3600)
+        run_cycle(cycle, self.season, {"markets": ["TEST-A-1", "TEST-B-2"]}, NOW, REPO / "data" / "strategies.json")
+        run_cycle(cycle2, self.season, {"markets": ["TEST-A-1", "TEST-B-2"]}, NOW + 3600, REPO / "data" / "strategies.json")
         trades = [json.loads(l) for l in
                   (self.season / "forward" / "trades.jsonl").read_text(encoding="utf-8").splitlines()
                   if l.strip()]
@@ -191,7 +191,7 @@ class TestForwardDesk(unittest.TestCase):
         (cycle / "evidence" / "raw").mkdir(parents=True, exist_ok=True)
         (cycle / "evidence" / "provenance").mkdir(parents=True, exist_ok=True)
         write_evidence(cycle, "market-TEST-A-1", market_payload("TEST-A-1"), "kind:market synthetic")
-        run_cycle(cycle, self.season, {"markets": ["TEST-A-1"]}, NOW)
+        run_cycle(cycle, self.season, {"markets": ["TEST-A-1"]}, NOW, REPO / "data" / "strategies.json")
         trades = [json.loads(l) for l in
                   (self.season / "forward" / "trades.jsonl").read_text(encoding="utf-8").splitlines()
                   if l.strip()]

@@ -14,6 +14,7 @@ Price model (documented, conservative, no look-ahead):
     the next bar's open (YES at O, NO at 1-O). No target => settlement at the
     OFFICIAL result from the committed market payload ($1/$0, no settlement fee).
   * Sizing: whole contracts, 25% of the $10,000 start per position, cash >= 0.
+  * Volume gates use cumulative candle volume through the signal bar (no look-ahead).
   * Walk-forward: first 60% of bars = development, last 40% = validation;
     parameters are fixed in data/strategies.json and never refit between windows.
 
@@ -133,6 +134,13 @@ def backtest_strategy(strat: dict, candles: list[dict], market: dict) -> dict:
     skips: list[dict] = []
     cash = STARTING_CASH
     held: dict | None = None
+    # cumulative traded volume through each bar — the no-look-ahead "volume so far"
+    # used by min_volume gates (the market's FINAL volume would be future data here)
+    cum_vol = []
+    acc = 0.0
+    for c in candles:
+        acc += c["volume"]
+        cum_vol.append(acc)
     for i in range(1, len(candles)):
         bar, nxt = candles[i - 1], candles[i]
         if held is None:
@@ -142,7 +150,7 @@ def backtest_strategy(strat: dict, candles: list[dict], market: dict) -> dict:
                 hte = None
             min_age_h = ((bar["ts"] - market["open_ts"]) / 3600) if market.get("open_ts") else 999.0
             side, trigger = signal_for(strat, candles[i - 2]["close"] if i >= 2 else bar["open"],
-                                       bar["close"], hte, market.get("volume", 0), min_age_h)
+                                       bar["close"], hte, cum_vol[i - 1], min_age_h)
             if side is None:
                 continue
             touch, exec_price = side_price(bar["close"], nxt["open"], side)
@@ -241,6 +249,8 @@ def main() -> int:
                "candle close = YES price; signal on bar t close, fill at bar t+1 open (no look-ahead)",
                "touch = close(t) for YES / 1-close(t) for NO (candle-proxied, NOT book-verified)",
                "limit = touch + strategy limit buffer (default 2c), capped at 0.99",
+               "min_volume gates use cumulative candle volume through bar t (not the market's final volume)",
+               "slippage = signed (executed - touch); it can be NEGATIVE when the next open gaps favorably (the desk, which walks real ladders, only ever realizes cost)",
                "fees: exact Kalshi quadratic formula at each executed side price",
                "targets checked on closes, executed at next open; no target => official settlement",
                "sizing: 25% of $10,000 start per position, whole contracts, cash >= 0 enforced",

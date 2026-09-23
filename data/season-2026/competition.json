@@ -1,0 +1,15 @@
+{
+ "season": "2026",
+ "start_ts": 1767225600,
+ "end_ts": 1798761600,
+ "start": "2026-01-01T00:00:00Z",
+ "end": "2027-01-01T00:00:00Z",
+ "timezone": "UTC",
+ "starting_cash": 10000.0,
+ "objective": "highest return (risk management is deliberately NOT a criterion; the board ranks raw return)",
+ "scoring": "equity = cash + open positions marked at the captured best bid (last-trade mark only when no bid exists, flagged mark_kind)",
+ "fill_model": "every forward fill consumes a captured official order book (depth-bounded, limit-bounded); fees use the exact Kalshi quadratic formula; slippage = (vwap - touch) * contracts",
+ "settlement": "official market `result` field only ($1/$0, no settlement fee)",
+ "season_rollover": "at season end all open positions are marked and the final board is frozen; the next season starts fresh state with the same strategies",
+ "created_at": "2026-09-23T01:36:09Z"
+}

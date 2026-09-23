@@ -1,0 +1,192 @@
+{
+ "built_at": "2026-09-23T01:36:34Z",
+ "hypotheses": [
+  {
+   "basis": "Documented in prediction-market literature (CEPR/VoxEU analysis of 300k+ Kalshi contracts; classic parimutuel favourite-longshot bias). For THIS exchange and THIS season it is a hypothesis to be tested by the forward ledger, not an assumption.",
+   "evidence": [
+    "data/source-registry.json#cepr-kalshi-column (literature-linked, not a price source)"
+   ],
+   "id": "H-01",
+   "markets": [
+    "KX-macro",
+    "KX-game",
+    "KX-weather",
+    "universe-wide"
+   ],
+   "statement": "Favourite-longshot bias exists on Kalshi: heavy favourites (85-97c) on liquid markets are slightly under-priced, so buying them and holding to settlement earns a small positive edge after the quadratic taker fee.",
+   "status": "untested"
+  },
+  {
+   "basis": "Pure forward-test hypothesis; no literature claim is asserted for Kalshi specifically.",
+   "evidence": [],
+   "id": "H-02",
+   "markets": [
+    "universe-wide"
+   ],
+   "statement": "Expiry convergence: in the final hours before expected_expiration, 90-99c sides win often enough that 20% sizing at 90-99c is a positive-expectation trade net of fees.",
+   "status": "untested"
+  },
+  {
+   "basis": "Cross-market transfer hypothesis. The source domain (equities) is NOT this market; the transfer must be proven on Kalshi's own verified prices (backtest on candles, then forward).",
+   "evidence": [],
+   "id": "H-03",
+   "markets": [
+    "universe-wide"
+   ],
+   "statement": "24h momentum transfers from equity/futures anomaly literature to event contracts: a 3c+ official one-day move (previous_price_dollars) predicts continuation over the holding horizon.",
+   "status": "untested"
+  },
+  {
+   "basis": "Opposite of H-03. Exactly one of {H-03, H-04} should show up on a given horizon if either is real; the walk-forward split decides. Both stay in the competition so the ledger keeps both samples growing.",
+   "evidence": [],
+   "id": "H-04",
+   "markets": [
+    "universe-wide"
+   ],
+   "statement": "Mean reversion on large moves: after a 10c+ one-day move, buying the dropped side (<=45c) reverts; equivalently the move overstates and the market corrects.",
+   "status": "untested"
+  },
+  {
+   "basis": "Arithmetic consequence of the exchange's own quoting structure; the CrossHunt rule doubles as a consistency monitor \u2014 zero triggers over a season is itself a verified observation.",
+   "evidence": [
+    "data/source-registry.json#kalshi-api-docs (quoting structure doc)"
+   ],
+   "id": "H-05",
+   "markets": [
+    "universe-wide"
+   ],
+   "statement": "Book consistency: the reciprocal quote structure (YES ask = 1 - NO bid) means a displayed pair cost YES ask + NO ask <= 0.99 should essentially never occur. When it does, it is a verified arbitrage, not a forecast.",
+   "status": "untested"
+  },
+  {
+   "basis": "Microstructure transfer hypothesis (order-book imbalance is documented in equity literature). Explicitly NOT assumed to transfer; the forward ledger with full level logging is the test.",
+   "evidence": [],
+   "id": "H-06",
+   "markets": [
+    "universe-wide"
+   ],
+   "statement": "Displayed bid-depth imbalance >= 40% predicts short-run direction on the heavier side.",
+   "status": "untested"
+  },
+  {
+   "basis": "Max-return competition design: include the obvious lottery so the board shows what naive return-seeking costs. If PennyLotto ever wins, that is a research finding about longshot supply, not a fluke.",
+   "evidence": [],
+   "id": "H-07",
+   "markets": [
+    "universe-wide"
+   ],
+   "statement": "Penny longshots (1-5c) are over-priced: the market's lottery-ticket demand makes the cheap side negative-expectation, so buying pennies is the strategy that should lose the most \u2014 tracked as the competition's deliberate failure control.",
+   "status": "untested"
+  },
+  {
+   "basis": "To be verified against the committed candle archive for these series (backtest), then forward-tested. Settlement wording (rules_primary) is the risk factor and is logged per entry.",
+   "evidence": [],
+   "id": "H-08",
+   "markets": [
+    "KXCPI",
+    "KXFED",
+    "KXU6",
+    "KXNFP (final tickers per universe.json)"
+   ],
+   "statement": "Macro expiry closer: macro binaries (CPI/Fed) converge so fast near release that 80-97c entries inside 6h of close are positive-expectation net of fees.",
+   "status": "untested"
+  },
+  {
+   "basis": "The spot-vs-strike gap argument, cross-checkable against the official settlement source named in each market's rules_primary. The market's own pricing of a physical commodity is the bridge to the cross-market DB.",
+   "evidence": [],
+   "id": "H-09",
+   "markets": [
+    "KXWTI",
+    "KXBTC",
+    "KXGOLD",
+    "KXETH (final tickers per universe.json)"
+   ],
+   "statement": "Commodity direction drift: daily price-direction binaries on established commodities sit at >=70c for one direction in the final 12h and stay there; buying that side at ask is positive-expectation.",
+   "status": "untested"
+  }
+ ],
+ "observations": [],
+ "public_info": [
+  {
+   "fetched_at": "see data/raw/exchange-status.json + provenance",
+   "id": "PI-001",
+   "market": "ALL",
+   "note": "Recorded so timing studies have a confirmed-open-exchange anchor for the first cycle.",
+   "published": "2026-09-22",
+   "source": "Kalshi API GET /exchange/status (this repo's evidence)",
+   "status": "verified",
+   "summary": "Exchange active; trading active on all 4 exchange indexes (Default, Combos, Crypto & Commodities, Tennis/Baseball/Basketball) at the cycle capture time. Baseline liveness fact, not a price.",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
+  },
+  {
+   "fetched_at": "2026-09-22T00:00:00Z (this session, via official rules page; IRR: page not fully retrievable from sandbox, mechanics cross-checked across two editions)",
+   "id": "PI-002",
+   "market": "cross-venue (paper-trading competition mechanics)",
+   "note": "Informs this project's competition design: calendar-year season, identical $10,000 start for all personas, rank by return (realized-first equity), auto-mark at season end, frequent (2x/hour) leaderboard refresh.",
+   "published": "2026-07-01",
+   "source": "TradingView The Leap \u2014 official competition rules (Tradestation July 2026 edition; Feb 2026 EUREX edition)",
+   "status": "verified",
+   "summary": "Realized P&L ranking; positions auto-closed at competition end and the close counts in the final result; minimum active trading days required; hourly leaderboard updates; rate-limiting ban clause; every participant starts with an identical balance and settings in a separate sub-account.",
+   "url": "https://www.tradingview.com/the-leap/tradestation-july-2026/rules/"
+  },
+  {
+   "fetched_at": "2026-09-22T00:00:00Z (this session, page retrieved)",
+   "id": "PI-003",
+   "market": "cross-venue (paper-trading competition mechanics)",
+   "note": "Confirms the board's ranking choice: return on identical starting capital, leaderboard visible at all times.",
+   "published": "2026-08-15",
+   "source": "Trade Ideas \u2014 stock trading competition page",
+   "status": "verified",
+   "summary": "Daily paper-trading competitions with public leaderboards; ranking by return percentage on a fixed starting balance is the standard pattern for this class of product.",
+   "url": "https://www.trade-ideas.com/stock-trading-competition/"
+  }
+ ],
+ "relationships": [
+  {
+   "claimed_similarity": "The market should trade in expectation mode before the official release timestamp and converge violently after it; the release-to-settle window is short and the heavy side is usually right.",
+   "id": "R-01",
+   "market_a": "KXCPI (and KXFED/KXU6/KXNFP) macro binary markets on Kalshi",
+   "market_b": "Official CPI / FOMC release events (BLS / Fed, official data)",
+   "transfer_test": "NOT a transfer test (this is a same-market timing study): capture the release timestamp from the official source (BLS public API / Fed), capture Kalshi candles across it, measure pre/post release speed of convergence and the 80-97c hit rate inside 6h. Verdict requires BOTH committed release evidence AND committed candle evidence.",
+   "verdict": "untested",
+   "verdict_note": "Blocked on: (1) fetching the official release feed into data/raw with provenance, (2) a settled KXCPI/KXFED market with candle history in the archive. Both planned; neither done in this session. Similarity to the game-markets last-mile pattern is recorded separately in R-03 and must NOT be borrowed as evidence."
+  },
+  {
+   "claimed_similarity": "Both show heavy favourites near resolution. Apparent similarity: the same 90-99c convergence shape.",
+   "id": "R-02",
+   "market_a": "Kalshi game markets (e.g. KXNFLGAME series) \u2014 last-mile favourite behaviour",
+   "market_b": "Kalshi macro markets (KXCPI/KXFED) \u2014 last-mile favourite behaviour",
+   "transfer_test": "Independently: run the LastMile rule on each family's OWN committed candle archive (separate data, separate verdicts). Only if both independently pass the walk-forward split does the 'shared expiry-convergence' claim get a supported label; if one fails, the relationship is coincidental at best.",
+   "verdict": "untested",
+   "verdict_note": "Explicit anti-transfer discipline: the game family's result is NEVER used as evidence for the macro family, even when the price shape looks identical."
+  },
+  {
+   "claimed_similarity": "Both are two-sided bid books with visible depth; imbalance may lead price in both.",
+   "id": "R-03",
+   "market_a": "Equity microstructure (order-book imbalance -> short-run flow, documented in the equity literature)",
+   "market_b": "Kalshi event-contract order books",
+   "transfer_test": "Forward-only for now (Kalshi books are only captured forward): DepthDiver logs the full ladder per fill; the research DB will compute hit-rate by imbalance bucket after >= 30 verified fills. A literature claim about equities is recorded as discovery-only and is never a price or verdict source.",
+   "verdict": "untested",
+   "verdict_note": "Similarity of market microstructure (bid/ask/depth) does not imply the same participants, the same order-flow composition, or the same latency structure. The ledger is the test."
+  },
+  {
+   "claimed_similarity": "The binary's 70c+ side in the final 12h should track the sign of (spot - strike) from the official source; divergence between the binary price and the spot-vs-strike gap is the measurable signal.",
+   "id": "R-04",
+   "market_a": "Kalshi daily commodity/crypto direction binaries (KXWTI/KXBTC/KXGOLD/KXETH class)",
+   "market_b": "Underlying physical commodity/spot series (official settlement source named in rules_primary)",
+   "transfer_test": "For each settled market: fetch the official final print (the source named in that market's rules_primary) with provenance, compare to the binary's last verified candle before settlement, and record the gap distribution. This tests whether the binary EMBODIES the physical series \u2014 a prerequisite before any cross-market strategy may treat the two as interchangeable.",
+   "verdict": "untested",
+   "verdict_note": "Until this passes, CommodityDrift trades on the binary's own quote (not on the physical series), and the physical series is used only as a research cross-check."
+  },
+  {
+   "claimed_similarity": "Both quote cheap tails; the favourite-longshot bias (H-01) is claimed in the literature for Kalshi generally.",
+   "id": "R-05",
+   "market_a": "Longshot pricing on game markets (3-15c underdogs)",
+   "market_b": "Longshot pricing on macro/commodity markets (3-15c tails)",
+   "transfer_test": "Separate samples: LongshotFader's triggers are logged per series; after >= 20 settled fills per family, compare realised edge by family. A bias on game markets does NOT prove a bias on macro tails.",
+   "verdict": "untested",
+   "verdict_note": "The literature citation (CEPR) covers the whole exchange but is third-party; per-family ledger samples are the primary evidence for this project."
+  }
+ ],
+ "tests": []
+}

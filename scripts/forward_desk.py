@@ -150,7 +150,7 @@ def evaluate_strategy(strat: dict, m: dict, book: dict, now_ts: int) -> list[dic
         horizon = p["horizon_hours"] * 3600
         if m["exp_ts"] is None or m["exp_ts"] - now_ts > horizon or now_ts >= m["exp_ts"]:
             return []
-        if m["volume"] < p["min_volume"]:
+        if m["volume"] < p.get("min_volume", 0):
             return []
         for side in ("yes", "no"):
             a = ask(side)
@@ -281,11 +281,23 @@ def evaluate_strategy(strat: dict, m: dict, book: dict, now_ts: int) -> list[dic
 
 
 # ------------------------------------------------------------------ the cycle
-def run_cycle(cycle_dir: Path, season_dir: Path, universe: dict, now_ts: int) -> dict:
+def run_cycle(cycle_dir: Path, season_dir: Path, universe: dict, now_ts: int,
+              strategies_path: Path | str | None = None) -> dict:
     state_path = season_dir / "forward" / "state.json"
     state = json.loads(state_path.read_text(encoding="utf-8"))
-    strategies = json.loads(Path(sys.argv[3] if len(sys.argv) > 3 else "data/strategies.json")
-                            .read_text(encoding="utf-8"))
+    if strategies_path is None:
+        strategies_path = Path(sys.argv[3] if len(sys.argv) > 3 else "data/strategies.json")
+    strategies = json.loads(Path(strategies_path).read_text(encoding="utf-8"))
+    comp_path = season_dir / "competition.json"
+    comp = json.loads(comp_path.read_text(encoding="utf-8")) if comp_path.exists() else {}
+    season_started = comp.get("start_ts") is None or now_ts >= comp["start_ts"]
+    season_ended = bool(comp.get("end_ts")) and now_ts >= comp["end_ts"]
+    trading_open = season_started and not season_ended
+    # Before start: nothing happens. After end: no new entries and no target exits —
+    # open positions stay marked (the board freezes at marks), and settlements of
+    # in-season positions still post when their market's official result lands.
+    if season_ended and not state.get("season_closed_at"):
+        state["season_closed_at"] = iso(now_ts)
     evidence = load_evidence(cycle_dir)
     markets = {}
     for payload, meta in evidence_row(evidence, "kind:market "):
@@ -342,7 +354,7 @@ def run_cycle(cycle_dir: Path, season_dir: Path, universe: dict, now_ts: int) ->
                 append(ledger, row)
                 actions.append(row)
         # 2) managed exits on open positions (targets), using the current book
-        for key in list(ss["positions"].keys()):
+        for key in (list(ss["positions"].keys()) if trading_open else []):
             ticker, side = key.split("|")
             mrow = markets.get(ticker)
             mobj = mrow[0] if mrow else None
@@ -358,7 +370,7 @@ def run_cycle(cycle_dir: Path, season_dir: Path, universe: dict, now_ts: int) ->
                     proceeds = round(ex["notional"] - ex["fee"], 6)
                     ss["cash"] = round(ss["cash"] + proceeds, 6)
                     ss["fees_paid"] = round(ss["fees_paid"] + ex["fee"], 6)
-                    slip = round((ex["vwap"] - (bid - ex["slippage_per_contract"])) * ex["filled"], 6) \
+                    slip = round(ex["slippage_per_contract"] * ex["filled"], 6) \
                         if ex["slippage_per_contract"] is not None else 0.0
                     ss["slippage_paid"] = round(ss["slippage_paid"] + slip, 6)
                     pnl = round(proceeds - pos["entry_notional"] - pos["fee_paid"], 6)
@@ -382,29 +394,39 @@ def run_cycle(cycle_dir: Path, season_dir: Path, universe: dict, now_ts: int) ->
                     append(ledger, row)
                     actions.append(row)
         # 3) new intents on tradable active markets
-        for ticker in tradable:
+        for ticker in (tradable if trading_open else []):
             m, _meta = markets[ticker]
             if m["status"] != "active":
                 continue
             book = books.get(ticker)
             if book is None:
-                blocked.append({"strategy": strat["username"], "ticker": ticker,
-                                "reason": "no-captured-book"})
+                brow = {"strategy": strat["username"], "strategy_id": strat["id"],
+                        "ticker": ticker, "cycle": cycle_dir.name, "at": iso(now_ts),
+                        "type": "intent-blocked", "reason": "no-captured-book",
+                        "title": m["title"]}
+                blocked.append(brow)
+                append(intents_log, brow)
                 continue
             for intent in evaluate_strategy(strat, m, book, now_ts):
                 row_base = {"strategy": strat["username"], "strategy_id": strat["id"],
                             "ticker": ticker, "cycle": cycle_dir.name, "at": iso(now_ts),
                             "title": m["title"], "trigger": intent.get("trigger"),
-                            "rules_primary": m["rules_primary"][:200]}
+                            "rules_primary": (m["rules_primary"] or "")[:200]}
+                # every proposed trade is logged BEFORE execution (the upcoming-trades ledger)
+                append(intents_log, {**row_base, "type": "intent",
+                                     "side": intent.get("side", "both"),
+                                     "limit": intent.get("limit"),
+                                     "cash_fraction": intent.get("cash_fraction")})
                 if intent.get("both"):
                     # crossed-book: buy YES then buy NO, equal size
                     q_yes = size_and_fill(book, "yes", ss["cash"] * intent["cash_fraction"], 1.0,
                                           limit=intent["trigger"]["yes_ask"])
                     if not q_yes or q_yes["filled"] <= 0:
-                        blocked.append({**row_base, "type": "intent-blocked",
-                                        "reason": "yes-leg-not-fillable"})
+                        brow = {**row_base, "type": "intent-blocked",
+                                "reason": "yes-leg-not-fillable"}
+                        blocked.append(brow)
+                        append(intents_log, brow)
                         continue
-                    spend = q_yes["notional"] + q_yes["fee"]
                     q_no = size_and_fill(book, "no", ss["cash"] * intent["cash_fraction"], 1.0,
                                          limit=intent["trigger"]["no_ask"])
                     if not q_no or q_no["filled"] <= 0:
@@ -414,8 +436,10 @@ def run_cycle(cycle_dir: Path, season_dir: Path, universe: dict, now_ts: int) ->
                             ss["cash"] = round(ss["cash"] - q_yes["notional"] + unw["notional"]
                                                - q_yes["fee"] - unw["fee"], 6)
                             ss["fees_paid"] = round(ss["fees_paid"] + q_yes["fee"] + unw["fee"], 6)
-                        blocked.append({**row_base, "type": "intent-blocked",
-                                        "reason": "no-leg-not-fillable", "yes_leg": "unwound"})
+                        brow = {**row_base, "type": "intent-blocked",
+                                "reason": "no-leg-not-fillable", "yes_leg": "unwound"}
+                        blocked.append(brow)
+                        append(intents_log, brow)
                         continue
                     _apply_entry(ss, ledger, actions, row_base, q_yes, "yes", m, strat, ss["cash"])
                     _apply_entry(ss, ledger, actions, row_base, q_no, "no", m, strat, ss["cash"])
@@ -423,9 +447,11 @@ def run_cycle(cycle_dir: Path, season_dir: Path, universe: dict, now_ts: int) ->
                 ex = size_and_fill(book, intent["side"], ss["cash"], intent["cash_fraction"],
                                    limit=intent["limit"])
                 if not ex or ex["filled"] <= 0:
-                    blocked.append({**row_base, "type": "intent-blocked",
-                                    "reason": "not-fillable-at-limit",
-                                    "limit": intent.get("limit"), "ask": intent.get("trigger", {}).get("ask")})
+                    brow = {**row_base, "type": "intent-blocked",
+                            "reason": "not-fillable-at-limit",
+                            "limit": intent.get("limit"), "ask": intent.get("trigger", {}).get("ask")}
+                    blocked.append(brow)
+                    append(intents_log, brow)
                     continue
                 _apply_entry(ss, ledger, actions, row_base, ex, intent["side"], m, strat,
                              None, intent.get("exit_target"), intent.get("exit_multiple"))
@@ -458,7 +484,9 @@ def run_cycle(cycle_dir: Path, season_dir: Path, universe: dict, now_ts: int) ->
         "\n".join(json.dumps(a, sort_keys=True) for a in actions) + ("\n" if actions else ""),
         encoding="utf-8")
     return {"actions": len(actions), "blocked": len(blocked),
-            "strategies": len(state["strategies"])}
+            "strategies": len(state["strategies"]),
+            "season_started": season_started, "season_ended": season_ended,
+            "trading_open": trading_open}
 
 
 def _apply_entry(ss, ledger, actions, row_base, ex, side, m, strat, cash_snapshot,

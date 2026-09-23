@@ -2,9 +2,9 @@
 """Read-only client for Kalshi's public (unauthenticated) Trade API.
 
 Rules (enforced by scripts/verify.py and by design):
-  * Only GET requests to https://api.elections.kalshi.com/trade-api/v2 (the host
-    verified in this session; external-api.kalshi.com serves the same API and is
-    accepted as an alias).
+  * Only GET requests to https://api.elections.kalshi.com/trade-api/v2 — the host
+    verified live in this session. (Kalshi documents external-api.kalshi.com as an
+    alias; it is NOT verified or used by this project.)
   * No credentials are ever read or sent — this client can only READ.
   * Every response body is kept verbatim by the caller when it becomes evidence;
     this module returns parsed JSON plus the raw bytes and a call log entry with

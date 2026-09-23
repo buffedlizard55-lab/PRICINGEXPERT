@@ -49,7 +49,7 @@ def fetch_step(client: KalshiClient, step: dict) -> tuple[bytes, str, str] | Non
         payload, raw, url = client.get("historical/cutoff")
         return raw, url, payload
     if kind == "series_list":
-        payload, raw, url = client.get("series", {"limit": params.get("limit", 500)})
+        payload, raw, url = client.get("series", {"limit": params.get("limit")})
         return raw, url, payload
     if kind == "series":
         payload, raw, url = client.get(f"series/{params['ticker']}")
@@ -115,6 +115,11 @@ def main() -> int:
             "tool": TOOL,
             "note": step.get("note", ""),
         }
+        if step["kind"] == "candlesticks":
+            meta["ticker"] = params["ticker"]
+            meta["series"] = params["series"]
+        if step["kind"] == "trades":
+            meta["ticker"] = params.get("ticker")
         raw_path.parent.mkdir(parents=True, exist_ok=True)
         raw_path.write_bytes(raw)
         dump(out / "provenance" / f"{sid}.meta.json", meta)
@@ -122,8 +127,16 @@ def main() -> int:
                       "at": meta["fetched_at"], "url": url})
         ok += 1
     (out / "calls.json").write_text(json.dumps(calls, indent=1) + "\n", encoding="utf-8")
-    print(json.dumps({"ok": ok, "failed": failed, "skipped": skipped, "calls_logged": len(calls)}))
-    return 1 if failed else 0
+    report = {"ok": ok, "failed": failed, "skipped": skipped,
+              "calls_logged": len(calls),
+              "failures": [c for c in calls if c.get("status") == "error"],
+              "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}
+    (out / "collect-report.json").write_text(json.dumps(report, indent=1) + "\n",
+                                             encoding="utf-8")
+    print(json.dumps(report))
+    # Always exit 0: diagnostics live in collect-report.json, which the workflow
+    # commits back to the branch so failures are readable without log access.
+    return 0
 
 
 if __name__ == "__main__":

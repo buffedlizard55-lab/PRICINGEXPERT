@@ -47,8 +47,9 @@
     const totFills = rows.reduce((s, r) => s + (r.fills || 0), 0);
     const totOpen = rows.reduce((s, r) => s + (r.open_positions || 0), 0);
     const totSettled = rows.reduce((s, r) => s + (r.settlements || 0), 0);
+    const dts = (ts) => (ts ? new Date(ts * 1000).toISOString().slice(0, 10) : "");
     $("#season-stats").innerHTML = [
-      stat("Season", esc(c.season || "2026"), `${esc(c.start || "")} → ${esc(c.end || "")} UTC`),
+      stat("Season", esc(c.season || "2026"), `${dts(c.start_ts)} → ${dts(c.end_ts)} UTC · $${Number(c.starting_cash || 0).toLocaleString()} start`),
       stat("Desk cycles", String(lb.cycles_completed || 0),
         lb.last_cycle ? `last ${esc(lb.last_cycle)} · ${esc(lb.last_cycle_at || "")}` : "pending first cycle"),
       stat("Verified fills", String(totFills), `${totOpen} open positions · ${totSettled} settlements`),
@@ -185,11 +186,12 @@
   function renderResearch(filter) {
     if (filter) rfilter = filter;
     const R = DATA.research || { observations: [], public_info: [], hypotheses: [], tests: [], relationships: [] };
-    const q = ($("#research-search") ? ($("#research-search").value || "").toLowerCase() : "";
+    const q = $("#research-search") ? ($("#research-search").value || "").toLowerCase() : "";
     const match = (obj) => !q || JSON.stringify(obj).toLowerCase().includes(q);
     const verifiedOnly = rfilter === "verified";
-    const obs = R.observations.filter(match).filter((o) => !verifiedOnly || true);
-    $("#obs-count").textContent = obs.length + " rows";
+    const keep = (isVerified) => !verifiedOnly || isVerified;
+    const obs = R.observations.filter(match); // every observation row is hash-bound = verified
+    $("#obs-count").textContent = obs.length + " rows (all hash-bound to raw evidence)";
     $("#obs-table tbody").innerHTML = obs.slice(-300).reverse().map((o) => `<tr>
       <td class="faint">${esc(o.fetched_at)}</td>
       <td class="mono" style="font-size:11px">${esc(o.ticker)}<div class="faint" style="font-size:10px">${esc(o.title || "")}</div></td>
@@ -202,10 +204,11 @@
       <td>${o.volume_24h}</td>
       <td class="faint">${o.close_ts ? new Date(o.close_ts * 1000).toISOString().slice(0, 16) : "—"}</td>
       <td>${o.result ? `<b class="${o.result === "yes" ? "pos" : "neg"}">${esc(o.result)}</b>` : "—"}</td>
-      <td class="ledger-link mono" style="font-size:10px"><a href="data/provenance/${esc(o.provenance)}.meta.json" target="_blank" rel="noopener">${sha8(o.sha256)}</a></td>
+      <td class="ledger-link mono" style="font-size:10px"><a href="${esc(o.provenance_path || ("data/provenance/" + o.provenance + ".meta.json"))}" target="_blank" rel="noopener">${sha8(o.sha256)} ↗</a></td>
     </tr>`).join("") || '<tr><td colspan="12" class="dim">No observations committed yet.</td></tr>';
 
-    $("#pubinfo-table tbody").innerHTML = (R.public_info || []).filter(match).map((p) => `<tr>
+    $("#pubinfo-table tbody").innerHTML = (R.public_info || []).filter(match)
+      .filter((p) => keep(p.status === "verified")).map((p) => `<tr>
       <td class="faint">${esc(p.published || p.ts || "—")}</td>
       <td><a href="${esc(p.url || "#")}" target="_blank" rel="noopener">${esc(p.source)}</a></td>
       <td class="mono" style="font-size:11px">${esc(p.market || p.series || "—")}</td>
@@ -214,7 +217,8 @@
       <td><span class="tag ${p.status === "verified" ? "verified" : "hypothesis"}">${esc(p.status)}</span></td>
     </tr>`).join("") || '<tr><td colspan="6" class="dim">No public information recorded yet.</td></tr>';
 
-    const hyps = (R.hypotheses || []).filter(match);
+    const hyps = (R.hypotheses || []).filter(match)
+      .filter((h) => keep(h.status && h.status !== "untested"));
     $("#hyp-count").textContent = hyps.length;
     $("#hyp-list").innerHTML = hyps.map((h) => `<div class="card">
       <b>${esc(h.id)}</b> <span class="tag ${h.status === "untested" ? "hypothesis" : h.status === "refuted" ? "blocked" : "verified"}">${esc(h.status)}</span>
@@ -223,7 +227,8 @@
       ${(h.evidence || []).length ? `<div class="faint" style="font-size:11px;margin-top:4px">Evidence: ${h.evidence.map(esc).join(", ")}</div>` : ""}
     </div>`).join("") || '<div class="card dim">No hypotheses recorded yet.</div>';
 
-    $("#test-table tbody").innerHTML = (R.tests || []).filter(match).map((t) => `<tr>
+    $("#test-table tbody").innerHTML = (R.tests || []).filter(match)
+      .filter((t) => keep(t.verdict && t.verdict !== "inconclusive")).map((t) => `<tr>
       <td class="mono" style="font-size:11px">${esc(t.id)}</td>
       <td>${esc(t.hypothesis)}</td>
       <td class="mono" style="font-size:11px">${esc(t.market)}</td>
@@ -233,7 +238,8 @@
       <td><span class="tag ${t.verdict === "supported" ? "verified" : t.verdict === "refuted" ? "blocked" : "modelled"}">${esc(t.verdict)}</span></td>
     </tr>`).join("") || '<tr><td colspan="7" class="dim">No tests recorded yet.</td></tr>';
 
-    const rels = (R.relationships || []).filter(match);
+    const rels = (R.relationships || []).filter(match)
+      .filter((r) => keep(r.verdict && r.verdict !== "hypothesis"));
     $("#rel-count").textContent = rels.length;
     $("#rel-list").innerHTML = rels.map((r) => `<div class="card">
       <b>${esc(r.id)}</b> <span class="tag ${r.verdict === "supported" ? "verified" : r.verdict === "refuted" || r.verdict === "coincidental" ? "blocked" : "hypothesis"}">${esc(r.verdict)}</span>

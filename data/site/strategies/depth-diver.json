@@ -1,0 +1,44 @@
+{
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
+ "backtest": [],
+ "curve": [],
+ "evidence": [
+  {
+   "claim": "Order-book imbalance is a documented short-horizon signal in equity microstructure literature; transfer to prediction markets is UNVERIFIED here.",
+   "status": "hypothesis-only"
+  }
+ ],
+ "failure_mode": "Displayed depth can be pulled (stale quotes) or is genuinely uninformative; imbalance can also mean the heavy side is about to be hit through. The forward ledger is the test \u2014 similarity to order-flow imbalance in equity microstructure is explicitly NOT assumed to transfer.",
+ "id": "depth-diver",
+ "intents": [],
+ "name": "Depth Imbalance Diver",
+ "params": {
+  "cash_fraction": 0.15,
+  "exit": "settlement",
+  "limit_buffer": 0.02,
+  "min_imbalance": 0.4
+ },
+ "positions": [],
+ "rule": "On a universe market with displayed bid depth on BOTH sides, compute imbalance = (YES depth - NO depth) / (YES depth + NO depth). If |imbalance| >= 0.40, buy the heavier side at its ask (limit ask + 2c), sizing 15% of cash, and hold to settlement.",
+ "stats": {
+  "avg_entry": null,
+  "cash": 10000.0,
+  "equity": 10000.0,
+  "exits": 0,
+  "fees": 0.0,
+  "fills": 0,
+  "losses": 0,
+  "open_positions": 0,
+  "realized_pnl": 0.0,
+  "return_pct": 0.0,
+  "settlements": 0,
+  "slippage": 0.0,
+  "starting_cash": 10000.0,
+  "wins": 0
+ },
+ "status": "active",
+ "tag": "microstructure",
+ "trades": [],
+ "username": "DepthDiver",
+ "why": "Visible resting liquidity is a cheap public signal: persistent one-sided depth can reflect informed flow or stale quotes. The rule logs the full level list with every fill so the claim can be audited bar by bar."
+}

@@ -1,0 +1,52 @@
+{
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
+ "backtest": [],
+ "curve": [],
+ "evidence": [
+  {
+   "claim": "Favourite-longshot bias is documented across parimutuel and prediction markets; a CEPR/VoxEU column analyses 300k+ Kalshi contracts specifically.",
+   "status": "literature-linked",
+   "url": "https://cepr.org/voxeu/columns/economics-kalshi-prediction-market"
+  },
+  {
+   "claim": "Kalshi quadratic taker fee 0.07*C*P*(1-P) applied to every fill in the ledger.",
+   "status": "verified-api-doc",
+   "url": "https://trading-api.readme.io/reference/fees"
+  }
+ ],
+ "failure_mode": "Every settled upset costs nearly the whole stake; a run of upsets erases many wins. Fees on high-volume favourites are also the largest in absolute dollars.",
+ "id": "sure-penny",
+ "intents": [],
+ "name": "Heavy Favourite Holder",
+ "params": {
+  "ask_high": 0.97,
+  "ask_low": 0.85,
+  "cash_fraction": 0.25,
+  "exit": "settlement",
+  "max_spread": 0.04,
+  "min_volume": 10000
+ },
+ "positions": [],
+ "rule": "On an active universe market with volume >= 10,000 contracts, buy the side whose ask is between 0.85 and 0.97 and whose displayed spread is <= 4c, sizing 25% of cash, and hold to the official settlement.",
+ "stats": {
+  "avg_entry": null,
+  "cash": 10000.0,
+  "equity": 10000.0,
+  "exits": 0,
+  "fees": 0.0,
+  "fills": 0,
+  "losses": 0,
+  "open_positions": 0,
+  "realized_pnl": 0.0,
+  "return_pct": 0.0,
+  "settlements": 0,
+  "slippage": 0.0,
+  "starting_cash": 10000.0,
+  "wins": 0
+ },
+ "status": "active",
+ "tag": "favourite-longshot",
+ "trades": [],
+ "username": "SurePenny",
+ "why": "Favourite-longshot bias: the over-bought side is the longshot, so heavy favourites are (if the bias exists) slightly under-priced and pay a small, repeatable edge at settlement. No exit logic: the trade is the settlement."
+}

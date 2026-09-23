@@ -107,7 +107,7 @@
         <th>Market</th><th>Side</th><th>Contracts</th><th>VWAP</th><th>Touch</th><th>Fee</th>
         <th>Slippage</th><th>PnL</th><th>Trigger / evidence</th></tr></thead>
         <tbody>${(s.trades || []).slice().reverse().map((t) => `<tr>
-          <td><span class="tag ${t.type === "fill" ? "verified" : "modelled"}">${esc(t.type)}</span></td>
+          <td><span class="tag verified">${esc(t.type)}</span></td>
           <td class="faint">${esc(t.cycle)}</td><td class="faint">${esc(t.at)}</td>
           <td class="mono" style="font-size:11px">${esc(t.ticker)}</td><td>${esc(t.side || "—")}</td>
           <td>${t.contracts !== undefined ? Number(t.contracts).toLocaleString() : "—"}</td>

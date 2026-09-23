@@ -24,6 +24,13 @@
   let currentBook = null;
   let currentMarket = null;
 
+  // accepted: ISO string ("2026-09-22T12:34:56Z") or epoch seconds
+  function fmtTs(ts) {
+    if (ts === null || ts === undefined || ts === "") return "";
+    const d = (typeof ts === "number") ? new Date(ts * 1000) : new Date(ts);
+    return Number.isNaN(d.getTime()) ? "" : d.toISOString().slice(0, 19) + "Z";
+  }
+
   function setMode(m, detail) {
     mode = m;
     const dot = m === "live" ? "ok" : m === "snapshot" ? "pending" : "err";
@@ -56,7 +63,7 @@
         const snap = await fetchJson("data/site/live-snapshot.json");
         marketsList = snap.markets || [];
         liveBooks = snap.books || {};
-        setMode("snapshot", snap.captured_at ? new Date(snap.captured_at * 1000).toISOString().slice(0, 19) + "Z" : "");
+        setMode("snapshot", fmtTs(snap.captured_at));
       } catch (e2) {
         setMode("error", e2.message);
         return;

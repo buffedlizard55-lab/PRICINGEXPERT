@@ -1,0 +1,46 @@
+{
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
+ "backtest": [],
+ "curve": [],
+ "evidence": [
+  {
+   "claim": "The convergence pattern is observed in the committed candle archive (data/candles/) for KXCPI/KXFED markets; the forward ledger is the independent test.",
+   "status": "to-be-verified-by-backtest"
+  }
+ ],
+ "failure_mode": "Macro upsets are fat-tailed exactly when they matter (surprise prints); a single 90c loss costs ~10 wins. The rules_primary text (which exact print/threshold settles the market) is logged on every entry because rule wording IS the risk.",
+ "id": "macro-closer",
+ "intents": [],
+ "name": "Macro Expiry Closer",
+ "params": {
+  "ask_high": 0.97,
+  "ask_low": 0.8,
+  "cash_fraction": 0.25,
+  "exit": "settlement",
+  "horizon_hours": 6,
+  "max_spread": 0.03
+ },
+ "positions": [],
+ "rule": "On official macro series (KXCPI, KXFED, KXU6, KXNFP \u2014 final universe tickers listed in data/universe.json), inside 6 hours of close_time, buy the side whose ask is between 0.80 and 0.97 with displayed spread <= 3c, sizing 25% of cash, and hold to settlement.",
+ "stats": {
+  "avg_entry": null,
+  "cash": 10000.0,
+  "equity": 10000.0,
+  "exits": 0,
+  "fees": 0.0,
+  "fills": 0,
+  "losses": 0,
+  "open_positions": 0,
+  "realized_pnl": 0.0,
+  "return_pct": 0.0,
+  "settlements": 0,
+  "slippage": 0.0,
+  "starting_cash": 10000.0,
+  "wins": 0
+ },
+ "status": "active",
+ "tag": "macro-expiry",
+ "trades": [],
+ "username": "MacroCloser",
+ "why": "Macro binary markets converge fast near release time: once the print is out or the range is nearly certain, the heavy side is cheap relative to its true probability. Small edge, very high hit rate, capital always working."
+}

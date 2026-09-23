@@ -55,7 +55,8 @@ def parse_ts(value) -> int | None:
         return int(value if value < 1e12 else value / 1000)
     text = str(value).strip()
     if text.isdigit():
-        return int(text)
+        v = int(text)
+        return v if v < 1_000_000_000_000 else v // 1000  # tolerate millisecond strings
     try:
         if text.endswith("Z"):
             text = text[:-1] + "+00:00"

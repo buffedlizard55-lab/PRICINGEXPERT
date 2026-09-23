@@ -1,0 +1,45 @@
+{
+ "analysis": "No verified fills yet \u2014 the strategy has proposed trades but none filled inside displayed depth and limits (see its intents), or its trigger conditions have not met on the captured universe.",
+ "backtest": [],
+ "curve": [],
+ "evidence": [
+  {
+   "claim": "The spot-vs-strike relationship is checked against the official settlement source named in each market's rules_primary; the forward ledger is the test.",
+   "status": "hypothesis-only"
+  }
+ ],
+ "failure_mode": "Commodity gaps over the settlement window (overnight moves, exchange close rules) break the 70c+ side. Settlement uses the official source named in the market's rules; if that source's final print differs from the live spot, the trade loses regardless of the model.",
+ "id": "commodity-drift",
+ "intents": [],
+ "name": "Commodity Directional Drift",
+ "params": {
+  "cash_fraction": 0.2,
+  "exit": "settlement",
+  "horizon_hours": 12,
+  "limit_buffer": 0.02,
+  "min_probability": 0.7
+ },
+ "positions": [],
+ "rule": "On the official daily commodity/crypto direction markets in the universe (e.g. KXWTI, KXBTC, KXGOLD, KXETH \u2014 final tickers in data/universe.json), when the market's own last price implies a >= 0.70 probability for one direction and it is inside 12 hours of settlement, buy that side at ask (limit ask + 2c), sizing 20% of cash, hold to settlement.",
+ "stats": {
+  "avg_entry": null,
+  "cash": 10000.0,
+  "equity": 10000.0,
+  "exits": 0,
+  "fees": 0.0,
+  "fills": 0,
+  "losses": 0,
+  "open_positions": 0,
+  "realized_pnl": 0.0,
+  "return_pct": 0.0,
+  "settlements": 0,
+  "slippage": 0.0,
+  "starting_cash": 10000.0,
+  "wins": 0
+ },
+ "status": "active",
+ "tag": "commodity",
+ "trades": [],
+ "username": "CommodityDrift",
+ "why": "Daily price-direction binaries on established commodities embed the spot-vs-strike gap; in the final 12h the gap usually holds, so the 70-97c side should be slightly cheap. This is the cross-market bridge: the 'signal' is the market's own pricing of a physical commodity, which can be cross-checked against official commodity data (see research DB)."
+}

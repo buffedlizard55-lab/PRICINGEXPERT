@@ -1,13 +1,12 @@
 {
-  "plan_version": 1,
-  "note": "Plan 1: exchange liveness, historical cutoff, full series catalog, and a broad active-market sweep. Market-specific reads (books/candles/trades) come in plan 2 once the series catalog is verified.",
+  "plan_version": 2,
+  "note": "Plan 2 (retry after first run failed; diagnostics now in data/collect-report.json): exchange liveness, historical cutoff, full series catalog, and a broad active-market sweep. Market-specific reads (books/candles/trades) come in plan 3 once the series catalog is verified.",
   "endpoints": [
     {"id": "exchange-status", "kind": "exchange_status",
      "note": "kind:exchange_status — liveness"},
     {"id": "historical-cutoff", "kind": "historical_cutoff",
      "note": "kind:historical_cutoff — backtest data availability boundary"},
     {"id": "series-catalog", "kind": "series_list",
-     "params": {"limit": 500},
      "note": "kind:series_list — full series catalog with volume"},
     {"id": "markets-active-sweep-1", "kind": "markets",
      "params": {"status": "active", "limit": 200},

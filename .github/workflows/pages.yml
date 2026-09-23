@@ -30,10 +30,6 @@ jobs:
         run: node tests/engine.test.mjs
       - name: Verification gate (hashes, ledger, fees, books, links-local)
         run: python3 scripts/verify.py data
-      - name: Remote link probe (all external URLs in site assets)
-        run: python3 scripts/probe_links.py data
-      - name: Endpoint probe (official API liveness)
-        run: python3 scripts/probe_endpoints.py data
 
   build:
     runs-on: ubuntu-latest
@@ -43,6 +39,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      # Transparency probes: results are published in data/site/. Failures are a
+      # finding, never a deploy blocker (the site has a labelled snapshot fallback).
+      - name: Remote link probe (all external URLs in site assets)
+        continue-on-error: true
+        run: python3 scripts/probe_links.py data || true
+      - name: Endpoint probe (official API liveness)
+        continue-on-error: true
+        run: python3 scripts/probe_endpoints.py data || true
       - name: Rebuild published data (deterministic)
         run: python3 scripts/build_site.py data
       - name: Re-verify after rebuild

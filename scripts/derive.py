@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """Derive normalized, hash-traceable records from the committed raw API payloads.
 
+Inputs (both corpora, every row cites its provenance id + SHA-256):
+  data/{raw,provenance}                     research corpus (plan-collector)
+  data/season-*/forward/cycle-*/evidence/{raw,provenance}
+                                           desk cycle evidence — each cycle's market
+                                           snapshots become one observation row per
+                                           cycle, i.e. a verified price time series
+
 Outputs:
   data/observations.jsonl     one verified price observation per market snapshot
-                              (each row cites the provenance id it came from)
-  data/universe/check.json    universe membership + quote snapshot for the desk
   data/candles/<series>-<market>.csv   candle rows (only for committed candle payloads)
 
 Nothing here touches the network. If a raw file is missing or its hash does not
@@ -22,17 +27,24 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from paper_engine import fnum, parse_ts  # noqa: E402
 
 
-def load_raw(data: Path, sid: str) -> tuple[dict, dict] | None:
-    raw_path = data / "raw" / f"{sid}.json"
-    meta_path = data / "provenance" / f"{sid}.meta.json"
-    if not raw_path.exists() or not meta_path.exists():
+def load_raw(raw_dir: Path, meta_path: Path) -> tuple[dict, dict] | None:
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    raw_path = raw_dir / f"{meta.get('id', meta_path.name.replace('.meta.json', '.json'))}.json"
+    if not raw_path.exists():
         return None
     raw_bytes = raw_path.read_bytes()
-    meta = json.loads(meta_path.read_text(encoding="utf-8"))
     actual = hashlib.sha256(raw_bytes).hexdigest()
     if actual != meta.get("sha256"):
-        raise SystemExit(f"hash mismatch for {sid}: stored {meta.get('sha256')} actual {actual}")
+        raise SystemExit(f"hash mismatch for {meta['id']}: stored {meta.get('sha256')} actual {actual}")
     return json.loads(raw_bytes.decode("utf-8")), meta
+
+
+def provenance_files(data: Path) -> list[Path]:
+    """Top-level research corpus first, then every season desk-cycle, in order."""
+    files = sorted((data / "provenance").glob("*.meta.json"))
+    for season in sorted(data.glob("season-*")):
+        files.extend(sorted((season / "forward").glob("cycle-*/evidence/provenance/*.meta.json")))
+    return files
 
 
 def market_row(payload: dict, meta: dict) -> dict:
@@ -44,7 +56,7 @@ def market_row(payload: dict, meta: dict) -> dict:
         "url": meta["url"],
         "ticker": m.get("ticker"),
         "event_ticker": m.get("event_ticker"),
-        "series": (m.get("event_ticker") or m.get("ticker") or "").split("-")[0],
+        "series": m.get("event_ticker") or m.get("ticker") or "",
         "title": m.get("title"),
         "yes_sub_title": m.get("yes_sub_title"),
         "no_sub_title": m.get("no_sub_title"),
@@ -80,17 +92,27 @@ def market_row(payload: dict, meta: dict) -> dict:
 def main() -> int:
     data = Path(sys.argv[1] if len(sys.argv) > 1 else "data")
     rows = []
-    for meta_path in sorted((data / "provenance").glob("*.meta.json")):
-        meta = json.loads(meta_path.read_text(encoding="utf-8"))
-        sid = meta["id"]
-        loaded = load_raw(data, sid)
+    seen: set[tuple[str, str, str]] = set()
+    for meta_path in provenance_files(data):
+        loaded = load_raw(meta_path.parent.parent / "raw", meta_path)
         if loaded is None:
             continue
         payload, meta = loaded
+        dedup_key = (meta["url"], meta["fetched_at"], meta["sha256"])
+        if dedup_key in seen:
+            continue
+        seen.add(dedup_key)
         note = meta.get("note", "")
         if note.startswith("kind:market "):
-            rows.append(market_row(payload, meta))
+            row = market_row(payload, meta)
+            try:
+                row["provenance_path"] = "data/" + meta_path.resolve().relative_to(
+                    data.resolve()).as_posix()
+            except ValueError:
+                row["provenance_path"] = "data/provenance/" + meta_path.name
+            rows.append(row)
         elif note.startswith("kind:candlesticks"):
+            sid = meta["id"]
             candles = payload.get("candles") or []
             ticker = meta["ticker"]
             series = meta["series"]
@@ -98,9 +120,11 @@ def main() -> int:
             out.parent.mkdir(parents=True, exist_ok=True)
             lines = ["ts,open,high,low,close,volume,provenance,sha256"]
             for c in candles:
-                lines.append(f"{parse_ts(c.get('start_time'))},{fnum(c.get('open'))},"
-                             f"{fnum(c.get('high'))},{fnum(c.get('low'))},{fnum(c.get('close'))},"
-                             f"{fnum(c.get('volume')) or 0},{sid},{meta['sha256']}")
+                o, h, lo, cl = (fnum(c.get(k)) for k in ("open", "high", "low", "close"))
+                ts = parse_ts(c.get("start_time"))
+                if None in (o, h, lo, cl, ts):
+                    continue  # incomplete candle rows are unusable for replay; drop
+                lines.append(f"{ts},{o},{h},{lo},{cl},{fnum(c.get('volume')) or 0},{sid},{meta['sha256']}")
             out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     out = data / "observations.jsonl"
     out.write_text("\n".join(json.dumps(r, sort_keys=True) for r in rows) + ("\n" if rows else ""),

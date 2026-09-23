@@ -92,7 +92,7 @@ def strategy_analysis(name: str, agg: dict, backtest_verdicts: list[str]) -> str
             verdict += " Verdict: flat so far."
     if backtest_verdicts:
         verdict += " Backtest (candle-replay, verified data only): " + ", ".join(
-            f"{m} {v}" for m, v in backtest_verdicts) + "."
+            backtest_verdicts) + "."
     return verdict
 
 
@@ -112,9 +112,7 @@ def main() -> int:
     for strat in strategies:
         sid = strat["id"]
         ss = state["strategies"].get(sid, {})
-        g = {"strategy_id": sid, "username": strat["username"],
-             "starting_cash": ss.get("cash", competition.get("starting_cash", 10000))
-             if not ss else competition.get("starting_cash", 10000)}
+        g = {"strategy_id": sid, "username": strat["username"]}
         g["starting_cash"] = competition.get("starting_cash", 10000)
         g["cash"] = ss.get("cash", g["starting_cash"])
         g["fills"] = ss.get("fills", 0)
@@ -176,33 +174,43 @@ def main() -> int:
         g["best"] = max(g["trade_pnls"]) if g["trade_pnls"] else 0.0
         g["worst"] = min(g["trade_pnls"]) if g["trade_pnls"] else 0.0
 
-    # equity curve per strategy from cycle marks (equity at end of each cycle) ---
-    cycle_equity: dict[str, dict[str, float]] = {}
-    for row in marks:
-        uid = row["strategy"]
-        sid = by_user.get(uid)
-        if not sid:
-            continue
-        c = cycle_equity.setdefault(sid, {})
-        c[row["cycle"]] = (c.get(row["cycle"], 0) or 0) + (row.get("value") or 0)
+    # equity curve per strategy, exact: cash is reconstructed cycle by cycle from
+    # the ledger (fills deduct notional+fee; exits add proceeds; settlements add
+    # payout — identical arithmetic to the desk), plus that cycle's open marks.
+    all_cycles: list[str] = []
+    for row in marks + trades:
+        if row["cycle"] not in all_cycles:
+            all_cycles.append(row["cycle"])
     for sid, g in agg.items():
-        pts = []
-        seen = set()
-        for row in marks:
-            if row["strategy"] != agg[sid]["username"] or row["cycle"] in seen:
+        uid = g["username"]
+        cash_delta: dict[str, float] = {}
+        for t in trades:
+            if t["strategy"] != uid:
                 continue
-            seen.add(row["cycle"])
-            pos_value = sum(r.get("value") or 0 for r in marks
-                            if r["strategy"] == agg[sid]["username"] and r["cycle"] == row["cycle"])
-            # cash is point-in-time unknown for past cycles; approximate equity as
-            # starting cash + realized-so-far + open mark. Realized-so-far is
-            # reconstructed from the ledger up to this cycle.
-            realized = sum(r.get("pnl", 0) for r in trades
-                           if r["strategy"] == agg[sid]["username"] and r.get("pnl") is not None
-                           and r["cycle"] <= row["cycle"])
-            pts.append({"cycle": row["cycle"], "at": row["at"],
-                        "equity": round(g["starting_cash"] + realized + pos_value, 6),
-                        "open_mark": round(pos_value, 6), "realized": round(realized, 6)})
+            if t["type"] == "fill":
+                delta = -(t.get("notional", 0) + t.get("fee", 0))
+            elif t["type"] == "exit":
+                delta = t.get("proceeds", t.get("vwap", 0) * t.get("contracts", 0) - t.get("fee", 0))
+            elif t["type"] == "settlement":
+                delta = t.get("payout", 0)
+            else:
+                continue
+            cash_delta[t["cycle"]] = cash_delta.get(t["cycle"], 0.0) + delta
+        mark_by_cycle: dict[str, float] = {}
+        at_by_cycle: dict[str, str] = {}
+        for r in marks:
+            if r["strategy"] != uid:
+                continue
+            mark_by_cycle[r["cycle"]] = mark_by_cycle.get(r["cycle"], 0.0) + (r.get("value") or 0.0)
+            at_by_cycle[r["cycle"]] = r["at"]
+        running = 0.0
+        pts = []
+        for c in all_cycles:
+            running += cash_delta.get(c, 0.0)
+            mv = mark_by_cycle.get(c, 0.0)
+            pts.append({"cycle": c, "at": at_by_cycle.get(c),
+                        "equity": round(g["starting_cash"] + running + mv, 6),
+                        "open_mark": round(mv, 6), "cash": round(g["starting_cash"] + running, 6)})
         g["curve"] = pts
 
     board = sorted(agg.values(), key=lambda g: (-g["equity"], g["username"]))
@@ -287,12 +295,11 @@ def main() -> int:
     filled_keys = {(t["strategy"], t["ticker"], t["cycle"])
                    for t in trades if t["type"] == "fill"}
     upcoming = []
-    for row in intents:
+    for line_no, row in enumerate(intents, 1):
         if row.get("type") == "intent-blocked":
-            upcoming.append({"kind": "blocked", **row,
-                             "link": f"intents.jsonl#L{intents.index(row) + 1}"})
+            upcoming.append({"kind": "blocked", "line": line_no, **row})
         elif (row["strategy"], row["ticker"], row["cycle"]) not in filled_keys:
-            upcoming.append({"kind": "proposed", **row})
+            upcoming.append({"kind": "proposed", "line": line_no, **row})
     jdump(SITE / "upcoming.json", {"built_at": leaderboard["built_at"],
                                    "blocked": state.get("blocked", []),
                                    "rows": upcoming[-200:]})

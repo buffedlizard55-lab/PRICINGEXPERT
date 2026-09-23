@@ -13,7 +13,8 @@ Checks (each failure is a hard error with an IRR-style message):
                 evidence (or are 1 - level price, per the reciprocal rule)
   V8  settle    every settlement payout equals contracts * (side == official result);
                 result must be in {yes, no}; settlement timestamp present in evidence
-  V9  slippage  slippage == (vwap - touch) * contracts within rounding for every fill
+  V9  slippage  fill slippage == (vwap - touch) * contracts; exit slippage ==
+                (bid - vwap) * contracts — within rounding, for every fill and exit
   V10 rules     every active strategy id has a rule implementation (no silent dead code)
   V11 season    competition.json: start < end, calendar-year span, sane capital
   V12 links     every external URL in site assets is well-formed and non-placeholder;
@@ -75,7 +76,7 @@ def main() -> int:
             continue
         sha = hashlib.sha256(p.read_bytes()).hexdigest()
         check(sha == meta.get("sha256"), "V1", f"hash mismatch {p.name}")
-        check(p.name in files, "V2", f"{p.name} missing from manifest")
+        check(p.stem in files, "V2", f"{p.name} missing from manifest")
     for p in prov_files:
         check(p.name.replace(".meta.json", "") in {f for f in files}, "V2",
               f"{p.name} missing from manifest")
@@ -126,15 +127,15 @@ def main() -> int:
         elif t["type"] == "settlement":
             recomputed[uid] = round(recomputed.get(uid, state["starting_cash"])
                                     + t.get("payout", 0), 6)
-    for uid, cash in state.get("strategies", {}).items():
-        sid = [k for k, v in usernames.items() if v == uid]
-        if not sid:
-            check(False, "V5", f"state has unknown username {uid}")
+    name_of = {v: k for k, v in usernames.items()}
+    for sid, ss in state.get("strategies", {}).items():
+        uid = name_of.get(sid)
+        if uid is None:
+            check(False, "V5", f"state strategy id {sid} missing from strategies.json")
             continue
-        sid = sid[0]
-        expect = recomputed.get(sid, state["starting_cash"])
-        check(abs(expect - cash) < 0.005, "V5",
-              f"{sid}: recomputed cash {expect} != state {cash}")
+        expect = recomputed.get(uid, state["starting_cash"])
+        check(abs(expect - ss["cash"]) < 0.005, "V5",
+              f"{sid}: recomputed cash {expect} != state {ss['cash']}")
 
     # V6 + V9 + V7 ---------------------------------------------------------------
     for t in trades:
@@ -167,6 +168,12 @@ def main() -> int:
                         check(fl["price"] in levels or fl["level_price"] in levels,
                               "V7", f"fill price {fl} not in captured book "
                                     f"{t['strategy']} {ticker} {t['at']}")
+        elif t["type"] == "exit":
+            bid = t.get("bid_at_exit")
+            if bid is not None:
+                expect_slip = (bid - t["vwap"]) * t["contracts"]  # sell: touch - vwap
+                check(abs(expect_slip - t.get("slippage", 0)) < 0.01, "V9",
+                      f"exit slippage mismatch {t['strategy']} {t['ticker']} {t['at']}")
         elif t["type"] == "settlement":
             check(t.get("result") in ("yes", "no"), "V8",
                   f"settlement without official result: {t['ticker']}")
@@ -234,6 +241,8 @@ def main() -> int:
             keys.append(h)
             r["_h"] = h
         check(len(keys) == len(set(keys)), f"V13-{name}", "duplicate rows detected")
+        ordered = [(r.get("cycle", ""), r.get("at", "")) for r in rows]
+        check(ordered == sorted(ordered), f"V13-{name}", "rows not sorted by (cycle, at)")
 
     print(json.dumps({"passed": len(CHECKS), "errors": len(ERRORS),
                       "checks": [c[:80] for c in CHECKS[:12]], "errors_full": ERRORS},
