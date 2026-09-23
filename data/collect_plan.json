@@ -1,6 +1,6 @@
 {
- "plan_version": 6,
- "note": "Plan 6 \u2014 per-series liquidity probe. Verified findings driving it: (1) plan 5's 25-page cursor sweep (5000 unique markets) was 100% KXMVECROSSCATEGORY sports combos, every market vol 0 / liq 0 \u2014 the host's default /markets order leads with freshly created combo churn, so a blind sweep can never find liquid markets; (2) plan 3's per-series queries work and showed the only real flow sits on directional/above-below series (NASDAQ100U top strike vol24=4). So this plan probes 64 curated recurring (hourly/daily/weekly/monthly) non-sports series \u2014 all 10 plan-3 pilots, the index series, top crypto coins, major FX, commodities, top-8 US-city hourly temperature, and the CPI family \u2014 20 markets each, ranked locally by volume_24h/liquidity to select universe.json (forward desk) and the backtest archive (long-dated, candles back to 2026-07-24). Plan 7 captures orderbooks + candles for the winners.",
+ "plan_version": 7,
+ "note": "Plan 7 \u2014 long-dated series for the backtest archive. Verified plan-6 findings: liquid markets are weather hourly (MIA 15,014 / NYCHS 6,807 / LAXHS 4,183 / CHIHS 3,360 vol), gold daily (13,819), silver daily (1,469), DJI hourly (1,960); the KX-prefixed commodity HOURLY ladders, the CPI family and ALL crypto probes had zero volume/OI. But hourly/daily contracts only carry ~1h/1d of candle history \u2014 too short for backtests. The weekly/monthly contracts (tickers verified in the series catalog: KXGOLDW, KXGOLDMON, KXSILVERW, KXSILVERMON, KXWEEKHTNYC/MIA/LAX, KXINXW) span days-to-months, so their candles reach deep into the 2026-07-24 history cutoff. This plan probes them via the new series_pick kind (series list + policy pick + live book). Plan 8 (next) captures candlesticks for the liquid long-dated tickers this run commits \u2014 building the backtest archive for the cross-market transfer tests (commodity weekly vs weather weekly vs financials weekly).",
  "endpoints": [
   {
    "id": "exchange-status",
@@ -8,562 +8,100 @@
    "note": "kind:exchange_status \u2014 liveness"
   },
   {
-   "id": "probe-KXBTC",
-   "kind": "markets",
+   "id": "pick-KXGOLDW",
+   "kind": "series_pick",
    "params": {
-    "series_ticker": "KXBTC",
-    "limit": 20
+    "series_ticker": "KXGOLDW",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
    },
-   "note": "kind:markets \u2014 per-series probe KXBTC (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
+   "note": "kind:series_pick \u2014 KXGOLDW: Commodities weekly \u2014 contract spans a full week (candle history back to the 2026-07-24 cutoff); top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
   },
   {
-   "id": "probe-KXETH",
-   "kind": "markets",
+   "id": "pick-KXGOLDMON",
+   "kind": "series_pick",
    "params": {
-    "series_ticker": "KXETH",
-    "limit": 20
+    "series_ticker": "KXGOLDMON",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
    },
-   "note": "kind:markets \u2014 per-series probe KXETH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
+   "note": "kind:series_pick \u2014 KXGOLDMON: Commodities monthly \u2014 contract spans a month; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
   },
   {
-   "id": "probe-KXDJI",
-   "kind": "markets",
+   "id": "pick-KXSILVERW",
+   "kind": "series_pick",
    "params": {
-    "series_ticker": "KXDJI",
-    "limit": 20
+    "series_ticker": "KXSILVERW",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
    },
-   "note": "kind:markets \u2014 per-series probe KXDJI (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
+   "note": "kind:series_pick \u2014 KXSILVERW: Commodities weekly; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
   },
   {
-   "id": "probe-KXINXI",
-   "kind": "markets",
+   "id": "pick-KXSILVERMON",
+   "kind": "series_pick",
    "params": {
-    "series_ticker": "KXINXI",
-    "limit": 20
+    "series_ticker": "KXSILVERMON",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
    },
-   "note": "kind:markets \u2014 per-series probe KXINXI (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
+   "note": "kind:series_pick \u2014 KXSILVERMON: Commodities monthly; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
   },
   {
-   "id": "probe-KXNASDAQ100U",
-   "kind": "markets",
+   "id": "pick-KXWEEKHTNYC",
+   "kind": "series_pick",
    "params": {
-    "series_ticker": "KXNASDAQ100U",
-    "limit": 20
+    "series_ticker": "KXWEEKHTNYC",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
    },
-   "note": "kind:markets \u2014 per-series probe KXNASDAQ100U (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
+   "note": "kind:series_pick \u2014 KXWEEKHTNYC: Climate weekly high temp NYC \u2014 multi-day weather contract, different market class for transfer tests; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
   },
   {
-   "id": "probe-KXEURUSDH",
-   "kind": "markets",
+   "id": "pick-KXWEEKHTMIA",
+   "kind": "series_pick",
    "params": {
-    "series_ticker": "KXEURUSDH",
-    "limit": 20
+    "series_ticker": "KXWEEKHTMIA",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
    },
-   "note": "kind:markets \u2014 per-series probe KXEURUSDH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
+   "note": "kind:series_pick \u2014 KXWEEKHTMIA: Climate weekly high temp Miami; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
   },
   {
-   "id": "probe-KXWTIH",
-   "kind": "markets",
+   "id": "pick-KXWEEKHTLAX",
+   "kind": "series_pick",
    "params": {
-    "series_ticker": "KXWTIH",
-    "limit": 20
+    "series_ticker": "KXWEEKHTLAX",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
    },
-   "note": "kind:markets \u2014 per-series probe KXWTIH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
+   "note": "kind:series_pick \u2014 KXWEEKHTLAX: Climate weekly high temp LA; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
   },
   {
-   "id": "probe-KXGOLDH",
-   "kind": "markets",
+   "id": "pick-KXINXW",
+   "kind": "series_pick",
    "params": {
-    "series_ticker": "KXGOLDH",
-    "limit": 20
+    "series_ticker": "KXINXW",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
    },
-   "note": "kind:markets \u2014 per-series probe KXGOLDH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXSILVERH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXSILVERH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXSILVERH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXTEMPNYCH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXTEMPNYCH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXTEMPNYCH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXINXU",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXINXU",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXINXU (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXNASDAQ100I",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXNASDAQ100I",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXNASDAQ100I (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXNKY",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXNKY",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXNKY (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXKR200",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXKR200",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXKR200 (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXBTCD",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXBTCD",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXBTCD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXETHD",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXETHD",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXETHD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXSOL",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXSOL",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXSOL (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXSOLD",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXSOLD",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXSOLD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXDOGE",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXDOGE",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXDOGE (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXDOGED",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXDOGED",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXDOGED (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXHYPE",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXHYPE",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXHYPE (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXHYPED",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXHYPED",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXHYPED (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXXRP",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXXRP",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXXRP (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXXRPD",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXXRPD",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXXRPD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXBNB",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXBNB",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXBNB (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXBNBD",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXBNBD",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXBNBD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXZEC",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXZEC",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXZEC (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXZECD",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXZECD",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXZECD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXTON",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXTON",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXTON (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXTOND",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXTOND",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXTOND (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXNEAR",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXNEAR",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXNEAR (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXNEARD",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXNEARD",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXNEARD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXGBPUSDH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXGBPUSDH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXGBPUSDH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXAUDUSDH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXAUDUSDH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXAUDUSDH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXUSDJPYH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXUSDJPYH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXUSDJPYH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXUSDCHFAH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXUSDCHFAH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXUSDCHFAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXUSDINRAH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXUSDINRAH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXUSDINRAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXNZDUSDAH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXNZDUSDAH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXNZDUSDAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXUSDCADAH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXUSDCADAH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXUSDCADAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXUSDBRLAH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXUSDBRLAH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXUSDBRLAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXUSDNOKAH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXUSDNOKAH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXUSDNOKAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXAUDUSDAH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXAUDUSDAH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXAUDUSDAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-WTIH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "WTIH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe WTIH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXGOLDD",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXGOLDD",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXGOLDD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXSILVERD",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXSILVERD",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXSILVERD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXPALLADIUMH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXPALLADIUMH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXPALLADIUMH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXPALLADIUM15M",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXPALLADIUM15M",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXPALLADIUM15M (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXTEMPNYCHS",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXTEMPNYCHS",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXTEMPNYCHS (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXTEMPLAXH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXTEMPLAXH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXTEMPLAXH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXTEMPLAXHS",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXTEMPLAXHS",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXTEMPLAXHS (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXTEMPCHIH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXTEMPCHIH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXTEMPCHIH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXTEMPCHIHS",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXTEMPCHIHS",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXTEMPCHIHS (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXTEMPMIAH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXTEMPMIAH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXTEMPMIAH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-KXTEMPBOSH",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "KXTEMPBOSH",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe KXTEMPBOSH (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-CPI",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "CPI",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe CPI (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-CPICORE",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "CPICORE",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe CPICORE (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-CPICOREYOY",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "CPICOREYOY",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe CPICOREYOY (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-CPIFOOD",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "CPIFOOD",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe CPIFOOD (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-CPIAPPAREL",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "CPIAPPAREL",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe CPIAPPAREL (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-CPISHELTER",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "CPISHELTER",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe CPISHELTER (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-CPIGAS",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "CPIGAS",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe CPIGAS (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
-  },
-  {
-   "id": "probe-CPIUSEDCAR",
-   "kind": "markets",
-   "params": {
-    "series_ticker": "CPIUSEDCAR",
-    "limit": 20
-   },
-   "note": "kind:markets \u2014 per-series probe CPIUSEDCAR (blind sweep is useless: plan 5's 5000-market cursor sweep returned ONLY KXMVECROSSCATEGORY sports combos, all vol 0 / liq 0 \u2014 the host's default order leads with fresh combo churn)"
+   "note": "kind:series_pick \u2014 KXINXW: Financials weekly \u2014 S&P 500 range; top_n=1 also captures the live top-OI contract's market object + book (free current evidence)"
   }
  ]
 }
