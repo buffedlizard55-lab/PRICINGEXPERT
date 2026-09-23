@@ -2,7 +2,7 @@
  "files": {
   "exchange-status": {
    "bytes": 667,
-   "fetched_at": "2026-09-23T02:48:43Z",
+   "fetched_at": "2026-09-23T02:54:07Z",
    "note": "kind:exchange_status \u2014 liveness",
    "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
    "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
@@ -13,6 +13,34 @@
    "note": "kind:historical_cutoff \u2014 backtest data availability boundary",
    "sha256": "73fc551822f965a42226c173e255f642d9be7ac966698e8b9aa76248709ad7e1",
    "url": "https://api.elections.kalshi.com/trade-api/v2/historical/cutoff"
+  },
+  "market-01": {
+   "bytes": 2221,
+   "fetched_at": "2026-09-23T02:54:09Z",
+   "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T67.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)",
+   "sha256": "422e7b77f2fdb3154498f489e770eb99d9101539e2272fa9a8a3f6246d86a314",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T67.99"
+  },
+  "market-02": {
+   "bytes": 2221,
+   "fetched_at": "2026-09-23T02:54:09Z",
+   "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T68.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)",
+   "sha256": "7a906b5acf7c144d716ce92cb92eb149a72d61708cfba66103a86489ad59e1e5",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T68.99"
+  },
+  "market-03": {
+   "bytes": 2221,
+   "fetched_at": "2026-09-23T02:54:09Z",
+   "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T69.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)",
+   "sha256": "220914783ef3dcb60a86b55cd7ef36e3eafb7875fc71059339c9d07ff011198b",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T69.99"
+  },
+  "market-04": {
+   "bytes": 2221,
+   "fetched_at": "2026-09-23T02:54:09Z",
+   "note": "kind:market \u2014 KXSILVERMON-26AUG3117-T70.99: single-market object incl. the official result (settlement source for the backtest; listed in the plan-7 pick payload, re-read as a single-market capture)",
+   "sha256": "b14e5e033ed2dd17593a022955d15515a0f58d81ea2b9e888080934337684925",
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERMON-26AUG3117-T70.99"
   },
   "markets-KXBTC": {
    "bytes": 19120,
@@ -848,6 +876,6 @@
    "url": "https://api.elections.kalshi.com/trade-api/v2/series"
   }
  },
- "generated_at": "2026-09-23T02:48:48Z",
+ "generated_at": "2026-09-23T02:54:09Z",
  "generator": "scripts/make_manifest.py"
 }

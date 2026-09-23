@@ -1,8 +1,57 @@
 {
- "ok": 17,
- "failed": 0,
+ "ok": 5,
+ "failed": 8,
  "skipped": 0,
- "calls_logged": 17,
- "failures": [],
- "generated_at": "2026-09-23T02:48:48Z"
+ "calls_logged": 13,
+ "failures": [
+  {
+   "id": "candles-01",
+   "status": "error",
+   "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T67.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInter",
+   "at": "2026-09-23T02:54:07Z"
+  },
+  {
+   "id": "candles-02",
+   "status": "error",
+   "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T68.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInter",
+   "at": "2026-09-23T02:54:07Z"
+  },
+  {
+   "id": "candles-03",
+   "status": "error",
+   "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T69.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInter",
+   "at": "2026-09-23T02:54:07Z"
+  },
+  {
+   "id": "candles-04",
+   "status": "error",
+   "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26AUG3117-T70.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInter",
+   "at": "2026-09-23T02:54:08Z"
+  },
+  {
+   "id": "candles-05",
+   "status": "error",
+   "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERMON/markets/KXSILVERMON-26SEP3017-T65.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInter",
+   "at": "2026-09-23T02:54:08Z"
+  },
+  {
+   "id": "candles-06",
+   "status": "error",
+   "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXGOLDMON/markets/KXGOLDMON-26SEP3017-T4370.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInterva",
+   "at": "2026-09-23T02:54:08Z"
+  },
+  {
+   "id": "candles-07",
+   "status": "error",
+   "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXGOLDW/markets/KXGOLDW-26SEP2517-T4362.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInterval\\' ",
+   "at": "2026-09-23T02:54:08Z"
+  },
+  {
+   "id": "candles-08",
+   "status": "error",
+   "error": "HTTP 400 from https://api.elections.kalshi.com/trade-api/v2/series/KXSILVERW/markets/KXSILVERW-26SEP2517-T80.99/candlesticks?start_ts=1784851200&end_ts=1790132400&period_interval=3600: b'{\"msg\":\"Parameter validation failed for GetMarketCandlesticks: Key: \\'GetMarketCandlesticksParams.PeriodInterval\\",
+   "at": "2026-09-23T02:54:09Z"
+  }
+ ],
+ "generated_at": "2026-09-23T02:54:09Z"
 }

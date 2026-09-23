@@ -1,0 +1,20 @@
+{
+ "method": "candle-replay",
+ "assumptions": [
+  "candle close = YES price; signal on bar t close, fill at bar t+1 open (no look-ahead)",
+  "touch = close(t) for YES / 1-close(t) for NO (candle-proxied, NOT book-verified)",
+  "limit = touch + strategy limit buffer (default 2c), capped at 0.99",
+  "min_volume gates use cumulative candle volume through bar t (not the market's final volume)",
+  "slippage = signed (executed - touch); it can be NEGATIVE when the next open gaps favorably (the desk, which walks real ladders, only ever realizes cost)",
+  "fees: exact Kalshi quadratic formula at each executed side price",
+  "targets checked on closes, executed at next open; no target => official settlement",
+  "sizing: 25% of $10,000 start per position, whole contracts, cash >= 0 enforced",
+  "walk-forward: first 60% of bars development, last 40% validation, fixed params"
+ ],
+ "pre_registered_verdicts": {
+  "supported": "validation PnL > 0 and validation trades >= 5 (net of fees)",
+  "refuted": "validation PnL < 0 and validation trades >= 5",
+  "inconclusive": "anything else (incl. < 5 validation trades)"
+ },
+ "per_strategy": {}
+}
