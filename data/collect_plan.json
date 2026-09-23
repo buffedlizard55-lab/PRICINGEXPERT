@@ -1,6 +1,6 @@
 {
- "plan_version": "2.1",
- "note": "Plan v2 unchanged (exchange liveness, historical cutoff, full series catalog, active-market sweep). 2.1 = re-trigger: the v2 run on 2026-09-23 collected evidence successfully but its commit step lacked the contents:write permission (PR #2 fixed the workflow). Market-specific reads (books/candles/trades) come in plan 3 once the series catalog is verified.",
+ "plan_version": 3,
+ "note": "Plan 3 (first real-data iteration). Plan 2.1 landed: exchange-status, historical-cutoff (boundary 2026-07-24T00:00:00Z \u2014 public history is ~2 months), series-catalog (14,288 series, 71 hourly / 298 daily). The markets sweep status=active filter was rejected by the host (400) \u2014 dropped; the desk filters by payload status. This plan discovers active market tickers for 10 pilot hourly series spanning crypto / financials / commodities / climate \u2014 the cross-market transfer pool. Plan 4 adds candlesticks + orderbooks for the discovered tickers and populates universe.json.",
  "endpoints": [
   {
    "id": "exchange-status",
@@ -8,23 +8,102 @@
    "note": "kind:exchange_status \u2014 liveness"
   },
   {
-   "id": "historical-cutoff",
-   "kind": "historical_cutoff",
-   "note": "kind:historical_cutoff \u2014 backtest data availability boundary"
-  },
-  {
-   "id": "series-catalog",
-   "kind": "series_list",
-   "note": "kind:series_list \u2014 full series catalog with volume"
-  },
-  {
-   "id": "markets-active-sweep-1",
+   "id": "markets-sweep-nostatus",
    "kind": "markets",
    "params": {
-    "status": "active",
     "limit": 200
    },
-   "note": "kind:markets-sweep \u2014 active market sweep (page 1 of cursor)"
+   "note": "kind:markets-sweep \u2014 status filter rejected by this host (400 invalid status filter); desk filters active markets itself from the payload status field"
+  },
+  {
+   "id": "markets-KXBTC",
+   "kind": "markets",
+   "params": {
+    "series_ticker": "KXBTC",
+    "limit": 10
+   },
+   "note": "kind:markets \u2014 pilot series market discovery (Crypto \u2014 Bitcoin range (hourly))"
+  },
+  {
+   "id": "markets-KXETH",
+   "kind": "markets",
+   "params": {
+    "series_ticker": "KXETH",
+    "limit": 10
+   },
+   "note": "kind:markets \u2014 pilot series market discovery (Crypto \u2014 Ethereum range (hourly))"
+  },
+  {
+   "id": "markets-KXDJI",
+   "kind": "markets",
+   "params": {
+    "series_ticker": "KXDJI",
+    "limit": 10
+   },
+   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 DJI Hourly)"
+  },
+  {
+   "id": "markets-KXINXI",
+   "kind": "markets",
+   "params": {
+    "series_ticker": "KXINXI",
+    "limit": 10
+   },
+   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 S&P500 hourly)"
+  },
+  {
+   "id": "markets-KXNASDAQ100U",
+   "kind": "markets",
+   "params": {
+    "series_ticker": "KXNASDAQ100U",
+    "limit": 10
+   },
+   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 Nasdaq above/below)"
+  },
+  {
+   "id": "markets-KXEURUSDH",
+   "kind": "markets",
+   "params": {
+    "series_ticker": "KXEURUSDH",
+    "limit": 10
+   },
+   "note": "kind:markets \u2014 pilot series market discovery (Financials \u2014 EUR/USD hourly)"
+  },
+  {
+   "id": "markets-KXWTIH",
+   "kind": "markets",
+   "params": {
+    "series_ticker": "KXWTIH",
+    "limit": 10
+   },
+   "note": "kind:markets \u2014 pilot series market discovery (Commodities \u2014 WTI Hourly)"
+  },
+  {
+   "id": "markets-KXGOLDH",
+   "kind": "markets",
+   "params": {
+    "series_ticker": "KXGOLDH",
+    "limit": 10
+   },
+   "note": "kind:markets \u2014 pilot series market discovery (Commodities \u2014 Gold Hourly)"
+  },
+  {
+   "id": "markets-KXSILVERH",
+   "kind": "markets",
+   "params": {
+    "series_ticker": "KXSILVERH",
+    "limit": 10
+   },
+   "note": "kind:markets \u2014 pilot series market discovery (Commodities \u2014 Silver Hourly)"
+  },
+  {
+   "id": "markets-KXTEMPNYCH",
+   "kind": "markets",
+   "params": {
+    "series_ticker": "KXTEMPNYCH",
+    "limit": 10
+   },
+   "note": "kind:markets \u2014 pilot series market discovery (Climate \u2014 NYC temperature hourly)"
   }
  ]
 }
