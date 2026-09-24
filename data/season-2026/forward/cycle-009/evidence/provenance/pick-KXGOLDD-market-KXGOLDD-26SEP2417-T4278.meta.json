@@ -1,0 +1,10 @@
+{
+ "bytes": 2123,
+ "fetched_at": "2026-09-24T19:03:13Z",
+ "http_status": 200,
+ "id": "pick-KXGOLDD-market-KXGOLDD-26SEP2417-T4278",
+ "note": "kind:market \u2014 market object for KXGOLDD-26SEP2417-T4278 (series_pick KXGOLDD)",
+ "sha256": "1029a81b0a5009fb61c19179d1a98f4d85dd5d46705ff0e3abeb7a31b3cf9ff9",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXGOLDD-26SEP2417-T4278"
+}

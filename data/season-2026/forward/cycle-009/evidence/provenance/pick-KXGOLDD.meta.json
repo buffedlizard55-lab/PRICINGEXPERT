@@ -1,0 +1,17 @@
+{
+ "bytes": 106263,
+ "close_margin_sec": 5400,
+ "fetched_at": "2026-09-24T19:03:13Z",
+ "http_status": 200,
+ "id": "pick-KXGOLDD",
+ "note": "kind:series_pick \u2014 series KXGOLDD market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+ "pick_now_ts": 1790276592,
+ "selected": [
+  "KXGOLDD-26SEP2417-T4278"
+ ],
+ "series": "KXGOLDD",
+ "sha256": "2f8ca8599931fda38c4b844b6012c98dffe8dad41e6b272ca20820f0600a742e",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "top_n": 1,
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDD&limit=50"
+}
