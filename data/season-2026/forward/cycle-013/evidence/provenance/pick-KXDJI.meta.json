@@ -1,0 +1,15 @@
+{
+ "bytes": 112654,
+ "close_margin_sec": 5400,
+ "fetched_at": "2026-09-25T11:45:47Z",
+ "http_status": 200,
+ "id": "pick-KXDJI",
+ "note": "kind:series_pick \u2014 series KXDJI market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+ "pick_now_ts": 1790336747,
+ "selected": [],
+ "series": "KXDJI",
+ "sha256": "e728212806204ccefc67b097c70379ca8d7fa2f0507711cf9e03073a7bbe6f2a",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "top_n": 1,
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXDJI&limit=50"
+}
