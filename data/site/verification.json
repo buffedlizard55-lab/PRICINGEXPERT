@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-25T23:29:36Z",
+ "built_at": "2026-09-26T01:55:25Z",
  "irregularities": [
   {
    "description": "Sandbox egress restriction: direct HTTPS from the build sandbox cannot reach api.elections.kalshi.com (SSL_ERROR_SYSCALL on connect; DNS resolves), while github.com/api.github.com are reachable. Evidence collection in this session therefore goes through the platform's server-side fetch route; every collected file records the tool used in its provenance sidecar and is SHA-256 bound, so the bytes are identical regardless of route. The GitHub Actions collector (forward-desk.yml) runs on runners with normal egress and is the permanent route.",
