@@ -1,0 +1,10 @@
+{
+ "bytes": 667,
+ "fetched_at": "2026-09-26T16:43:41Z",
+ "http_status": 200,
+ "id": "cycle-exchange-status",
+ "note": "kind:exchange_status \u2014 liveness probe, stored for the cycle record",
+ "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
+}
