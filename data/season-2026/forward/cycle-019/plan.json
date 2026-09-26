@@ -1,0 +1,101 @@
+{
+ "plan_version": 3,
+ "cycle": "cycle-019",
+ "generated_at": "2026-09-26T12:25:15Z",
+ "endpoints": [
+  {
+   "id": "cycle-exchange-status",
+   "kind": "exchange_status",
+   "note": "kind:exchange_status \u2014 liveness probe, stored for the cycle record"
+  },
+  {
+   "id": "cycle-historical-cutoff",
+   "kind": "historical_cutoff",
+   "note": "kind:historical_cutoff \u2014 data availability boundary for backtests"
+  },
+  {
+   "id": "pick-KXGOLDD",
+   "kind": "series_pick",
+   "params": {
+    "series_ticker": "KXGOLDD",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
+   },
+   "note": "kind:series_pick \u2014 rolling contract selection for series KXGOLDD (policy: scripts/market_pick.py; selection recorded in the markets-list meta and re-derived by desk + verify)"
+  },
+  {
+   "id": "pick-KXTEMPMIAH",
+   "kind": "series_pick",
+   "params": {
+    "series_ticker": "KXTEMPMIAH",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
+   },
+   "note": "kind:series_pick \u2014 rolling contract selection for series KXTEMPMIAH (policy: scripts/market_pick.py; selection recorded in the markets-list meta and re-derived by desk + verify)"
+  },
+  {
+   "id": "pick-KXTEMPNYCHS",
+   "kind": "series_pick",
+   "params": {
+    "series_ticker": "KXTEMPNYCHS",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
+   },
+   "note": "kind:series_pick \u2014 rolling contract selection for series KXTEMPNYCHS (policy: scripts/market_pick.py; selection recorded in the markets-list meta and re-derived by desk + verify)"
+  },
+  {
+   "id": "pick-KXTEMPLAXHS",
+   "kind": "series_pick",
+   "params": {
+    "series_ticker": "KXTEMPLAXHS",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
+   },
+   "note": "kind:series_pick \u2014 rolling contract selection for series KXTEMPLAXHS (policy: scripts/market_pick.py; selection recorded in the markets-list meta and re-derived by desk + verify)"
+  },
+  {
+   "id": "pick-KXTEMPCHIHS",
+   "kind": "series_pick",
+   "params": {
+    "series_ticker": "KXTEMPCHIHS",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
+   },
+   "note": "kind:series_pick \u2014 rolling contract selection for series KXTEMPCHIHS (policy: scripts/market_pick.py; selection recorded in the markets-list meta and re-derived by desk + verify)"
+  },
+  {
+   "id": "pick-KXSILVERD",
+   "kind": "series_pick",
+   "params": {
+    "series_ticker": "KXSILVERD",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
+   },
+   "note": "kind:series_pick \u2014 rolling contract selection for series KXSILVERD (policy: scripts/market_pick.py; selection recorded in the markets-list meta and re-derived by desk + verify)"
+  },
+  {
+   "id": "pick-KXDJI",
+   "kind": "series_pick",
+   "params": {
+    "series_ticker": "KXDJI",
+    "limit": 50,
+    "top_n": 1,
+    "close_margin_sec": 5400,
+    "depth": 50
+   },
+   "note": "kind:series_pick \u2014 rolling contract selection for series KXDJI (policy: scripts/market_pick.py; selection recorded in the markets-list meta and re-derived by desk + verify)"
+  }
+ ]
+}
