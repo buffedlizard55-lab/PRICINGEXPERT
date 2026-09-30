@@ -1,0 +1,10 @@
+{
+ "bytes": 395,
+ "fetched_at": "2026-09-30T15:14:21Z",
+ "http_status": 200,
+ "id": "pick-KXGOLDD-book-KXGOLDD-26SEP3017-T4271",
+ "note": "kind:orderbook \u2014 captured book for KXGOLDD-26SEP3017-T4271 (series_pick KXGOLDD, fill evidence)",
+ "sha256": "fd38554a03cd5005700c1a987621130727bac1fa69477fb0960e35de39d0eaa7",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXGOLDD-26SEP3017-T4271/orderbook?depth=50"
+}
