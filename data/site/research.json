@@ -1,5 +1,5 @@
 {
- "built_at": "2026-10-01T23:23:52Z",
+ "built_at": "2026-10-02T02:32:36Z",
  "hypotheses": [
   {
    "basis": "Documented in prediction-market literature (CEPR/VoxEU analysis of 300k+ Kalshi contracts; classic parimutuel favourite-longshot bias). For THIS exchange and THIS season it is a hypothesis to be tested by the forward ledger, not an assumption.",
@@ -3546,6 +3546,43 @@
    "yes_bid": 0.36,
    "yes_bid_size": 2100.0,
    "yes_sub_title": "Above $61"
+  },
+  {
+   "can_close_early": true,
+   "close_ts": 1790971200,
+   "event_ticker": "KXDJI-26OCT0216",
+   "exchange_index": 0,
+   "expected_expiration_ts": 1790971200,
+   "fetched_at": "2026-10-02T02:32:35Z",
+   "last": 0.62,
+   "liquidity_dollars": null,
+   "no_ask": 0.37,
+   "no_bid": 0.33,
+   "no_bid_size": null,
+   "no_sub_title": "At least $50,875",
+   "open_interest": 50.0,
+   "open_ts": 1790884800,
+   "previous": 0.0,
+   "price_level_structure": "linear_cent",
+   "provenance": "pick-KXDJI-market-KXDJI-26OCT0216-50875.00",
+   "provenance_path": "data/season-2026/forward/cycle-046/evidence/provenance/pick-KXDJI-market-KXDJI-26OCT0216-50875.00.meta.json",
+   "result": null,
+   "rules_primary": "If the value of the Index.US30/USD is at least $50,875 at 4pm EDT on Oct 02, 2026, then the market resolves to Yes.",
+   "series": "KXDJI-26OCT0216",
+   "settlement_ts": null,
+   "sha256": "0a76dde369d481d5ccc0f868a7c12514f436f0c50ad9adbf0a6840d7ca72b7c8",
+   "status": "active",
+   "strike_type": "greater_or_equal",
+   "ticker": "KXDJI-26OCT0216-50875.00",
+   "title": "Will the Index.US30/USD be at least $50,875 at October 2, 2026 at 4pm ET?",
+   "updated_ts": 1790884800,
+   "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXDJI-26OCT0216-50875.00",
+   "volume": 50.0,
+   "volume_24h": 50.0,
+   "yes_ask": 0.67,
+   "yes_bid": 0.63,
+   "yes_bid_size": 2100.0,
+   "yes_sub_title": "At least $50,875"
   }
  ],
  "public_info": [
