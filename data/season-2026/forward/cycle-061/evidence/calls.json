@@ -1,0 +1,106 @@
+[
+ {
+  "id": "cycle-exchange-status",
+  "status": 200,
+  "bytes": 667,
+  "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
+  "at": "2026-10-04T23:33:36Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
+ },
+ {
+  "id": "cycle-historical-cutoff",
+  "status": 200,
+  "bytes": 188,
+  "sha256": "5df93be07d13831987b1bdfde048d571672b0f69d2f5e68985e9bb1de9746df2",
+  "at": "2026-10-04T23:33:36Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/historical/cutoff"
+ },
+ {
+  "id": "pick-KXGOLDD",
+  "status": 200,
+  "bytes": 106309,
+  "sha256": "23d1e59a7a3e19bd9b10510f509c638b95c8c9819a88d7b781d66673d08c8b62",
+  "at": "2026-10-04T23:33:37Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDD&limit=50"
+ },
+ {
+  "id": "pick-KXGOLDD-market-KXGOLDD-26OCT0517-T4143",
+  "status": 200,
+  "bytes": 2124,
+  "sha256": "40da05b0daf1e74a60bfe005c19b61f7faee88d2928b1a7e66dee4e9a077cdf2",
+  "at": "2026-10-04T23:33:37Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXGOLDD-26OCT0517-T4143"
+ },
+ {
+  "id": "pick-KXGOLDD-book-KXGOLDD-26OCT0517-T4143",
+  "status": 200,
+  "bytes": 1105,
+  "sha256": "fb1a9b9a7e3325abef48fe2fde99f47b95230e7bda546bb9fce109b7096901a3",
+  "at": "2026-10-04T23:33:37Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXGOLDD-26OCT0517-T4143/orderbook?depth=50"
+ },
+ {
+  "id": "pick-KXTEMPMIAH",
+  "status": 200,
+  "bytes": 96428,
+  "sha256": "dff142f07f644cf5db6fadcd975a9e02211ad81165a160df8e9db4db21c7536b",
+  "at": "2026-10-04T23:33:37Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPMIAH&limit=50"
+ },
+ {
+  "id": "pick-KXTEMPNYCHS",
+  "status": 200,
+  "bytes": 95727,
+  "sha256": "9e0181e634dcaea9ab650707c67f7105c5906d0265ffdcbe91bec94c68f56adb",
+  "at": "2026-10-04T23:33:38Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPNYCHS&limit=50"
+ },
+ {
+  "id": "pick-KXTEMPLAXHS",
+  "status": 200,
+  "bytes": 96427,
+  "sha256": "f0f3423d2d8c815d60c2deaa376f166d24eb8e9b3887dc358a0c62a115751416",
+  "at": "2026-10-04T23:33:38Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPLAXHS&limit=50"
+ },
+ {
+  "id": "pick-KXTEMPCHIHS",
+  "status": 200,
+  "bytes": 96188,
+  "sha256": "b8317d4e86b58b45536bf19e596500c9057f121311a8919c8dcb8cd2bd783cd4",
+  "at": "2026-10-04T23:33:38Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPCHIHS&limit=50"
+ },
+ {
+  "id": "pick-KXSILVERD",
+  "status": 200,
+  "bytes": 106779,
+  "sha256": "c05f41d9e851016d85144635c371fdb501afadabf7c071e2768afdf8968aa5ec",
+  "at": "2026-10-04T23:33:39Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSILVERD&limit=50"
+ },
+ {
+  "id": "pick-KXSILVERD-market-KXSILVERD-26OCT0517-T60.25",
+  "status": 200,
+  "bytes": 2138,
+  "sha256": "2b0b319a31030a704c46cbaae631e5d8b2cdafb082af63f9c987089dca3201b9",
+  "at": "2026-10-04T23:33:39Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERD-26OCT0517-T60.25"
+ },
+ {
+  "id": "pick-KXSILVERD-book-KXSILVERD-26OCT0517-T60.25",
+  "status": 200,
+  "bytes": 855,
+  "sha256": "897ebaf460b598900bf065bee9b85f20914b0604c03f375b5ae6ba552f3221cc",
+  "at": "2026-10-04T23:33:39Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERD-26OCT0517-T60.25/orderbook?depth=50"
+ },
+ {
+  "id": "pick-KXDJI",
+  "status": 200,
+  "bytes": 113887,
+  "sha256": "015b4adc9f9491e9ba0dcbbf7e24774c8df9bbf641736cef893f57d279697bb6",
+  "at": "2026-10-04T23:33:39Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXDJI&limit=50"
+ }
+]
