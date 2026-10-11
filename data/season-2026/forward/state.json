@@ -1,8 +1,8 @@
 {
  "blocked": [],
- "cycles_completed": 89,
- "last_cycle": "cycle-089",
- "last_cycle_at": "2026-10-11T15:56:19Z",
+ "cycles_completed": 90,
+ "last_cycle": "cycle-090",
+ "last_cycle_at": "2026-10-11T20:11:43Z",
  "season": "2026",
  "starting_cash": 10000.0,
  "strategies": {
