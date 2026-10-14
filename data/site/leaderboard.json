@@ -1,5 +1,5 @@
 {
- "built_at": "2026-10-13T23:05:31Z",
+ "built_at": "2026-10-14T01:51:27Z",
  "competition": {
   "created_at": "2026-09-23T01:36:09Z",
   "end": "2027-01-01T00:00:00Z",
@@ -15,9 +15,9 @@
   "starting_cash": 10000.0,
   "timezone": "UTC"
  },
- "cycles_completed": 98,
- "last_cycle": "cycle-098",
- "last_cycle_at": "2026-10-13T23:05:30Z",
+ "cycles_completed": 99,
+ "last_cycle": "cycle-099",
+ "last_cycle_at": "2026-10-14T01:51:25Z",
  "rows": [
   {
    "avg_entry": null,
