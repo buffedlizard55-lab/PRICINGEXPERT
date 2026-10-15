@@ -1,0 +1,17 @@
+{
+ "bytes": 106724,
+ "close_margin_sec": 5400,
+ "fetched_at": "2026-10-15T00:05:25Z",
+ "http_status": 200,
+ "id": "pick-KXSILVERD",
+ "note": "kind:series_pick \u2014 series KXSILVERD market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+ "pick_now_ts": 1792022724,
+ "selected": [
+  "KXSILVERD-26OCT1517-T58.50"
+ ],
+ "series": "KXSILVERD",
+ "sha256": "62c4d7cbcde79767860bfe0f1ef2dc74c62fc74d4d153cd0555ce644d3ebba80",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "top_n": 1,
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSILVERD&limit=50"
+}
