@@ -1,0 +1,15 @@
+{
+ "bytes": 95410,
+ "close_margin_sec": 5400,
+ "fetched_at": "2026-10-17T04:55:54Z",
+ "http_status": 200,
+ "id": "pick-KXTEMPNYCHS",
+ "note": "kind:series_pick \u2014 series KXTEMPNYCHS market list; selection policy in scripts/market_pick.py (recorded in this file's meta)",
+ "pick_now_ts": 1792212954,
+ "selected": [],
+ "series": "KXTEMPNYCHS",
+ "sha256": "0c3cfaa136cebda0030d083e046b3df6075e9c23dd4582b3d9fdfa1a88e5ff51",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "top_n": 1,
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPNYCHS&limit=50"
+}
