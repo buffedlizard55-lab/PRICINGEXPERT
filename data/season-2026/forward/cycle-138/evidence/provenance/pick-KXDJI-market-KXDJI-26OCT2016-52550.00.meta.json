@@ -1,0 +1,10 @@
+{
+ "bytes": 2269,
+ "fetched_at": "2026-10-20T16:54:17Z",
+ "http_status": 200,
+ "id": "pick-KXDJI-market-KXDJI-26OCT2016-52550.00",
+ "note": "kind:market \u2014 market object for KXDJI-26OCT2016-52550.00 (series_pick KXDJI)",
+ "sha256": "8aea138942174059d05684354218c60c34aad771b85a63e6e405e3b4a76b0eea",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXDJI-26OCT2016-52550.00"
+}
