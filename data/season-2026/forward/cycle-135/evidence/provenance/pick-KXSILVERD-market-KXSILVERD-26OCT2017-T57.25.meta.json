@@ -1,0 +1,10 @@
+{
+ "bytes": 2137,
+ "fetched_at": "2026-10-20T01:13:15Z",
+ "http_status": 200,
+ "id": "pick-KXSILVERD-market-KXSILVERD-26OCT2017-T57.25",
+ "note": "kind:market \u2014 market object for KXSILVERD-26OCT2017-T57.25 (series_pick KXSILVERD)",
+ "sha256": "0fa042065519e039206a89697ccb3693c16a5e322efed7de61856cd666522c23",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERD-26OCT2017-T57.25"
+}
