@@ -1,0 +1,10 @@
+{
+ "bytes": 188,
+ "fetched_at": "2026-10-21T21:57:06Z",
+ "http_status": 200,
+ "id": "cycle-historical-cutoff",
+ "note": "kind:historical_cutoff \u2014 data availability boundary for backtests",
+ "sha256": "a6d37f66f9e1a1bb5123adfa923f1f4dc1a3565eb1b6a66a81de1198cf42d15e",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/historical/cutoff"
+}
