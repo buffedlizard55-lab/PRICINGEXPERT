@@ -1,0 +1,10 @@
+{
+ "bytes": 991,
+ "fetched_at": "2026-10-25T23:10:20Z",
+ "http_status": 200,
+ "id": "pick-KXSILVERD-book-KXSILVERD-26OCT2617-T54",
+ "note": "kind:orderbook \u2014 captured book for KXSILVERD-26OCT2617-T54 (series_pick KXSILVERD, fill evidence)",
+ "sha256": "1c5d651c39bac7da8c8aa62cdcc4140c085e2f31179e480a880f10210bdfcbee",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERD-26OCT2617-T54/orderbook?depth=50"
+}
