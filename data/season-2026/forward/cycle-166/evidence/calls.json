@@ -1,0 +1,122 @@
+[
+ {
+  "id": "cycle-exchange-status",
+  "status": 200,
+  "bytes": 667,
+  "sha256": "9c900e19dad1f05812a0c3c40c19253e5962c839b1739481aef3d20244c4f778",
+  "at": "2026-10-25T10:05:34Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/exchange/status"
+ },
+ {
+  "id": "cycle-historical-cutoff",
+  "status": 200,
+  "bytes": 188,
+  "sha256": "644f6f3614421961639b79d490816ada1246ccbd59413c896f702b4d2698a428",
+  "at": "2026-10-25T10:05:34Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/historical/cutoff"
+ },
+ {
+  "id": "pick-KXGOLDD",
+  "status": 200,
+  "bytes": 107148,
+  "sha256": "f635cba6a7d97c48e242611f49840f8ff655679fe7c45f9055ea44a2b58cfed3",
+  "at": "2026-10-25T10:05:35Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDD&limit=50"
+ },
+ {
+  "id": "pick-KXGOLDD-market-KXGOLDD-26OCT2617-T4004",
+  "status": 200,
+  "bytes": 2144,
+  "sha256": "1940c8cd6ef921b434050db14fb35c9ee894d2966f109343e6040ba46cead3dd",
+  "at": "2026-10-25T10:05:35Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXGOLDD-26OCT2617-T4004"
+ },
+ {
+  "id": "pick-KXGOLDD-book-KXGOLDD-26OCT2617-T4004",
+  "status": 200,
+  "bytes": 1159,
+  "sha256": "f8a0b26442258e004df76d884264a135520b68ef96dd79c33979e03371743323",
+  "at": "2026-10-25T10:05:35Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXGOLDD-26OCT2617-T4004/orderbook?depth=50"
+ },
+ {
+  "id": "pick-KXTEMPMIAH",
+  "status": 200,
+  "bytes": 95658,
+  "sha256": "cc13639b34dd4e8fc6221e70332041ab05a74effdad775dc4e7aa7e0ad80071d",
+  "at": "2026-10-25T10:05:35Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPMIAH&limit=50"
+ },
+ {
+  "id": "pick-KXTEMPNYCHS",
+  "status": 200,
+  "bytes": 95339,
+  "sha256": "d70d19d4755e7cb209e350dff1a8d838509c979a97a14971dc236fcfffc36961",
+  "at": "2026-10-25T10:05:35Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPNYCHS&limit=50"
+ },
+ {
+  "id": "pick-KXTEMPLAXHS",
+  "status": 200,
+  "bytes": 95407,
+  "sha256": "c2f1ca86d7f8ff85ff29bb2b6535ee3682512816330fd0eb72ae93eb15f5a464",
+  "at": "2026-10-25T10:05:35Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPLAXHS&limit=50"
+ },
+ {
+  "id": "pick-KXTEMPCHIHS",
+  "status": 200,
+  "bytes": 95329,
+  "sha256": "4d6df24ea44ad3211a8a9d8e40f9e478961129c8607101cce0358001ddfce850",
+  "at": "2026-10-25T10:05:36Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPCHIHS&limit=50"
+ },
+ {
+  "id": "pick-KXSILVERD",
+  "status": 200,
+  "bytes": 107497,
+  "sha256": "9d921e43d270335c9be67b5becb0c41ee3b2e8bdde98c817db06989718656c37",
+  "at": "2026-10-25T10:05:36Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSILVERD&limit=50"
+ },
+ {
+  "id": "pick-KXSILVERD-market-KXSILVERD-26OCT2617-T53.50",
+  "status": 200,
+  "bytes": 2155,
+  "sha256": "4f5a5b46d606b540d7982ab9c1f4647212a0f56a1e2b91cea6e56a4cdcce2d75",
+  "at": "2026-10-25T10:05:36Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERD-26OCT2617-T53.50"
+ },
+ {
+  "id": "pick-KXSILVERD-book-KXSILVERD-26OCT2617-T53.50",
+  "status": 200,
+  "bytes": 969,
+  "sha256": "26a23c296792898015fd7fd49813027887c6c549f05a418aca5c992528c3d7f3",
+  "at": "2026-10-25T10:05:36Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXSILVERD-26OCT2617-T53.50/orderbook?depth=50"
+ },
+ {
+  "id": "pick-KXDJI",
+  "status": 200,
+  "bytes": 120207,
+  "sha256": "e959203efc7b91b09635d2fb6c0568603b75a9099f8e1e6d99ff0bb6f7531202",
+  "at": "2026-10-25T10:05:37Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXDJI&limit=50"
+ },
+ {
+  "id": "pick-KXDJI-market-KXDJI-26OCT26-GE52350P00",
+  "status": 200,
+  "bytes": 2285,
+  "sha256": "faa58e374b7df84ee995d403ba795aa5ef8ebed2acd616582724c3000efee3cd",
+  "at": "2026-10-25T10:05:37Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXDJI-26OCT26-GE52350P00"
+ },
+ {
+  "id": "pick-KXDJI-book-KXDJI-26OCT26-GE52350P00",
+  "status": 200,
+  "bytes": 108,
+  "sha256": "5d96680feeabf84ae4e876db279b54469afe207ff8f55e6d9af8edbaafae6348",
+  "at": "2026-10-25T10:05:37Z",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXDJI-26OCT26-GE52350P00/orderbook?depth=50"
+ }
+]
