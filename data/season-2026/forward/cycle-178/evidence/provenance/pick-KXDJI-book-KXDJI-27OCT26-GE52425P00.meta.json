@@ -1,0 +1,10 @@
+{
+ "bytes": 385,
+ "fetched_at": "2026-10-27T15:59:37Z",
+ "http_status": 200,
+ "id": "pick-KXDJI-book-KXDJI-27OCT26-GE52425P00",
+ "note": "kind:orderbook \u2014 captured book for KXDJI-27OCT26-GE52425P00 (series_pick KXDJI, fill evidence)",
+ "sha256": "f41e0f41403a2cd09b492ceab830d784db780d508e22d2eae76a4eeb0475695d",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXDJI-27OCT26-GE52425P00/orderbook?depth=50"
+}
