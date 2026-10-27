@@ -1,0 +1,10 @@
+{
+ "bytes": 2291,
+ "fetched_at": "2026-10-27T10:25:52Z",
+ "http_status": 200,
+ "id": "pick-KXDJI-market-KXDJI-27OCT26-GE52425P00",
+ "note": "kind:market \u2014 market object for KXDJI-27OCT26-GE52425P00 (series_pick KXDJI)",
+ "sha256": "4e4131231692be2d3677a58e4afc8c016e72097e0ecc01410ec0d0e96d35cba0",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXDJI-27OCT26-GE52425P00"
+}
