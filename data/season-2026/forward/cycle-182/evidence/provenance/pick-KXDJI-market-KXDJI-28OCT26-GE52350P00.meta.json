@@ -1,0 +1,10 @@
+{
+ "bytes": 2289,
+ "fetched_at": "2026-10-28T13:28:42Z",
+ "http_status": 200,
+ "id": "pick-KXDJI-market-KXDJI-28OCT26-GE52350P00",
+ "note": "kind:market \u2014 market object for KXDJI-28OCT26-GE52350P00 (series_pick KXDJI)",
+ "sha256": "79166a27d7c644d28fd0ecb8afece6df3bb027e673ff9d86cb85363db6d51893",
+ "tool": "scripts/collect.py (python urllib, read-only)",
+ "url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXDJI-28OCT26-GE52350P00"
+}
